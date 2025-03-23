@@ -9,8 +9,7 @@ redirect_from:
 
 About me:
 ======
-Machine Learning Engineer at DeepMake
-At DeepMake (seed-backed by Open Core Ventures and GitLab's CEO), I lead the development of AI-powered tools for visual artists and producers. Our work spans multiple platforms, offering AI plugins for Adobe After Effects, standalone upscalers, and cloud-based segmentation tools. We’ve achieved over 10,000 users, including professionals from Netflix, CNN, Apple, and BBC.
+I am an engineer and developer, currently working as a Machine Learning Engineer into VFX and media industry. At DeepMake (seed-backed by Open Core Ventures and GitLab's CEO), I lead the development of AI-powered tools for visual artists and producers. Our work spans multiple platforms, offering AI plugins for Adobe After Effects, standalone upscalers, and cloud-based segmentation tools. We’ve achieved over 10,000 users, including professionals from Netflix, CNN, Apple, and BBC.
 
 I focus on generative AI development using PyTorch, TensorFlow, FastAPI, microservices, and Python. At DeepMake, I specialize in segmentation, upscaling, deepfakes, autoencoders, and diffusion models. I also fine-tune LoRAs and deploy models optimized for high-performance computing (CUDA) to create efficient solutions for creative media workflows.
 

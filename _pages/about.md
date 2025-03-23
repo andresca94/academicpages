@@ -7,6 +7,10 @@ redirect_from:
   - /about.html
 ---
 
+<p align="center">
+  <img src="/images/me.jpeg" alt="Andres Carvajal" style="width:150px; height:150px; border-radius:50%; object-fit:cover;"/>
+</p>
+
 About me:
 ======
 I am an engineer and developer, currently working as a Machine Learning Engineer into VFX and media industry. At DeepMake (seed-backed by Open Core Ventures and GitLab's CEO), I lead the development of AI-powered tools for visual artists and producers. Our work spans multiple platforms, offering AI plugins for Adobe After Effects, standalone upscalers, and cloud-based segmentation tools. We’ve achieved over 10,000 users, including professionals from Netflix, CNN, Apple, and BBC.

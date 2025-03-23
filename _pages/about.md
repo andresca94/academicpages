@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 <p align="center">
-  <img src="/images/me.jpeg" alt="Andres Carvajal" style="width:150px; height:150px; border-radius:50%; object-fit:cover;"/>
+  <img src="{{ '/images/me.jpeg' | relative_url }}" alt="Andres Carvajal" style="width:150px; height:150px; border-radius:50%; object-fit:cover;" />
 </p>
 
 About me:

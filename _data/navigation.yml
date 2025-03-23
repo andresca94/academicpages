@@ -9,10 +9,10 @@
 
 main:
   - title: "Projects"
-    url: /portfolio2/ 
+    url: /projects/ 
     
   - title: "Workflows"
-    url: /portfolio/
+    url: /workflows/
         
   - title: "Blog Posts"
     url: /year-archive/

@@ -26,8 +26,16 @@ My work includes the development of tools that leverage Stable Diffusion, SAM (S
 At DeepMake, I design and optimize workflows for ComfyUI, integrating various AI-driven solutions to enhance the creative capabilities of our users. The focus is on streamlining the creative process and making complex AI tools more accessible to professionals in the visual effects industry.
 
 <style>
+  .page__footer,
   .author__urls-wrapper {
     margin-top: 0px !important;
     padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .page__content {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
   }
 </style>

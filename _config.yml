@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Andres Carvajal - Academic Page"
+title                    : "Andres Carvajal - ML Engineer"
 title_separator          : "-"
 name                     : &name "Andres Carvajal"
 description              : &description "My personal academic website"

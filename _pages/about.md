@@ -13,7 +13,7 @@ redirect_from:
 
 About me:
 ======
-I am an engineer and developer, currently working as a **_Machine Learning Engineer_** in the **_VFX and media industry_**. At **_DeepMake_** — a startup co-founded by **_Bryan Lyion_** (AI pioneer and author of *Exploring Deepfakes*) and seed-backed by **_Open Core Ventures_** and **_GitLab's CEO_** — I lead the development of **_AI-powered tools_** for visual artists and producers. Our work spans multiple platforms, offering **_AI plugins for Adobe After Effects_**, standalone **_upscalers_**, and cloud-based **_segmentation tools_**. We’ve achieved over **_10,000 users_**, including professionals from **_Netflix, CNN, Apple,_** and **_BBC_**.
+I am an engineer and developer, currently working as a **_Machine Learning Engineer_** in the **_VFX and media industry_**. At **_DeepMake_** — a startup co-founded by **_Bryan Lyion_** (AI pioneer and author of <a href="https://www.amazon.com/Exploring-Deepfakes-techniques-replacement-comprehensive-ebook/dp/B0BP7Q8PFS" target="_blank"><strong><em>Exploring Deepfakes: AI techniques for face replacement – A comprehensive guide</em></strong></a>) and seed-backed by **_Open Core Ventures_** and **_GitLab's CEO_** — I lead the development of **_AI-powered tools_** for visual artists and producers. Our work spans multiple platforms, offering **_AI plugins for Adobe After Effects_**, standalone **_upscalers_**, and cloud-based **_segmentation tools_**. We’ve achieved over **_10,000 users_**, including professionals from **_Netflix, CNN, Apple,_** and **_BBC_**.
 
 I focus on **_generative AI development_** using **_PyTorch_**, **_TensorFlow_**, **_FastAPI_**, **_microservices_**, and **_Python_**. At DeepMake, I specialize in **_segmentation_**, **_upscaling_**, **_deepfakes_**, **_autoencoders_**, and **_diffusion models_**. I also fine-tune **_LoRAs_** and deploy models optimized for **_high-performance computing (CUDA)_** to create efficient solutions for creative media workflows.
 
@@ -25,11 +25,6 @@ My work includes the development of tools that leverage **_Stable Diffusion_**, 
 2. **_ComfyUI Workflows_**:  
 I design and optimize workflows for **_ComfyUI_**, integrating various AI-driven solutions to enhance the creative capabilities of our users. The focus is on streamlining the creative process and making complex AI tools more accessible to professionals in the **_visual effects industry_**.
 
-Collaborators:
-======
-**_Bryan Lyion_** is a pioneer in the field of **_Artificial Intelligence_**, with over **_15 years_** of experience — long before AI became mainstream. With academic backgrounds in both **_English_** and **_Computational Linguistics_**, Bryan brings a unique perspective to the intersection of language and machine learning. He is also the author of  
-<a href="https://www.amazon.com/Exploring-Deepfakes-techniques-replacement-comprehensive-ebook/dp/B0BP7Q8PFS" target="_blank"><strong><em>Exploring Deepfakes: AI techniques for face replacement – A comprehensive guide</em></strong></a>,  
-a foundational resource for developers and researchers interested in deepfake technologies, ethics, and applications.
 
 <style>
   .page__footer,

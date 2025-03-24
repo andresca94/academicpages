@@ -87,16 +87,30 @@ author_profile: true
     <ul>
       <li>
         <strong>1.1: Inpainting and Outpainting with FLUX + IC-Light (2023)</strong><br>
-        <em>Source:</em> Involves scene relighting and advanced background edits. <em>IC-Light</em> was developed by lllyasviel (creator of ControlNet) for physically plausible relighting.<br><br>
+        
 
         <strong>Flux Fill | Inpaint and Outpaint</strong><br>
         <em>Introduction:</em> Flux Fill uses advanced in/outpainting models to modify both real and AI-generated images. By providing text prompts and masks, it can add or remove elements, fix details, or expand the canvas.        
         <br><br>
         <strong>Example Workflow Highlights:</strong>
         <ul>
-          <li>Outpainting: Expand the canvas for more background content.</li>
           <li>Inpainting: Replace or remove unwanted parts of the image.</li>
-          <li>Integration with scene relighting modules (IC-Light).</li>
+          <div class="image-gallery">
+            <!-- Example usage with Jekyll's relative_url filter; adjust paths as needed. -->
+            <img src="{{ '/images/in1.png' | relative_url }}" alt="Barbara Feldon Original 1" />
+            <img src="{{ '/images/in2.png' | relative_url }}" alt="Barbara Feldon Original 2" />
+            <img src="{{ '/images/in3.png' | relative_url }}" alt="Barbara Feldon Original 3" />
+            <img src="{{ '/images/in4.png' | relative_url }}" alt="Barbara Feldon Original 4" />
+          </div>
+          <li>Outpainting: Expand the canvas for more background content.</li>
+          <div class="image-gallery">
+            <!-- Example usage with Jekyll's relative_url filter; adjust paths as needed. -->
+            <img src="{{ '/images/out1.png' | relative_url }}" alt="Barbara Feldon Original 1" />
+            <img src="{{ '/images/out2.png' | relative_url }}" alt="Barbara Feldon Original 2" />
+            <img src="{{ '/images/out3.png' | relative_url }}" alt="Barbara Feldon Original 3" />
+            <img src="{{ '/images/out4.png' | relative_url }}" alt="Barbara Feldon Original 4" />
+          </div>
+          <li>Integration with scene relighting modules (IC-Light).</li><em>Source:</em> Involves scene relighting and advanced background edits. <em>IC-Light</em> was developed by lllyasviel (creator of ControlNet) for physically plausible relighting.<br><br>
         </ul>
         <p>
           The Flux Fill models and nodes, along with their workflows, are fully developed by Blackforest Labs. We appreciate their innovative work, presented here for community benefit.

@@ -10,11 +10,12 @@
 
   <h3>Original Photographs of Barbara Feldon</h3>
   <p>Here we display original photos of Barbara Feldon, which serve as the basis for subsequent transformations and enhancements.</p>
-  <div class="image-gallery">
-    <img src="/assets/images/barbara_original_1.jpg" alt="Barbara Feldon Original 1" width="300">
-    <img src="/assets/images/barbara_original_2.jpg" alt="Barbara Feldon Original 2" width="300">
-    <img src="/assets/images/barbara_original_3.jpg" alt="Barbara Feldon Original 3" width="300">
-    <img src="/assets/images/barbara_original_4.jpg" alt="Barbara Feldon Original 4" width="300">
+  
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 20px;">
+    <img src="{{ '/images/barbara_original_1.jpg' | relative_url }}" alt="Barbara Feldon Original 1" style="width:300px; height:300px; border-radius:8px; object-fit:cover;" />
+    <img src="{{ '/images/barbara_original_2.jpg' | relative_url }}" alt="Barbara Feldon Original 2" style="width:300px; height:300px; border-radius:8px; object-fit:cover;" />
+    <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara Feldon Original 3" style="width:300px; height:300px; border-radius:8px; object-fit:cover;" />
+    <img src="{{ '/images/barbara_original_4.jpg' | relative_url }}" alt="Barbara Feldon Original 4" style="width:300px; height:300px; border-radius:8px; object-fit:cover;" />
   </div>
 
   <h3>FLUX and Its Capabilities (2023)</h3>
@@ -101,19 +102,6 @@
 </section>
 
 <style>
-  .image-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .image-gallery img {
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    object-fit: cover;
-  }
-
   section {
     margin-bottom: 3rem;
   }

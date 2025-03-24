@@ -27,12 +27,7 @@ I design and optimize workflows for **_ComfyUI_**, integrating various AI-driven
 
 Collaborators:
 ======
-**_Bryan Lyion_** is a pioneer in the field of **_Artificial Intelligence_**, with over **_15 years_** of experience — long before AI became mainstream. With academic backgrounds in both **_English_** and **_Computational Linguistics_**, Bryan brings a unique perspective to the intersection of language and machine learning.
-
-He saw early on the potential of **_Deepfakes_** to be used ethically and constructively, and became a key contributor to the largest open-source deepfake initiative: **_FaceSwap_**. There, he helped guide the project’s AI development and authored its widely respected **_Ethics Manifesto_**.
-
-Today, Bryan is the **_CTO and co-founder of DeepMake_**, where he leads the development of open-source tools for **_face replacement, super resolution,_** and **_generative AI_**.  
-He is also the author of  
+**_Bryan Lyion_** is a pioneer in the field of **_Artificial Intelligence_**, with over **_15 years_** of experience — long before AI became mainstream. With academic backgrounds in both **_English_** and **_Computational Linguistics_**, Bryan brings a unique perspective to the intersection of language and machine learning. He is also the author of  
 <a href="https://www.amazon.com/Exploring-Deepfakes-techniques-replacement-comprehensive-ebook/dp/B0BP7Q8PFS" target="_blank"><strong><em>Exploring Deepfakes: AI techniques for face replacement – A comprehensive guide</em></strong></a>,  
 a foundational resource for developers and researchers interested in deepfake technologies, ethics, and applications.
 

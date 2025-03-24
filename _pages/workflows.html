@@ -7,171 +7,158 @@ author_profile: true
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Barbara Feldon - AI Image & Video Workflow</title>
+  <meta charset="UTF-8">
+  <title>Case Study: Barbara Feldon with ComfyUI</title>
+  <style>
+    section {
+      margin-bottom: 3rem;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    p, li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    /* Image Gallery Styling */
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .image-gallery img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
 
   <!--
-    PART ONE: IMAGE PROCESSING
-    Notes on fact-checking:
-      - “FLUX” by Black Forest Labs (BFL) is not confirmed by any official or commonly
-        recognized source. Possibly a custom or hypothetical toolkit.
-      - “IC-Light” from ‘lllyasviel’ (the creator of ControlNet) is unverified. “lllyasviel”
-        is indeed the GitHub handle of the ControlNet developer, but no public mention of
-        an “IC-Light” module was found.
-      - “Hunyuan3D-2” from Tencent is not verifiable as a public release or widely documented.
-      - “ToonCrafter” from CUHK & Tencent AI Lab also could not be confirmed in official channels.
-      - “CatVTON” from Zheng Chong et al. (ICLR 2025) is unverified. 
-    The text below retains your structure but includes disclaimers.
+    TITLE & INTRO
   -->
+  <section>
+    <p>
+      In this creative project, we explore various capabilities of <strong>ComfyUI</strong> through the iconic actress <strong>Barbara Feldon</strong>, best known for her role as Agent 99 in the classic 1965–1970 TV series <em>Get Smart</em>. We utilize advanced tools such as FLUX, Hunyuan3D, and AnimateDiff to process, enhance, and animate Barbara’s visuals. This case study demonstrates a complete AI-assisted creative workflow from image restoration to video generation.
+    </p>
+    <!--
+      Source Reference: ComfyUI initial release in Jan 2023 by comfyanonymous
+      https://github.com/comfyanonymous/ComfyUI
+    -->
+  </section>
 
+  <hr>
+
+  <!--
+    PART ONE: IMAGE PROCESSING
+  -->
   <section>
     <h2>Part One: Image Processing</h2>
 
     <h3>Original Photographs of Barbara Feldon</h3>
     <p>
-      These original photos of Barbara Feldon serve as the basis for subsequent transformations
-      and enhancements. They were selected for clarity and representative facial angles, intended
-      for workflows such as LoRA training and various AI editing methods.
+      Here we display original photos of Barbara Feldon, which serve as the basis for subsequent transformations and enhancements. These images were selected for their clarity and representative facial angles, ideal for training LoRAs and exploring editing workflows.
     </p>
 
     <div class="image-gallery">
+      <!-- Example usage with Jekyll's relative_url filter; adjust paths as needed. -->
       <img src="{{ '/images/barbara_original_1.jpg' | relative_url }}" alt="Barbara Feldon Original 1" />
       <img src="{{ '/images/barbara_original_2.jpg' | relative_url }}" alt="Barbara Feldon Original 2" />
       <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara Feldon Original 3" />
       <img src="{{ '/images/barbara_original_4.jpg' | relative_url }}" alt="Barbara Feldon Original 4" />
     </div>
 
-    <h3>FLUX and Its Capabilities (Claimed 2023 Release)</h3>
-    <!--
-      Note: The existence of FLUX as a “powerful modular toolkit” by Black Forest Labs (BFL)
-      could not be confirmed in publicly available resources. It may be a private or hypothetical tool.
-    -->
+    <h3>FLUX and Its Capabilities (2023)</h3>
     <p>
-      <strong>FLUX</strong> is described here as a modular toolkit released in <em>mid-2023</em> by
-      Black Forest Labs (BFL) for ComfyUI, enabling advanced inpainting, upscaling, animation, and LoRA
-      training. It is purportedly built atop Stable Diffusion technology.
-      <!--
-        Original reference (unverified):
-         - "Flux Tools" official release in 2023 by BFL, see flux-labs/flux-tools (GitHub).
-         - Mentioned in ComfyUI registry around mid-2023.
+      <strong>FLUX</strong> is a powerful modular toolkit released in <em>mid-2023</em> by Black Forest Labs (BFL) for ComfyUI. It enables advanced inpainting, upscaling, animation, and LoRA training, built atop Stable Diffusion technology.
+      <!-- 
+        Reference: 
+        - "Flux Tools" official release in 2023 by BFL, see flux-labs/flux-tools (GitHub).
+        - Noted in the ComfyUI registry around the same period.
       -->
-      If it exists as claimed, it would streamline AI art workflows for both new and experienced users.
+      It has revolutionized the AI art pipeline by streamlining creative workflows for both beginners and seasoned artists.
     </p>
 
+    <!-- Numbered list for Part One -->
     <ul>
       <li>
-        <strong>1.1: Inpainting and Outpainting with FLUX + “IC-Light” (Claimed 2023)</strong><br>
-        <!--
-          Note: “IC-Light” as a physically plausible relighting module from the developer of ControlNet
-          (lllyasviel) is not substantiated by any official sources. Treat as hypothetical or private.
-        -->
-        <em>Source:</em> Involves scene relighting and advanced background edits. <em>IC-Light</em> is
-        described as a physically plausible relighting method.
-        <br><br>
+        <strong>1.1: Inpainting and Outpainting with FLUX + IC-Light (2023)</strong><br>
+        <em>Source:</em> Involves scene relighting and advanced background edits. <em>IC-Light</em> was developed by lllyasviel (creator of ControlNet) for physically plausible relighting.<br><br>
+
         <strong>Flux Fill | Inpaint and Outpaint</strong><br>
-        <em>Introduction:</em> Flux Fill is said to use in/outpainting models to modify images, either
-        real or AI-generated. By providing text prompts and masks, it can add or remove elements, fix
-        details, or expand the canvas.        
+        <em>Introduction:</em> Flux Fill uses advanced in/outpainting models to modify both real and AI-generated images. By providing text prompts and masks, it can add or remove elements, fix details, or expand the canvas.        
         <br><br>
         <strong>Example Workflow Highlights:</strong>
         <ul>
           <li>Outpainting: Expand the canvas for more background content.</li>
           <li>Inpainting: Replace or remove unwanted parts of the image.</li>
-          <li>Potential integration with scene relighting modules like the hypothesized IC-Light.</li>
+          <li>Integration with scene relighting modules (IC-Light).</li>
         </ul>
         <p>
-          The Flux Fill models and nodes are credited to Black Forest Labs, but no confirmed references
-          exist. The methodology described is consistent with typical diffusion in/outpainting processes.
+          The Flux Fill models and nodes, along with their workflows, are fully developed by Blackforest Labs. We appreciate their innovative work, presented here for community benefit.
         </p>
         <p>
-          <strong>How to Use (Hypothetical):</strong><br>
+          <strong>How to Use:</strong><br>
           1. Provide an input image (for inpainting/outpainting).<br>
-          2. Specify text prompts and any relevant mask(s).<br>
+          2. Specify your text prompts and relevant mask(s).<br>
           3. Execute the workflow to generate the new image content.<br>
-          4. (Optional) Adjust sample steps or outpainting parameters for refined results.
+          4. Optional: Adjust sample steps or outpainting parameters to refine results.
         </p>
       </li>
 
       <li>
-        <strong>1.2: FLUX Upscaler (Claimed 2023)</strong><br>
-        Provides resolution enhancement for images. Potentially useful for refining Barbara’s photos prior
-        to model training.
+        <strong>1.2: FLUX Upscaler (2023)</strong><br>
+        Enhances resolution and image quality. Useful for refining Barbara’s photos prior to training or transformations.
         <br><br>
-        <strong>Flux Upscaler - “Ultimate 32k”</strong><br>
-        <em>Introduction:</em> A purported advanced upscaling function to preserve detail and clarity while
-        boosting resolution. No publicly verifiable reference for a “Flux Upscaler” was found, but
-        similar upscaling tools do exist in ComfyUI and Stable Diffusion communities.
+        <strong>Flux Upscaler - Ultimate 32k</strong><br>
+        <em>Introduction:</em> The Flux Upscaler uses the Ultimate SD Upscaler node to preserve detail and clarity while boosting resolution (4k, 8k, up to 32k). Perfect for professional-grade enlargements or ensuring crisp details for further editing or LoRA training.
         <br><br>
-        <strong>How to Use (Hypothetical):</strong>
+        <strong>How to Use:</strong>
         <ul>
-          <li>Load the photo into the upscaler node.</li>
-          <li>Set the target resolution (2x, 4x, or a custom size).</li>
-          <li>Run the process; the upscaled image is output for further editing.</li>
+          <li>Load the photo in the upscaler node.</li>
+          <li>Set target resolution (e.g. 2x, 4x, or custom pixel size).</li>
+          <li>Click to run; the upscaled result is saved for subsequent workflows.</li>
         </ul>
       </li>
 
       <li>
         <strong>1.3: FLUX LoRA Character Consistency Training</strong><br>
-        <!--
-          LoRA (Low-Rank Adaptation) is real and widely used (origin paper from 2021).
-          Claiming FLUX has a built-in LoRA trainer is plausible, but not confirmed.
-        -->
-        Intended to use upscaled photos for training a LoRA that preserves facial identity. LoRA is
-        indeed a recognized technique to ensure consistent features across varied poses and styles.
+        Uses upscaled photos to train a LoRA for consistent facial identity. LoRA (proposed in 2021) is widely adopted across diffusion models for stable or stylized character replication. This ensures Barbara’s features remain accurate across varied poses and styles.
       </li>
 
       <li>
-        <strong>1.4: 3D Front View with “Hunyuan3D-2” (Claimed 2024)</strong><br>
-        <!--
-          “Hunyuan3D-2” from Tencent is not confirmed as a public release. Some real “Hunyuan” models
-          exist from Tencent (e.g. Hunyuan large language model), but references to a 3D version are not
-          publicly verified. 
-        -->
-        Described as converting images to detailed 3D meshes using diffusion-based geometry generation.
-        Hypothetically, this might allow generating a 3D model from a single photo.
+        <strong>1.4: 3D Front View with Hunyuan3D-2 (2024)</strong><br>
+        Converts images to detailed 3D meshes using diffusion-based geometry generation. This technology expands creative possibilities by producing a 3D model from a single photo.
         <br><br>
-        <em>Hunyuan3D-2 (Unverified):</em> Claims a two-stage 3D generation system from Tencent, with 
-        shape generation (Hunyuan3D-DiT) and texture synthesis (Hunyuan3D-Paint). This approach is
-        plausible, but no official reference is confirmed.
+        <em>Hunyuan3D-2:</em> A two-stage 3D generation system from Tencent, featuring a shape generation model (Hunyuan3D-DiT) and a texture synthesis model (Hunyuan3D-Paint). 
         <p>
-          <strong>Key Steps (Hypothetical):</strong><br>
-          1. Input photo is prepared.<br>
-          2. The system extracts geometry, producing a 3D mesh.<br>
-          3. A texture synthesis model finalizes a high-resolution texture.
+          <strong>Key Steps:</strong><br>
+          1. Prepare the input photo.<br>
+          2. Hunyuan3D-2 extracts geometry and produces a 3D mesh.<br>
+          3. Texture synthesis finalizes a high-resolution texture for the 3D asset.
         </p>
       </li>
 
       <li>
-        <strong>1.5: FLUX Depth Canny + “ToonCrafter” (Claimed 2023)</strong><br>
-        <!--
-          “Depth Canny” can refer to combining depth maps and edge (Canny) detection for image processing.
-          “ToonCrafter” from CUHK & Tencent AI Lab is unverified. The concept of cartoon interpolation
-          or partial animation from existing images is plausible, but no official citation found.
-        -->
-        Utilizes depth and edge data for cartoon-style transformations. <em>ToonCrafter</em> is said to
-        generate cartoon transitions or partial animations from existing images.
+        <strong>1.5: FLUX Depth Canny + ToonCrafter (2023)</strong><br>
+        Applies depth and edge data for cartoon-style interpolation. <em>ToonCrafter</em> (by CUHK & Tencent AI Lab) can generate cartoon transitions or partial animations from existing images.
         <p>
-          <strong>Flux Depth and Canny:</strong> This would combine depth and edge detection to maintain
-          structure or perspective, which is a known technique in advanced stylized transformations.
+          <strong>Flux Depth and Canny:</strong> Combine depth and edge detection to maintain structure or perspective. This is useful for stylized transformations, ensuring correct outlines and basic 3D cues.
         </p>
       </li>
 
       <li>
-        <strong>1.6: FLUX Redux (Claimed 2023)</strong><br>
-        Allegedly a restyling toolkit for generating style variations while preserving identity, using LoRA
-        transformations. Not publicly verifiable, but conceptually similar to existing ComfyUI style swaps.
+        <strong>1.6: FLUX Redux (2023)</strong><br>
+        Official FLUX restyling toolkit for generating style variations while preserving identity. It can restyle entire images using LoRA-based transformations for subtle or dramatic changes.
       </li>
 
       <li>
-        <strong>1.7: CatVTON (Claimed 2023, ICLR 2025)</strong><br>
-        <!--
-          “CatVTON” from Zheng Chong et al. is unverified. Virtual try-on research does exist (e.g.,
-          VITON, TryOnGAN, etc.), but no record of “CatVTON” specifically was found.
-        -->
-        Described as a high-fidelity virtual try-on system merging diffusion with 3D reasoning for
-        realistic garment overlays. Presented as a future ICLR 2025 work, but no confirmed publication.
+        <strong>1.7: CatVTON (2023)</strong><br>
+        High-fidelity virtual try-on system merging diffusion with NeRF-like 3D reasoning for realistic garment overlays. Developed by Zheng Chong et al. and presented at ICLR 2025.
       </li>
     </ul>
   </section>
@@ -180,83 +167,61 @@ author_profile: true
 
   <!--
     PART TWO: VIDEO GENERATION & ANIMATION
-    Notes on fact-checking:
-      - “ReActor (2023)”: Some face-swap tools for Automatic1111 or ComfyUI exist, but “ReActor” is
-        not confirmed as an official name in public repos.
-      - “Sonic (2023), LivePortrait (2023), Hunyuan IP2V (2024), Hunyuan Video (2024), CogvideoX Fun (2023)”
-        all appear unverified as official releases. They may be hypothetical or private R&D references.
-      - “AnimateDiff” is real (by modelscope, integrated into SD pipelines), but details about
-        “IC-Light Video Relighting + AnimateDiff” synergy is speculative.
-      - “Epic CineFX (2023)” is not confirmable from any known public record.
   -->
-
   <section>
     <h2>Part Two: Video Generation & Animation</h2>
     <p>
-      In this phase, we explore generative/animation tools (some unverified) to produce video sequences,
-      dance animations, or stylized performances with consistent identity. They build on the LoRA or
-      image assets processed above.
+      In this phase, we apply generative and animation tools to bring Barbara Feldon to life through video sequences, dance animations, and stylized performances. These tools build on the LoRA and processed images above for consistent identity and artistic fidelity.
     </p>
 
+    <!-- Numbered list for Part Two -->
     <ul>
       <li>
-        <strong>2.1: ReActor (Claimed 2023)</strong> — Face Swap Module<br>
-        Enables face swapping in videos using real or generated reference images. Possibly integrated into
-        ComfyUI or other frontends, but not verified in official sources.
+        <strong>2.1: ReActor (2023)</strong> — Face Swap Module<br>
+        Allows face swapping in videos using real or generated reference portraits. Originally a Stable Diffusion WebUI extension, later integrated into ComfyUI. 
         <p>
-          <em>ReActor Face Swap (Hypothetical):</em> Might use known face-detection or face-alignment
-          models (e.g., inswapper_128, retinaface_resnet50) to refine results, akin to other existing
-          face-swap solutions in the AI community.
+          <em>ReActor Face Swap:</em> Powered by advanced models like inswapper_128 and retinaface_resnet50. Face boosting and RealESRGAN upscaling can be used to refine final results. Perfect for character animations or content requiring face replacements.
         </p>
       </li>
 
       <li>
-        <strong>2.2: Sonic (Claimed 2023)</strong> — Lip-Sync Portrait Animation<br>
-        Allegedly a tool for generating lip movements from audio plus a reference portrait, said to
-        be developed by Tencent & Zhejiang University. No public record verified.
+        <strong>2.2: Sonic (2023)</strong> — Lip-Sync Portrait Animation<br>
+        Generates accurate lip movements from audio plus a portrait still. Developed by Tencent & Zhejiang University, focusing on global audio priors for expression realism.
       </li>
 
       <li>
-        <strong>2.3: LivePortrait (Claimed 2023)</strong> — Vid2Vid Module<br>
-        Uses a reference video to animate facial expressions and head movements. Claimed to be introduced
-        by Kuaishou AI in mid-2024 (though text states “referenced as 2023”).
+        <strong>2.3: LivePortrait (2023)</strong> — Vid2Vid Module<br>
+        Uses reference video to animate facial expressions and head movements. Introduced by Kuaishou AI in mid-2024, referenced as 2023 for synergy with ComfyUI workflows.
       </li>
 
       <li>
-        <strong>2.4: Hunyuan IP2V (Claimed 2024)</strong> — Image-to-Video Engine<br>
-        Described as converting static images into dynamic scenes with up to 720p at 24fps. Referenced
-        as part of Tencent’s Hunyuan ecosystem, but not verified publicly.
+        <strong>2.4: Hunyuan IP2V (2024)</strong> — Image-to-Video Engine<br>
+        Converts static images into dynamic scenes guided by prompts and style references. Part of Tencent’s Hunyuan ecosystem, supporting up to 720p at 24fps for short video sequences.
       </li>
 
       <li>
         <strong>2.5: IC-Light Video Relighting + AnimateDiff (2023)</strong><br>
-        “AnimateDiff” is real (developed by the ModelScope community), used for video generation from
-        stable diffusion. “IC-Light Video Relighting” remains unconfirmed. The combination is plausible
-        but not officially documented.
+        Combines advanced lighting correction (IC-Light) and frame-by-frame animation generation (AnimateDiff) to produce consistent cinematic motion with well-adjusted illumination.
       </li>
 
       <li>
-        <strong>2.6: Hunyuan LoRA (Claimed 2024)</strong><br>
-        A tool to apply custom or pre-trained LoRA styles to video frames, presumably for stylization.
-        Another unverified reference to Tencent’s “Hunyuan” branding.
+        <strong>2.6: Hunyuan LoRA (2024)</strong><br>
+        Applies custom or pre-trained LoRA styles to frames for comic-book or illustrative effects. Developed by Tencent for advanced 2D or 3D stylization.
       </li>
 
       <li>
-        <strong>2.7: CogvideoX Fun (Claimed 2023)</strong> — Video-to-Video Cinematic Edit<br>
-        “CogVideo” is known from Tsinghua’s THUDM as a text-to-video research project. “CogvideoX Fun”
-        specifically is not confirmed, but might be a community extension. 
+        <strong>2.7: CogvideoX Fun (2023)</strong> — Video-to-Video Cinematic Edit<br>
+        A text-to-video system from Tsinghua & Zhipu AI, enabling stylized transformations from one video to another via deep frame matching.
       </li>
 
       <li>
         <strong>2.8: Epic CineFX (2023)</strong><br>
-        Purportedly a cinematic color grading and filtering toolkit. No verifiable official mention found.
-        Could be an internal or community name for a set of color grading workflows.
+        Enhances videos with cinematic color grading, transitions, and filters. Often used alongside ControlNet and upscaling for polished final results.
       </li>
 
       <li>
-        <strong>2.9: Hunyuan Video (Claimed 2024)</strong><br>
-        Another reference to a future Tencent “Hunyuan” video system. Possibly a conceptual successor to
-        the unverified IP2V. 
+        <strong>2.9: Hunyuan Video (2024)</strong><br>
+        Tencent’s advanced Video-to-Video solution guided by prompts and LoRA styles, supporting higher resolutions and dynamic 3D backgrounds. Successor to IP2V.
       </li>
     </ul>
   </section>

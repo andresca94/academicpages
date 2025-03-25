@@ -36,6 +36,26 @@ author_profile: true
       border-radius: 8px;
       object-fit: cover;
     }
+    .image-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-row.gifs .gif-wrapper {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.image-row.gifs img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
   </style>
 </head>
 <body>

@@ -44,17 +44,22 @@ author_profile: true
   margin-bottom: 1rem;
 }
 
-.image-row.gifs .gif-wrapper {
-  flex: 1 1 300px;
-  text-align: center;
+
+.image-row.gifs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .image-row.gifs img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
+
 
   </style>
 </head>

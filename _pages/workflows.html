@@ -1,5 +1,5 @@
 ---
-layout: none
+layout: archive
 title: "A Case Study with Barbara Feldon from Get Smart Using ComfyUI"
 permalink: /workflows/
 author_profile: true
@@ -12,7 +12,7 @@ author_profile: true
   <!-- 3D Model Viewer for .glb files -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <title>Case Study Barbara Feldon with ComfyUI</title>
+  <title>Case Study: Barbara Feldon with ComfyUI</title>
 
   <style>
     section {
@@ -27,7 +27,7 @@ author_profile: true
       text-align: justify;
     }
 
-    /* Main gallery styling */
+    /* Main gallery styling for all sets */
     .image-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -42,52 +42,6 @@ author_profile: true
       object-fit: cover;
     }
 
-    /* RADIO-BASED CAROUSEL
-       We create 3 radio buttons for 3 'pages' of images */
-    .css-carousel {
-      /* This container holds the radio buttons, image groups, and pagination labels */
-      position: relative;
-      margin-bottom: 2rem;
-    }
-
-    /* Hide the radio inputs so they don't appear visibly */
-    .css-carousel input[type="radio"] {
-      display: none;
-    }
-
-    /* Group containers for each page of 4 images */
-    .css-carousel .image-gallery {
-      display: none; /* hidden by default unless the corresponding radio is checked */
-    }
-
-    /* Each radio button triggers its corresponding group to display */
-    #page1:checked ~ #group1 {
-      display: flex;
-    }
-    #page2:checked ~ #group2 {
-      display: flex;
-    }
-    #page3:checked ~ #group3 {
-      display: flex;
-    }
-
-    /* The pagination controls (labels) for each radio */
-    .carousel-controls {
-      text-align: center;
-      margin: 1rem 0;
-    }
-    .carousel-controls label {
-      cursor: pointer;
-      padding: 0.5rem 1.5rem;
-      margin: 0 1rem;
-      border: 1px solid #aaa;
-      border-radius: 4px;
-    }
-    .carousel-controls label:hover {
-      background: #f0f0f0;
-    }
-
-    /* Additional styling for other sections, unchanged */
     .image-row {
       display: flex;
       justify-content: center;
@@ -108,6 +62,55 @@ author_profile: true
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
+
+    /* CSS-ONLY PREVIOUS/NEXT CAROUSEL FOR 12 PHOTOS */
+    .css-carousel input[type="radio"] {
+      display: none;  /* hide the radio buttons themselves */
+    }
+
+    /* We have 3 pages => #page1, #page2, #page3
+       Each page is a .pagegroup containing 4 images. 
+       By default, hide them: */
+    .css-carousel .pagegroup {
+      display: none; 
+    }
+
+    /* If #page1 is checked, show .group1, etc. */
+    #page1:checked ~ .group1 {
+      display: flex;
+    }
+    #page2:checked ~ .group2 {
+      display: flex;
+    }
+    #page3:checked ~ .group3 {
+      display: flex;
+    }
+
+    /* We'll create next/prev label sets for each "from page" scenario */
+    .carousel-controls label {
+      display: none; 
+      cursor: pointer;
+      padding: 0.5rem 1.5rem;
+      margin: 0 1rem;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+    .carousel-controls label:hover {
+      background: #f7f7f7;
+    }
+
+    /* If page1 is checked, show label with .from1 */
+    #page1:checked ~ .carousel-controls .from1 {
+      display: inline-block;
+    }
+    /* If page2 is checked, show .from2 */
+    #page2:checked ~ .carousel-controls .from2 {
+      display: inline-block;
+    }
+    /* If page3 is checked, show .from3 */
+    #page3:checked ~ .carousel-controls .from3 {
+      display: inline-block;
+    }
   </style>
 </head>
 
@@ -116,7 +119,7 @@ author_profile: true
   <!-- TITLE & INTRO -->
   <section>
     <p>
-      In this creative project we explore various capabilities of ComfyUI through the actress Barbara Feldon (Agent 99, 1965 to 1970). We utilize tools like FLUX, Hunyuan3D, AnimateDiff, etc. 
+      In this creative project, we explore various capabilities of <strong>ComfyUI</strong> through the iconic actress <strong>Barbara Feldon</strong>, best known for her role as Agent 99 in the classic 1965–1970 TV series <em>Get Smart</em>. We utilize advanced tools such as FLUX, Hunyuan3D, and AnimateDiff to process, enhance, and animate Barbara’s visuals. This case study demonstrates a complete AI-assisted creative workflow from image restoration to video generation.
     </p>
   </section>
 
@@ -124,83 +127,169 @@ author_profile: true
 
   <!-- PART ONE: IMAGE PROCESSING -->
   <section>
-    <h2>Part One Image Processing</h2>
+    <h2>Part One: Image Processing</h2>
 
     <h3>Original Photographs of Barbara Feldon</h3>
     <p>
-      These images are the basis for transformations, used for LoRA training and editing workflows.
+      Here we display original photos of Barbara Feldon, which serve as the basis for subsequent transformations and enhancements. These images were selected for their clarity and representative facial angles, ideal for training LoRAs and exploring editing workflows.
     </p>
 
-    <!-- CSS-Only Carousel (3 "pages" of 4 images) -->
+    <!-- CSS-ONLY CAROUSEL FOR 12 IMAGES (with Previous/Next) -->
     <div class="css-carousel">
-      <!-- Hidden radio inputs for the 3 pages -->
-      <input type="radio" name="carousel-page" id="page1" checked />
-      <input type="radio" name="carousel-page" id="page2" />
-      <input type="radio" name="carousel-page" id="page3" />
 
-      <!-- Group 1: images 1-4 -->
-      <div class="image-gallery" id="group1">
-        <img src="{{ '/images/barbara_original_1.jpg' | relative_url }}" alt="Barbara 1" />
-        <img src="{{ '/images/barbara_original_2.jpg' | relative_url }}" alt="Barbara 2" />
-        <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara 3" />
-        <img src="{{ '/images/barbara_original_4.jpg' | relative_url }}" alt="Barbara 4" />
+      <!-- 3 hidden radios for 3 "pages" -->
+      <input type="radio" name="barbara-pages" id="page1" checked />
+      <input type="radio" name="barbara-pages" id="page2" />
+      <input type="radio" name="barbara-pages" id="page3" />
+
+      <!-- 3 "pagegroup" divs, each with 4 images -->
+      <div class="image-gallery pagegroup group1">
+        <img src="{{ '/images/barbara_original_1.jpg' | relative_url }}" alt="Barbara Feldon Original 1" />
+        <img src="{{ '/images/barbara_original_2.jpg' | relative_url }}" alt="Barbara Feldon Original 2" />
+        <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara Feldon Original 3" />
+        <img src="{{ '/images/barbara_original_4.jpg' | relative_url }}" alt="Barbara Feldon Original 4" />
       </div>
 
-      <!-- Group 2: images 5-8 -->
-      <div class="image-gallery" id="group2">
-        <img src="{{ '/images/barbara_original_5.jpg' | relative_url }}" alt="Barbara 5" />
-        <img src="{{ '/images/barbara_original_6.jpg' | relative_url }}" alt="Barbara 6" />
-        <img src="{{ '/images/barbara_original_7.jpg' | relative_url }}" alt="Barbara 7" />
-        <img src="{{ '/images/barbara_original_8.jpg' | relative_url }}" alt="Barbara 8" />
+      <div class="image-gallery pagegroup group2">
+        <img src="{{ '/images/barbara_original_5.jpg' | relative_url }}" alt="Barbara Feldon Original 5" />
+        <img src="{{ '/images/barbara_original_6.jpg' | relative_url }}" alt="Barbara Feldon Original 6" />
+        <img src="{{ '/images/barbara_original_7.jpg' | relative_url }}" alt="Barbara Feldon Original 7" />
+        <img src="{{ '/images/barbara_original_8.jpg' | relative_url }}" alt="Barbara Feldon Original 8" />
       </div>
 
-      <!-- Group 3: images 9-12 -->
-      <div class="image-gallery" id="group3">
-        <img src="{{ '/images/barbara_original_9.jpg' | relative_url }}" alt="Barbara 9" />
-        <img src="{{ '/images/barbara_original_10.jpg' | relative_url }}" alt="Barbara 10" />
-        <img src="{{ '/images/barbara_original_11.jpg' | relative_url }}" alt="Barbara 11" />
-        <img src="{{ '/images/barbara_original_12.jpg' | relative_url }}" alt="Barbara 12" />
+      <div class="image-gallery pagegroup group3">
+        <img src="{{ '/images/barbara_original_9.jpg' | relative_url }}" alt="Barbara Feldon Original 9" />
+        <img src="{{ '/images/barbara_original_10.jpg' | relative_url }}" alt="Barbara Feldon Original 10" />
+        <img src="{{ '/images/barbara_original_11.jpg' | relative_url }}" alt="Barbara Feldon Original 11" />
+        <img src="{{ '/images/barbara_original_12.jpg' | relative_url }}" alt="Barbara Feldon Original 12" />
       </div>
 
-      <!-- "Pagination" controls using label-for-radio approach -->
+      <!-- PREV/NEXT CONTROLS -->
       <div class="carousel-controls">
-        <label for="page1">Page 1</label>
-        <label for="page2">Page 2</label>
-        <label for="page3">Page 3</label>
+        <!-- For page1: show label->page1 for Prev if you want to "stay", or label->page3 if cyc -->
+        <label for="page1" class="from1">Previous</label>
+        <label for="page2" class="from1">Next</label>
+        
+        <label for="page1" class="from2">Previous</label>
+        <label for="page3" class="from2">Next</label>
+        
+        <label for="page2" class="from3">Previous</label>
+        <label for="page3" class="from3">Next</label>
       </div>
     </div>
 
-    <h3>FLUX Tools 2023 by BFL</h3>
+    <h3>FLUX and Its Capabilities (2023)</h3>
     <p>
-      FLUX is a powerful modular toolkit for ComfyUI. It provides inpainting, outpainting, upscaling, and LoRA training nodes.
+      <strong>FLUX</strong> is a powerful modular toolkit released in <em>mid-2023</em> by Black Forest Labs (BFL) for ComfyUI. It enables advanced inpainting, outpainting, upscaling, animation, and LoRA training, built atop Stable Diffusion technology.
     </p>
 
+    <!-- PART ONE LIST -->
     <ul>
       <li>
-        <strong>One One Inpainting and Outpainting</strong>
-        <div class="image-gallery">
-          <img src="{{ '/images/in1.png' | relative_url }}" alt="Inpainting 1" />
-          <img src="{{ '/images/in2.png' | relative_url }}" alt="Inpainting 2" />
-        </div>
+        <strong>1.1: Inpainting and Outpainting with FLUX</strong><br>
+        Flux Fill uses advanced in/outpainting models to modify both real and AI-generated images by providing text prompts and masks.
+        <br><br>
+        <strong>Example Workflow Highlights:</strong>
+        <ul>
+          <li>Inpainting: Replace or remove unwanted parts of the image.</li>
+          <div class="image-gallery">
+            <img src="{{ '/images/in1.png' | relative_url }}" alt="Barbara Feldon Inpainting 1" />
+            <img src="{{ '/images/in2.png' | relative_url }}" alt="Barbara Feldon Inpainting 2" />
+            <img src="{{ '/images/in3.png' | relative_url }}" alt="Barbara Feldon Inpainting 3" />
+            <img src="{{ '/images/in4.png' | relative_url }}" alt="Barbara Feldon Inpainting 4" />
+          </div>
+          <li>Outpainting: Expand the canvas for more background content.</li>
+          <div class="image-gallery">
+            <img src="{{ '/images/out1.png' | relative_url }}" alt="Barbara Feldon Outpainting 1" />
+            <img src="{{ '/images/out2.png' | relative_url }}" alt="Barbara Feldon Outpainting 2" />
+            <img src="{{ '/images/out3.png' | relative_url }}" alt="Barbara Feldon Outpainting 3" />
+            <img src="{{ '/images/out4.png' | relative_url }}" alt="Barbara Feldon Outpainting 4" />
+          </div>
+        </ul>
+        <p>
+          <strong>Steps:</strong><br>
+          1. Provide an input image (for in/outpainting).<br>
+          2. Specify text prompts & relevant masks.<br>
+          3. Execute the workflow to generate the new content.<br>
+          4. Adjust parameters or sample steps to refine results.
+        </p>
       </li>
+
       <li>
-        <strong>One Two FLUX Upscaler</strong>
+        <strong>1.2: FLUX Upscaler (2023)</strong><br>
+        Enhances resolution and image quality. Useful for refining Barbara’s photos prior to training or transformations.
         <div class="image-gallery">
-          <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Upscale Start" />
-          <img src="{{ '/images/up.png' | relative_url }}" alt="Upscale Result" />
+          <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara Feldon Original 3" />
+          <img src="{{ '/images/up.png' | relative_url }}" alt="Upscaled Example" />
         </div>
+        <p>
+          The Flux Upscaler uses the Ultimate SD Upscaler node to preserve detail and clarity while boosting resolution (4k, 8k, up to 32k).
+        </p>
       </li>
+
       <li>
-        <strong>One Three FLUX LoRA Consistency</strong>
+        <strong>1.3: FLUX LoRA Character Consistency Training</strong><br>
+        Uses upscaled photos to train a LoRA for consistent facial identity. This ensures Barbara’s features remain accurate across varied poses and styles.
+      </li>
+      <div class="image-gallery">
+        <img src="{{ '/images/lora1.png' | relative_url }}" alt="Barbara Feldon LoRA 1" />
+        <img src="{{ '/images/lora2.png' | relative_url }}" alt="Barbara Feldon LoRA 2" />
+        <img src="{{ '/images/lora3.png' | relative_url }}" alt="Barbara Feldon LoRA 3" />
+        <img src="{{ '/images/lora4.png' | relative_url }}" alt="Barbara Feldon LoRA 4" />
+        <img src="{{ '/images/lora5.png' | relative_url }}" alt="Barbara Feldon LoRA 5" />
+        <img src="{{ '/images/selfie.png' | relative_url }}" alt="Barbara Feldon Selfie" />
+        <img src="{{ '/images/lora7.png' | relative_url }}" alt="Barbara Feldon LoRA 7" />
+        <img src="{{ '/images/lora9.png' | relative_url }}" alt="Barbara Feldon LoRA 9" />
+      </div>
+
+      <li>
+        <strong>1.4: 3D with Hunyuan3D-2 (2024)</strong><br>
+        Converts images to detailed 3D meshes using diffusion-based geometry generation. 
+        <br><br>
         <div class="image-gallery">
-          <img src="{{ '/images/lora1.png' | relative_url }}" alt="LoRA 1" />
-          <img src="{{ '/images/lora2.png' | relative_url }}" alt="LoRA 2" />
+          <img src="{{ '/images/segunda3D.png' | relative_url }}" alt="Barbara Feldon 3D" />
+          A two-stage 3D generation system from Tencent, featuring a shape generation model (Hunyuan3D-DiT) and a texture synthesis model (Hunyuan3D-Paint).
         </div>
+        <p>
+          <strong>Steps:</strong><br>
+          1. Prepare the input photo.<br>
+          2. Hunyuan3D-2 extracts geometry and produces a 3D mesh.<br>
+          3. Texture synthesis finalizes a high-resolution texture for the 3D asset.
+        </p>
       </li>
+
+      <model-viewer
+        src="{{ '/images/1193_00008_.glb' | relative_url }}"
+        alt="3D model of Barbara Feldon"
+        auto-rotate
+        camera-controls
+        background-color="#ffffff"
+        style="width: 100%; height: 500px;">
+      </model-viewer>
+
       <li>
-        <strong>One Four Hunyuan3D 2024</strong>
+        <strong>1.5: FLUX Depth Canny + ToonCrafter (2023)</strong><br>
+        Applies depth and edge data for cartoon-style interpolation. <em>ToonCrafter</em> can generate partial animations from existing images.
+        <p>
+          Combine depth and edge detection to maintain structure or perspective. This is useful for stylized transformations, ensuring correct outlines and basic 3D cues.
+        </p>
+      </li>
+      <div class="image-gallery">
+        <div class="image-row gifs">
+          <div class="gif-wrapper">
+            <img src="{{ '/images/paso1.gif' | relative_url }}" alt="Animated Barbara Feldon 1" />
+          </div>
+          <div class="gif-wrapper">
+            <img src="{{ '/images/paso2.gif' | relative_url }}" alt="Animated Barbara Feldon 2" />
+          </div>
+        </div>
+      </div>
+
+      <li>
+        <strong>1.6: CatVTON (2023)</strong><br>
+        High-fidelity virtual try-on system merging diffusion with NeRF-like 3D reasoning for realistic garment overlays. Developed by Zheng Chong et al. and presented at ICLR 2025.
         <div class="image-gallery">
-          <img src="{{ '/images/segunda3D.png' | relative_url }}" alt="Barbara 3D" />
+          <img src="{{ '/images/VTO1.png' | relative_url }}" alt="Barbara Feldon CatVTON" />
         </div>
       </li>
     </ul>
@@ -208,56 +297,77 @@ author_profile: true
 
   <hr>
 
-  <!-- PART TWO: VIDEO GENERATION -->
+  <!-- PART TWO: VIDEO GENERATION & EDITING -->
   <section>
-    <h2>Part Two Video Generation and Animation</h2>
+    <h2>Part Two: Video Generation & Animation</h2>
     <p>
-      We animate Barbara Feldon using face swap, lip sync, and more.
+      In this phase, we apply generative and animation tools to bring Barbara Feldon to life through video sequences, dance animations, and stylized performances. These tools build on the LoRA and processed images above for consistent identity and artistic fidelity.
     </p>
+
     <ul>
       <li>
-        <strong>Two One ReActor 2023</strong>
+        <strong>2.1: ReActor (2023)</strong> — Face Swap Module
+        <p>
+          Allows face swapping in videos using real or generated reference portraits. Powered by advanced models like inswapper_128 and retinaface_resnet50. Face boosting and RealESRGAN upscaling can be used to refine final results. Perfect for character animations or content requiring face replacements.
+        </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <video controls autoplay muted loop 
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
             <source src="{{ '/images/faceswap1.mp4' | relative_url }}" type="video/mp4">
+            Your browser does not allow video.
           </video>
           <video controls autoplay muted loop 
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
             <source src="{{ '/images/faceswap2.mp4' | relative_url }}" type="video/mp4">
+            Your browser does not allow video.
           </video>
         </section>
       </li>
+
       <li>
-        <strong>Two Two Sonic Lip Sync 2023</strong>
+        <strong>2.2: Sonic (2023)</strong> — Lip-Sync Portrait Animation
+        <p>
+          Generates accurate lip movements from audio plus a portrait still. Developed by Tencent & Zhejiang University, focusing on global audio priors for expression realism.
+        </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
-          <img src="{{ '/images/barbara_original_8.jpg' | relative_url }}" 
-               alt="Barbara 8" 
+          <img src="{{ '/images/barbara_original_8.jpg' | relative_url }}"
+               alt="Vertical Barbara Feldon"
                style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;" />
-          <video controls autoplay muted loop 
+          <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
             <source src="{{ '/images/lypfinal.mp4' | relative_url }}" type="video/mp4">
+            Tu navegador no soporta videos.
           </video>
         </section>
       </li>
+
       <li>
-        <strong>Two Three Hunyuan IP2V</strong>
+        <strong>2.3: Hunyuan IP2V</strong> — Image-to-Video Engine
+        <p>
+          Converts static images into dynamic scenes guided by prompts and style references. Part of Tencent’s Hunyuan ecosystem, supporting up to 720p at 24fps for short video sequences.
+        </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
-          <img src="{{ '/images/lora1.png' | relative_url }}" 
-               alt="LoRA Demo" 
+          <img src="{{ '/images/lora1.png' | relative_url }}"
+               alt="Vertical Barbara Feldon"
                style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;" />
-          <video controls autoplay muted loop 
+          <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;">
             <source src="{{ '/images/barbaravideo.mp4' | relative_url }}" type="video/mp4">
+            Tu navegador no soporta videos.
           </video>
         </section>
       </li>
+
       <li>
-        <strong>Two Four Hunyuan Video 2024</strong>
+        <strong>2.4: Hunyuan Video (2024)</strong> — Video-to-Video Engine
+        <p>
+          Tencent’s advanced Video-to-Video solution guided by prompts and LoRA styles, supporting higher resolutions and dynamic 3D backgrounds. Successor to IP2V.
+        </p>
         <div style="display: flex; justify-content: center;">
-          <video controls autoplay muted loop 
+          <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;">
             <source src="{{ '/images/final.mp4' | relative_url }}" type="video/mp4">
+            Tu navegador no soporta videos.
           </video>
         </div>
       </li>

@@ -27,7 +27,7 @@ author_profile: true
       text-align: justify;
     }
 
-    /* Base styling for all .image-gallery */
+    /* Base styling for .image-gallery sets */
     .image-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -35,11 +35,20 @@ author_profile: true
       justify-content: center;
       margin-bottom: 20px;
     }
+    /* Typically 300x300. If you want a single image not cropped, override below. */
     .image-gallery img {
       width: 300px;
       height: 300px;
       border-radius: 8px;
       object-fit: cover;
+    }
+
+    /* For a single image like CatVTON, we want no cropping. */
+    .single-image {
+      width: auto !important;
+      height: auto !important;
+      max-width: 600px; /* or any max size you prefer */
+      object-fit: contain !important;
     }
 
     .image-row {
@@ -64,7 +73,8 @@ author_profile: true
     }
 
     /* =========================
-       CAROUSEL FOR 12 ORIGINAL PHOTOS
+       CAROUSEL for 12 Original Photos
+       with No Wrapping & Disabled Buttons 
        ========================= */
     .css-carousel {
       position: relative;
@@ -72,7 +82,7 @@ author_profile: true
       margin-bottom: 2rem;
     }
     .css-carousel input[type="radio"] {
-      display: none; /* hide the radio button */
+      display: none; /* hide the radio buttons */
     }
     /* 3 pages => #page1, #page2, #page3 => each .pagegroup has 4 images */
     .pagegroup {
@@ -97,9 +107,15 @@ author_profile: true
       padding: 0.5rem 1.5rem;
       border: 1px solid #aaa;
       border-radius: 4px;
+      background: #fff;
     }
-    .carousel-controls label:hover {
+    .carousel-controls label:hover:not(.disabled) {
       background: #f7f7f7;
+    }
+    /* For disabled effect (grayed out) */
+    .carousel-controls label.disabled {
+      pointer-events: none;
+      opacity: 0.4;
     }
 
     /* If #page1 is checked => show from1, etc. */
@@ -113,11 +129,26 @@ author_profile: true
       display: inline-block;
     }
 
-    /* Wrap-around so that Prev from page1 => page3, Next from page3 => page1 */
-    /* Already done by for="page3" or for="page1" in the labels below */
+    /*
+      No wrap-around:
+        On page1 => disable Prev, enable Next
+        On page2 => enable both
+        On page3 => enable Prev, disable Next
+    */
+    #page1:checked ~ .carousel-controls .from1-prev {
+      /* disabled */
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    #page3:checked ~ .carousel-controls .from3-next {
+      /* disabled */
+      pointer-events: none;
+      opacity: 0.4;
+    }
 
     /* =========================
-       CAROUSEL FOR LoRA IMAGES at 1.3 (8 images)
+       CAROUSEL for 8 LoRA Images at 1.3
+       2 pages => no wrap, 4 each
        ========================= */
     .lora-carousel {
       position: relative;
@@ -131,7 +162,7 @@ author_profile: true
       display: none;
       justify-content: center;
     }
-    /* 2 pages => #loraA, #loraB => each has 4 images */
+    /* #loraA => first page, #loraB => second page */
     #loraA:checked ~ .loraGroupA { display: flex; }
     #loraB:checked ~ .loraGroupB { display: flex; }
 
@@ -147,31 +178,40 @@ author_profile: true
       padding: 0.5rem 1.5rem;
       border: 1px solid #aaa;
       border-radius: 4px;
+      background: #fff;
     }
-    .lora-controls label:hover {
+    .lora-controls label:hover:not(.disabled) {
       background: #f7f7f7;
     }
-    /* If #loraA => fromLoraA, etc. */
-    #loraA:checked ~ .lora-controls .fromLoraA {
+    /* If loraA => fromA, if loraB => fromB */
+    #loraA:checked ~ .lora-controls .fromA {
       display: inline-block;
     }
-    #loraB:checked ~ .lora-controls .fromLoraB {
+    #loraB:checked ~ .lora-controls .fromB {
       display: inline-block;
     }
 
-    /* We'll wrap from loraA Prev => loraB, next => loraB, so 2 pages wrap */
-    /* or do however you prefer */
-
-    /* =========================
-       CatVTON at 1.6: Only 1 image => no carousel needed
-       ========================= */
-
+    /*
+      No wrap:
+        On loraA => disable Prev
+        On loraB => disable Next
+    */
+    #loraA:checked ~ .lora-controls .fromA-prev {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    #loraB:checked ~ .lora-controls .fromB-next {
+      pointer-events: none;
+      opacity: 0.4;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- TITLE & INTRO -->
+  <!--
+    TITLE & INTRO
+  -->
   <section>
     <p>
       In this creative project, we explore various capabilities of <strong>ComfyUI</strong> through the iconic actress <strong>Barbara Feldon</strong>, best known for her role as Agent 99 in the classic 1965–1970 TV series <em>Get Smart</em>. We utilize advanced tools such as FLUX, Hunyuan3D, and AnimateDiff to process, enhance, and animate Barbara’s visuals. This case study demonstrates a complete AI-assisted creative workflow from image restoration to video generation.
@@ -180,7 +220,9 @@ author_profile: true
 
   <hr>
 
-  <!-- PART ONE: IMAGE PROCESSING -->
+  <!--
+    PART ONE: IMAGE PROCESSING
+  -->
   <section>
     <h2>Part One: Image Processing</h2>
 
@@ -189,45 +231,47 @@ author_profile: true
       Here we display original photos of Barbara Feldon, which serve as the basis for subsequent transformations and enhancements. These images were selected for their clarity and representative facial angles, ideal for training LoRAs and exploring editing workflows.
     </p>
 
-    <!-- Carousel for 12 Original Photos (3 pages, 4 images each, wrap-around) -->
+    <!-- Carousel for 12 Original Photos (3 pages, 4 images each, NO wrap) -->
     <div class="css-carousel">
-      <!-- 3 hidden radios -->
-      <input type="radio" name="pages12" id="page1" checked />
-      <input type="radio" name="pages12" id="page2" />
-      <input type="radio" name="pages12" id="page3" />
 
+      <!-- 3 hidden radios -->
+      <input type="radio" name="photos12" id="page1" checked />
+      <input type="radio" name="photos12" id="page2" />
+      <input type="radio" name="photos12" id="page3" />
+
+      <!-- Each page of 4 images -->
       <div class="image-gallery pagegroup group1">
-        <img src="{{ '/images/barbara_original_1.jpg' | relative_url }}" alt="Barbara Feldon Original 1" />
-        <img src="{{ '/images/barbara_original_2.jpg' | relative_url }}" alt="Barbara Feldon Original 2" />
-        <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara Feldon Original 3" />
-        <img src="{{ '/images/barbara_original_4.jpg' | relative_url }}" alt="Barbara Feldon Original 4" />
+        <img src="/academicpages/images/barbara_original_1.jpg" alt="Barbara Feldon Original 1" />
+        <img src="/academicpages/images/barbara_original_2.jpg" alt="Barbara Feldon Original 2" />
+        <img src="/academicpages/images/barbara_original_3.jpg" alt="Barbara Feldon Original 3" />
+        <img src="/academicpages/images/barbara_original_4.jpg" alt="Barbara Feldon Original 4" />
       </div>
       <div class="image-gallery pagegroup group2">
-        <img src="{{ '/images/barbara_original_5.jpg' | relative_url }}" alt="Barbara Feldon Original 5" />
-        <img src="{{ '/images/barbara_original_6.jpg' | relative_url }}" alt="Barbara Feldon Original 6" />
-        <img src="{{ '/images/barbara_original_7.jpg' | relative_url }}" alt="Barbara Feldon Original 7" />
-        <img src="{{ '/images/barbara_original_8.jpg' | relative_url }}" alt="Barbara Feldon Original 8" />
+        <img src="/academicpages/images/barbara_original_5.jpg" alt="Barbara Feldon Original 5" />
+        <img src="/academicpages/images/barbara_original_6.jpg" alt="Barbara Feldon Original 6" />
+        <img src="/academicpages/images/barbara_original_7.jpg" alt="Barbara Feldon Original 7" />
+        <img src="/academicpages/images/barbara_original_8.jpg" alt="Barbara Feldon Original 8" />
       </div>
       <div class="image-gallery pagegroup group3">
-        <img src="{{ '/images/barbara_original_9.jpg' | relative_url }}" alt="Barbara Feldon Original 9" />
-        <img src="{{ '/images/barbara_original_10.jpg' | relative_url }}" alt="Barbara Feldon Original 10" />
-        <img src="{{ '/images/barbara_original_11.jpg' | relative_url }}" alt="Barbara Feldon Original 11" />
-        <img src="{{ '/images/barbara_original_12.jpg' | relative_url }}" alt="Barbara Feldon Original 12" />
+        <img src="/academicpages/images/barbara_original_9.jpg" alt="Barbara Feldon Original 9" />
+        <img src="/academicpages/images/barbara_original_10.jpg" alt="Barbara Feldon Original 10" />
+        <img src="/academicpages/images/barbara_original_11.jpg" alt="Barbara Feldon Original 11" />
+        <img src="/academicpages/images/barbara_original_12.jpg" alt="Barbara Feldon Original 12" />
       </div>
 
-      <!-- Prev/Next, wrap-around => from page1 Prev => page3, from page3 Next => page1 -->
+      <!-- Prev/Next, no wrap => disable if no more pages -->
       <div class="carousel-controls">
-        <!-- If page1 => show from1 -->
-        <label for="page3" class="from1">Previous</label>
-        <label for="page2" class="from1">Next</label>
-        
-        <!-- If page2 => show from2 -->
-        <label for="page1" class="from2">Previous</label>
-        <label for="page3" class="from2">Next</label>
-        
-        <!-- If page3 => show from3 -->
-        <label for="page2" class="from3">Previous</label>
-        <label for="page1" class="from3">Next</label>
+        <!-- Page1 -->
+        <label for="page1" class="from1 from1-prev disabled">Previous</label>
+        <label for="page2" class="from1 from1-next">Next</label>
+
+        <!-- Page2 -->
+        <label for="page1" class="from2 from2-prev">Previous</label>
+        <label for="page3" class="from2 from2-next">Next</label>
+
+        <!-- Page3 -->
+        <label for="page2" class="from3 from3-prev">Previous</label>
+        <label for="page3" class="from3 from3-next disabled">Next</label>
       </div>
     </div>
 
@@ -242,10 +286,10 @@ author_profile: true
         <strong>1.1: Inpainting and Outpainting with FLUX</strong><br>
         Flux Fill uses advanced in/outpainting models...
         <div class="image-gallery">
-          <img src="{{ '/images/in1.png' | relative_url }}" alt="Barbara Feldon Inpainting 1" />
-          <img src="{{ '/images/in2.png' | relative_url }}" alt="Barbara Feldon Inpainting 2" />
-          <img src="{{ '/images/in3.png' | relative_url }}" alt="Barbara Feldon Inpainting 3" />
-          <img src="{{ '/images/in4.png' | relative_url }}" alt="Barbara Feldon Inpainting 4" />
+          <img src="/academicpages/images/in1.png" alt="Barbara Feldon Inpainting 1" />
+          <img src="/academicpages/images/in2.png" alt="Barbara Feldon Inpainting 2" />
+          <img src="/academicpages/images/in3.png" alt="Barbara Feldon Inpainting 3" />
+          <img src="/academicpages/images/in4.png" alt="Barbara Feldon Inpainting 4" />
         </div>
       </li>
 
@@ -253,8 +297,8 @@ author_profile: true
         <strong>1.2: FLUX Upscaler (2023)</strong><br>
         Enhances resolution and image quality...
         <div class="image-gallery">
-          <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara Feldon Original 3" />
-          <img src="{{ '/images/up.png' | relative_url }}" alt="Upscaled Example" />
+          <img src="/academicpages/images/barbara_original_3.jpg" alt="Barbara Feldon Original 3" />
+          <img src="/academicpages/images/up.png" alt="Upscaled Example" />
         </div>
       </li>
 
@@ -263,34 +307,31 @@ author_profile: true
         Uses upscaled photos to train a LoRA for consistent facial identity...
       </li>
 
-      <!-- 2 pages, 8 images total => 4 each. Wrap from pageA -> pageB and vice versa. -->
+      <!-- 2 pages, 8 images total => 4 each => no wrap, disable next on last page, prev on first page -->
       <div class="lora-carousel">
-        <!-- Hidden radios for 2 pages -->
-        <input type="radio" name="lora-pages" id="loraA" checked />
-        <input type="radio" name="lora-pages" id="loraB" />
+        <input type="radio" name="lora8" id="loraA" checked />
+        <input type="radio" name="lora8" id="loraB" />
 
         <div class="image-gallery lora-pagegroup loraGroupA">
-          <img src="{{ '/images/lora1.png' | relative_url }}" alt="Barbara Feldon LoRA 1" />
-          <img src="{{ '/images/lora2.png' | relative_url }}" alt="Barbara Feldon LoRA 2" />
-          <img src="{{ '/images/lora3.png' | relative_url }}" alt="Barbara Feldon LoRA 3" />
-          <img src="{{ '/images/lora4.png' | relative_url }}" alt="Barbara Feldon LoRA 4" />
+          <img src="/academicpages/images/lora1.png" alt="Barbara Feldon LoRA 1" />
+          <img src="/academicpages/images/lora2.png" alt="Barbara Feldon LoRA 2" />
+          <img src="/academicpages/images/lora3.png" alt="Barbara Feldon LoRA 3" />
+          <img src="/academicpages/images/lora4.png" alt="Barbara Feldon LoRA 4" />
         </div>
         <div class="image-gallery lora-pagegroup loraGroupB">
-          <img src="{{ '/images/lora5.png' | relative_url }}" alt="Barbara Feldon LoRA 5" />
-          <img src="{{ '/images/selfie.png' | relative_url }}" alt="Barbara Feldon Selfie" />
-          <img src="{{ '/images/lora7.png' | relative_url }}" alt="Barbara Feldon LoRA 7" />
-          <img src="{{ '/images/lora9.png' | relative_url }}" alt="Barbara Feldon LoRA 9" />
+          <img src="/academicpages/images/lora5.png" alt="Barbara Feldon LoRA 5" />
+          <img src="/academicpages/images/selfie.png" alt="Barbara Feldon Selfie" />
+          <img src="/academicpages/images/lora7.png" alt="Barbara Feldon LoRA 7" />
+          <img src="/academicpages/images/lora9.png" alt="Barbara Feldon LoRA 9" />
         </div>
 
         <div class="lora-controls">
-          <!-- If loraA is checked => fromLoraA -->
-          <label for="loraB" class="fromLoraA">Next</label>
-          <label for="loraB" class="fromLoraA">Previous</label>
-          <!-- If you want wrap-around, from A => B for both next & prev, or do A => A if you want no effect. -->
-
-          <!-- If loraB is checked => fromLoraB -->
-          <label for="loraA" class="fromLoraB">Next</label>
-          <label for="loraA" class="fromLoraB">Previous</label>
+          <!-- Page A -->
+          <label for="loraA" class="fromA fromA-prev disabled">Previous</label>
+          <label for="loraB" class="fromA fromA-next">Next</label>
+          <!-- Page B -->
+          <label for="loraA" class="fromB fromB-prev">Previous</label>
+          <label for="loraB" class="fromB fromB-next disabled">Next</label>
         </div>
       </div>
 
@@ -298,10 +339,13 @@ author_profile: true
         <strong>1.4: 3D with Hunyuan3D-2 (2024)</strong><br>
         Converts images to detailed 3D meshes...
         <div class="image-gallery">
-          <img src="{{ '/images/segunda3D.png' | relative_url }}" alt="Barbara Feldon 3D" />
+          <img src="/academicpages/images/segunda3D.png" alt="Barbara Feldon 3D" />
         </div>
+        <p>
+          A two-stage 3D generation system from Tencent, featuring shape generation (Hunyuan3D-DiT) and texture synthesis (Hunyuan3D-Paint).
+        </p>
         <model-viewer
-          src="{{ '/images/1193_00008_.glb' | relative_url }}"
+          src="/academicpages/images/1193_00008_.glb"
           alt="3D model of Barbara Feldon"
           auto-rotate
           camera-controls
@@ -312,35 +356,37 @@ author_profile: true
 
       <li>
         <strong>1.5: FLUX Depth Canny + ToonCrafter (2023)</strong><br>
-        Applies depth/edge data for cartoon-style interpolation...
+        Applies depth and edge data for cartoon-style interpolation...
       </li>
       <div class="image-gallery">
         <div class="image-row gifs">
           <div class="gif-wrapper">
-            <img src="{{ '/images/paso1.gif' | relative_url }}" alt="Animated Barbara Feldon 1" />
+            <img src="/academicpages/images/paso1.gif" alt="Animated Barbara Feldon 1" />
           </div>
           <div class="gif-wrapper">
-            <img src="{{ '/images/paso2.gif' | relative_url }}" alt="Animated Barbara Feldon 2" />
+            <img src="/academicpages/images/paso2.gif" alt="Animated Barbara Feldon 2" />
           </div>
         </div>
       </div>
 
       <li>
         <strong>1.6: CatVTON (2023)</strong><br>
-        High-fidelity virtual try-on system merging diffusion with NeRF-like 3D reasoning for realistic garment overlays.
-        <p>
-          You mentioned you only have a single image here, so no carousel. We just show the single VTO1.png below:
-        </p>
-        <div class="image-gallery">
-          <img src="{{ '/images/VTO1.png' | relative_url }}" alt="Barbara Feldon CatVTON" />
-        </div>
+        High-fidelity virtual try-on system merging diffusion with NeRF-like 3D reasoning for realistic garment overlays. 
       </li>
+      <p>
+        Since there's only a single image, no carousel. Let's ensure no forced cropping:
+      </p>
+      <div class="image-gallery">
+        <img src="/academicpages/images/VTO1.png" alt="Barbara Feldon CatVTON" class="single-image" />
+      </div>
     </ul>
   </section>
 
   <hr>
 
-  <!-- PART TWO: VIDEO GENERATION & EDITING -->
+  <!--
+    PART TWO: VIDEO GENERATION & EDITION
+  -->
   <section>
     <h2>Part Two: Video Generation & Animation</h2>
     <p>
@@ -351,16 +397,16 @@ author_profile: true
       <li>
         <strong>2.1: ReActor (2023)</strong> — Face Swap Module
         <p>
-          Allows face swapping in videos using real or generated reference portraits. Powered by advanced models like inswapper_128 and retinaface_resnet50...
+          Allows face swapping in videos using real or generated reference portraits...
         </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <video controls autoplay muted loop 
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
-            <source src="{{ '/images/faceswap1.mp4' | relative_url }}" type="video/mp4">
+            <source src="/academicpages/images/faceswap1.mp4" type="video/mp4">
           </video>
           <video controls autoplay muted loop 
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
-            <source src="{{ '/images/faceswap2.mp4' | relative_url }}" type="video/mp4">
+            <source src="/academicpages/images/faceswap2.mp4" type="video/mp4">
           </video>
         </section>
       </li>
@@ -371,12 +417,12 @@ author_profile: true
           Generates accurate lip movements from audio plus a portrait still...
         </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
-          <img src="{{ '/images/barbara_original_8.jpg' | relative_url }}"
+          <img src="/academicpages/images/barbara_original_8.jpg"
                alt="Vertical Barbara Feldon"
                style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;" />
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
-            <source src="{{ '/images/lypfinal.mp4' | relative_url }}" type="video/mp4">
+            <source src="/academicpages/images/lypfinal.mp4" type="video/mp4">
           </video>
         </section>
       </li>
@@ -384,15 +430,15 @@ author_profile: true
       <li>
         <strong>2.3: Hunyuan IP2V</strong> — Image-to-Video Engine
         <p>
-          Converts static images into dynamic scenes guided by prompts and style references...
+          Converts static images into dynamic scenes guided by prompts & style references...
         </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
-          <img src="{{ '/images/lora1.png' | relative_url }}"
+          <img src="/academicpages/images/lora1.png"
                alt="Vertical Barbara Feldon"
                style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;" />
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;">
-            <source src="{{ '/images/barbaravideo.mp4' | relative_url }}" type="video/mp4">
+            <source src="/academicpages/images/barbaravideo.mp4" type="video/mp4">
           </video>
         </section>
       </li>
@@ -405,7 +451,7 @@ author_profile: true
         <div style="display: flex; justify-content: center;">
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;">
-            <source src="{{ '/images/final.mp4' | relative_url }}" type="video/mp4">
+            <source src="/academicpages/images/final.mp4" type="video/mp4">
           </video>
         </div>
       </li>

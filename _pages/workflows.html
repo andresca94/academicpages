@@ -5,6 +5,7 @@ permalink: /workflows/
 author_profile: true
 ---
 
+{% raw %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,15 +147,13 @@ author_profile: true
         <ul>
           <li>Inpainting: Replace or remove unwanted parts of the image.</li>
           <div class="image-gallery">
-            <!-- Example usage with Jekyll's relative_url filter; adjust paths as needed. -->
-            <img src="{{ '/images/in1.png' | relative_url }}" alt="Barbara Feldon Original 1" />
-            <img src="{{ '/images/in2.png' | relative_url }}" alt="Barbara Feldon Original 2" />
-            <img src="{{ '/images/in3.png' | relative_url }}" alt="Barbara Feldon Original 3" />
-            <img src="{{ '/images/in4.png' | relative_url }}" alt="Barbara Feldon Original 4" />
+            <img src="{{ '/images/in1.png' | relative_url }}" alt="Inpainting Example 1" />
+            <img src="{{ '/images/in2.png' | relative_url }}" alt="Inpainting Example 2" />
+            <img src="{{ '/images/in3.png' | relative_url }}" alt="Inpainting Example 3" />
+            <img src="{{ '/images/in4.png' | relative_url }}" alt="Inpainting Example 4" />
           </div>
           <li>Outpainting: Expand the canvas for more background content.</li>
           <div class="image-gallery">
-            <!-- Example usage with Jekyll's relative_url filter; adjust paths as needed. -->
             <img src="{{ '/images/out1.png' | relative_url }}" alt="Outpainting Example 1" />
             <img src="{{ '/images/out2.png' | relative_url }}" alt="Outpainting Example 2" />
             <img src="{{ '/images/out3.png' | relative_url }}" alt="Outpainting Example 3" />
@@ -195,7 +194,6 @@ author_profile: true
         Uses upscaled photos to train a LoRA for consistent facial identity. LoRA (proposed in 2021) is widely adopted across diffusion models for stable or stylized character replication. This ensures Barbara’s features remain accurate across varied poses and styles.
       </li>
       <div class="image-gallery">
-        <!-- Example usage with Jekyll's relative_url filter; adjust paths as needed. -->
         <img src="{{ '/images/lora1.png' | relative_url }}" alt="Barbara Feldon Original 1" />
         <img src="{{ '/images/lora2.png' | relative_url }}" alt="Barbara Feldon Original 2" />
         <img src="{{ '/images/lora3.png' | relative_url }}" alt="Barbara Feldon Original 3" />
@@ -236,7 +234,7 @@ author_profile: true
         <strong>1.5: FLUX Depth Canny + ToonCrafter (2023)</strong><br>
         Applies depth and edge data for cartoon-style interpolation. <em>ToonCrafter</em> (by CUHK & Tencent AI Lab) can generate cartoon transitions or partial animations from existing images.
         <p>
-          Combine depth and edge detection to maintain structure or perspective. This is useful for stylized transformations, ensuring correct outlines and basic 3D cues. 
+          Combine depth and edge detection to maintain structure or perspective. This is useful for stylized transformations, ensuring correct outlines and basic 3D cues.
         </p>
       </li>
       <div class="image-gallery">
@@ -253,7 +251,7 @@ author_profile: true
       </div>      
 
       <li>
-        <strong>1.6: CatVTON (2023)</strong><br>
+        <strong>1.6 - CatVTON (2023)</strong><br>
         High-fidelity virtual try-on system merging diffusion with NeRF-like 3D reasoning for realistic garment overlays. Developed by Zheng Chong et al. and presented at ICLR 2025.
       </li>
       <div class="image-gallery">
@@ -313,8 +311,9 @@ author_profile: true
           Tu navegador no soporta videos.
         </video>
       </section>
+
       <li>
-        <strong>2.3: Hunyuan IP2V </strong> — Image-to-Video Engine<br>
+        <strong>2.3: Hunyuan IP2V</strong> — Image-to-Video Engine<br>
         Converts static images into dynamic scenes guided by prompts and style references. Part of Tencent’s Hunyuan ecosystem, supporting up to 720p at 24fps for short video sequences.
       </li>
       <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
@@ -330,6 +329,7 @@ author_profile: true
           Tu navegador no soporta videos.
         </video>
       </section>
+
       <li>
         <strong>2.4: Hunyuan Video (2024)</strong> — Video-to-Video Engine<br>
         Tencent’s advanced Video-to-Video solution guided by prompts and LoRA styles, supporting higher resolutions and dynamic 3D backgrounds. Successor to IP2V.
@@ -393,3 +393,4 @@ author_profile: true
 
 </body>
 </html>
+{% endraw %}

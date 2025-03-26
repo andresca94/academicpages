@@ -27,7 +27,7 @@ author_profile: true
       text-align: justify;
     }
 
-    /* Gallery Layout */
+    /* Main gallery styling */
     .image-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -36,8 +36,8 @@ author_profile: true
       margin-bottom: 20px;
     }
 
-    /* We do NOT forcibly hide barbara-gallery via CSS.
-       The JavaScript will hide all but 4 images. */
+    /* We do NOT forcibly hide #barbara-gallery in CSS.
+       The JavaScript will hide them except for 4. */
     .image-gallery img {
       width: 300px;
       height: 300px;
@@ -66,7 +66,7 @@ author_profile: true
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
-    /* Buttons for the 4-at-a-time carousel */
+    /* Buttons for pagination */
     .gallery-controls {
       text-align: center;
       margin-top: 20px;
@@ -101,7 +101,7 @@ author_profile: true
       Here we display original photos of Barbara Feldon, which serve as the basis for subsequent transformations and enhancements. These images were selected for their clarity and representative facial angles, ideal for training LoRAs and exploring editing workflows.
     </p>
 
-    <!-- 12 images, displayed 4 at a time via the JavaScript below -->
+    <!-- The 12 images, 4 displayed at a time via the JavaScript below -->
     <div class="image-gallery" id="barbara-gallery">
       <img src="{{ '/images/barbara_original_1.jpg' | relative_url }}" alt="Barbara Feldon Original 1" />
       <img src="{{ '/images/barbara_original_2.jpg' | relative_url }}" alt="Barbara Feldon Original 2" />
@@ -125,59 +125,34 @@ author_profile: true
 
     <h3>FLUX and Its Capabilities (2023)</h3>
     <p>
-      <strong>FLUX</strong> is a powerful modular toolkit released in <em>mid-2023</em> by Black Forest Labs (BFL) for ComfyUI. It enables advanced inpainting, outpainting, upscaling, animation, and LoRA training, all built atop Stable Diffusion technology.
+      <strong>FLUX</strong> is a powerful modular toolkit released in <em>mid-2023</em> by Black Forest Labs (BFL) for ComfyUI...
     </p>
 
-    <!-- Numbered list for Part One -->
+    <!-- PART ONE LIST with no colons in the headings -->
     <ul>
-      <!-- 1.1 -->
       <li>
-        <strong>1.1: Inpainting and Outpainting with FLUX</strong><br>
-        Flux Fill uses advanced in/outpainting models to modify both real and AI-generated images by providing text prompts and masks.
-        <br><br>
-        <strong>Example Workflow Highlights:</strong>
-        <ul>
-          <li>Inpainting: Replace or remove unwanted parts of the image.</li>
-          <div class="image-gallery">
-            <img src="{{ '/images/in1.png' | relative_url }}" alt="Barbara Feldon Inpainting 1" />
-            <img src="{{ '/images/in2.png' | relative_url }}" alt="Barbara Feldon Inpainting 2" />
-            <img src="{{ '/images/in3.png' | relative_url }}" alt="Barbara Feldon Inpainting 3" />
-            <img src="{{ '/images/in4.png' | relative_url }}" alt="Barbara Feldon Inpainting 4" />
-          </div>
-          <li>Outpainting: Expand the canvas for more background content.</li>
-          <div class="image-gallery">
-            <img src="{{ '/images/out1.png' | relative_url }}" alt="Barbara Feldon Outpainting 1" />
-            <img src="{{ '/images/out2.png' | relative_url }}" alt="Barbara Feldon Outpainting 2" />
-            <img src="{{ '/images/out3.png' | relative_url }}" alt="Barbara Feldon Outpainting 3" />
-            <img src="{{ '/images/out4.png' | relative_url }}" alt="Barbara Feldon Outpainting 4" />
-          </div>
-        </ul>
-        <p>
-          <strong>Steps:</strong><br>
-          1. Provide an input image (for in/outpainting).<br>
-          2. Specify text prompts & relevant masks.<br>
-          3. Execute the workflow to generate the new content.<br>
-          4. Adjust parameters or sample steps to refine results.
-        </p>
+        <strong>1.1 - Inpainting and Outpainting with FLUX</strong><br>
+        Flux Fill uses advanced in/outpainting models...
+        <div class="image-gallery">
+          <img src="{{ '/images/in1.png' | relative_url }}" alt="Barbara Feldon Inpainting 1" />
+          <img src="{{ '/images/in2.png' | relative_url }}" alt="Barbara Feldon Inpainting 2" />
+          <img src="{{ '/images/in3.png' | relative_url }}" alt="Barbara Feldon Inpainting 3" />
+          <img src="{{ '/images/in4.png' | relative_url }}" alt="Barbara Feldon Inpainting 4" />
+        </div>
       </li>
 
-      <!-- 1.2 -->
       <li>
-        <strong>1.2: FLUX Upscaler (2023)</strong><br>
-        Enhances resolution and quality. Useful for refining Barbara’s photos prior to training or transformations.
+        <strong>1.2 - FLUX Upscaler (2023)</strong><br>
+        Enhances resolution and quality...
         <div class="image-gallery">
           <img src="{{ '/images/barbara_original_3.jpg' | relative_url }}" alt="Barbara Feldon Original 3" />
           <img src="{{ '/images/up.png' | relative_url }}" alt="Upscaled Example" />
         </div>
-        <p>
-          The Flux Upscaler uses the Ultimate SD Upscaler node to preserve detail and clarity while boosting resolution (4k, 8k, up to 32k).
-        </p>
       </li>
 
-      <!-- 1.3 -->
       <li>
-        <strong>1.3: FLUX LoRA Character Consistency Training</strong><br>
-        Uses upscaled photos to train a LoRA for consistent facial identity. This ensures Barbara’s features remain accurate across poses and styles.
+        <strong>1.3 - FLUX LoRA Character Consistency Training</strong><br>
+        Uses upscaled photos to train a LoRA for consistent facial identity...
       </li>
       <div class="image-gallery">
         <img src="{{ '/images/lora1.png' | relative_url }}" alt="Barbara Feldon LoRA 1" />
@@ -190,13 +165,11 @@ author_profile: true
         <img src="{{ '/images/lora9.png' | relative_url }}" alt="Barbara Feldon LoRA 9" />
       </div>
 
-      <!-- 1.4 -->
       <li>
-        <strong>1.4: 3D with Hunyuan3D-2 (2024)</strong><br>
-        Converts images to detailed 3D meshes using diffusion-based geometry generation. 
+        <strong>1.4 - 3D with Hunyuan3D-2 (2024)</strong><br>
+        Converts images to detailed 3D meshes...
         <div class="image-gallery">
           <img src="{{ '/images/segunda3D.png' | relative_url }}" alt="Barbara Feldon 3D" />
-          A two-stage 3D generation system from Tencent, featuring a shape generation model (Hunyuan3D-DiT) and a texture synthesis model (Hunyuan3D-Paint).
         </div>
         <model-viewer
           src="{{ '/images/1193_00008_.glb' | relative_url }}"
@@ -208,31 +181,26 @@ author_profile: true
         </model-viewer>
       </li>
 
-      <!-- 1.5 -->
       <li>
-        <strong>1.5: FLUX Depth Canny + ToonCrafter (2023)</strong><br>
-        Applies depth/edge data for cartoon-style interpolation. 
-        <p>
-          Useful for stylized transformations with correct outlines & basic 3D cues.
-        </p>
+        <strong>1.5 - FLUX Depth Canny + ToonCrafter (2023)</strong><br>
+        Applies depth & edge data for cartoon-style interpolation...
         <div class="image-gallery">
           <div class="image-row gifs">
             <div class="gif-wrapper">
-              <img src="{{ '/images/paso1.gif' | relative_url }}" alt="Animated Barbara Feldon 1" />
+              <img src="{{ '/images/paso1.gif' | relative_url }}" alt="Animated Barbara 1" />
             </div>
             <div class="gif-wrapper">
-              <img src="{{ '/images/paso2.gif' | relative_url }}" alt="Animated Barbara Feldon 2" />
+              <img src="{{ '/images/paso2.gif' | relative_url }}" alt="Animated Barbara 2" />
             </div>
           </div>
         </div>
       </li>
 
-      <!-- 1.6 -->
       <li>
-        <strong>1.6: CatVTON (2023)</strong><br>
-        High-fidelity virtual try-on system merging diffusion with NeRF-like 3D reasoning. Developed by Zheng Chong et al., ICLR 2025.
+        <strong>1.6 - CatVTON (2023)</strong><br>
+        High-fidelity virtual try-on system merging diffusion with NeRF-like 3D reasoning...
         <div class="image-gallery">
-          <img src="{{ '/images/VTO1.png' | relative_url }}" alt="Barbara Feldon CatVTON" />
+          <img src="{{ '/images/VTO1.png' | relative_url }}" alt="CatVTON Example" />
         </div>
       </li>
     </ul>
@@ -244,31 +212,29 @@ author_profile: true
   <section>
     <h2>Part Two: Video Generation & Animation</h2>
     <p>
-      In this phase, we apply generative and animation tools to bring Barbara Feldon to life through video sequences, dance animations, and stylized performances.
+      In this phase, we apply generative and animation tools to bring Barbara Feldon to life...
     </p>
 
     <ul>
       <li>
-        <strong>2.1: ReActor (2023)</strong> — Face Swap Module
+        <strong>2.1 - ReActor (2023)</strong>
         <p>
-          Allows face swapping in videos using real or generated reference portraits. Powered by advanced models like inswapper_128 and retinaface_resnet50. Face boosting & RealESRGAN refine final results.
+          Allows face swapping in videos using real or generated reference portraits...
         </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
             <source src="{{ '/images/faceswap1.mp4' | relative_url }}" type="video/mp4">
-            Your browser does not allow video.
           </video>
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
             <source src="{{ '/images/faceswap2.mp4' | relative_url }}" type="video/mp4">
-            Your browser does not allow video.
           </video>
         </section>
       </li>
 
       <li>
-        <strong>2.2: Sonic (2023)</strong> — Lip-Sync Portrait Animation
+        <strong>2.2 - Sonic (2023)</strong>
         <p>
           Generates accurate lip movements from audio plus a portrait still. Developed by Tencent & Zhejiang University.
         </p>
@@ -279,15 +245,14 @@ author_profile: true
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
             <source src="{{ '/images/lypfinal.mp4' | relative_url }}" type="video/mp4">
-            Your browser does not allow video.
           </video>
         </section>
       </li>
 
       <li>
-        <strong>2.3: Hunyuan IP2V</strong> — Image-to-Video Engine
+        <strong>2.3 - Hunyuan IP2V</strong>
         <p>
-          Converts static images into dynamic scenes guided by prompts & style references. Part of Tencent’s Hunyuan ecosystem.
+          Converts static images into dynamic scenes guided by prompts & style references...
         </p>
         <section style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: flex-start;">
           <img src="{{ '/images/lora1.png' | relative_url }}"
@@ -296,30 +261,29 @@ author_profile: true
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;">
             <source src="{{ '/images/barbaravideo.mp4' | relative_url }}" type="video/mp4">
-            Your browser does not allow video.
           </video>
         </section>
       </li>
 
       <li>
-        <strong>2.4: Hunyuan Video (2024)</strong> — Video-to-Video Engine
+        <strong>2.4 - Hunyuan Video (2024)</strong>
         <p>
-          Advanced solution guided by prompts and LoRA styles, supporting higher resolutions & dynamic 3D backgrounds. Successor to IP2V.
+          Tencent’s advanced Video-to-Video solution guided by prompts & LoRA styles, supporting higher resolutions and dynamic 3D backgrounds.
         </p>
         <div style="display: flex; justify-content: center;">
           <video controls autoplay muted loop
                  style="width: 45%; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.15); object-fit: cover;">
             <source src="{{ '/images/final.mp4' | relative_url }}" type="video/mp4">
-            Your browser does not allow video.
           </video>
         </div>
       </li>
     </ul>
   </section>
 
-  <!-- JavaScript for the 4-images-per-page carousel -->
+  <!-- JavaScript for 4-images-per-page carousel -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      console.log("DOM Loaded - starting Barbara Carousel script");
       const gallery = document.getElementById('barbara-gallery');
       const images = gallery.querySelectorAll('img');
       const prevBtn = document.getElementById('prevBtn');
@@ -329,17 +293,16 @@ author_profile: true
       let currentPage = 0;
 
       function showImages(page) {
-        console.log("showImages called, page =", page);
-        // Hide all images
+        console.log("showImages called. Page =", page);
+        // Hide all 12
         images.forEach(img => {
           img.style.display = 'none';
         });
-
-        // Show only the subset for this page
+        // Show the subset from startIndex to endIndex
         const startIndex = page * imagesPerPage;
         const endIndex = startIndex + imagesPerPage;
         for (let i = startIndex; i < endIndex && i < images.length; i++) {
-          console.log("Displaying index", i, "->", images[i].alt);
+          console.log("Displaying index:", i, " ->", images[i].alt);
           images[i].style.display = 'block';
         }
       }
@@ -351,21 +314,21 @@ author_profile: true
           currentPage++;
           showImages(currentPage);
         } else {
-          console.log("Already at last page.");
+          console.log("Already at final page; no increment.");
         }
       });
 
       prevBtn.addEventListener('click', () => {
-        console.log("Previous clicked. currentPage =", currentPage);
+        console.log("Prev clicked. currentPage =", currentPage);
         if (currentPage > 0) {
           currentPage--;
           showImages(currentPage);
         } else {
-          console.log("Already at first page.");
+          console.log("Already at first page; no decrement.");
         }
       });
 
-      // On page load, show the first 4
+      // On load, show 4 images (page 0)
       console.log("Initial load -> showImages(0)");
       showImages(currentPage);
     });

@@ -19,6 +19,8 @@ My work spans multiple platforms, offering **_AI plugins for Adobe After Effects
 I focus on **_generative AI development_** using **_PyTorch_**, **_TensorFlow_**, **_FastAPI_**, **_microservices_**, and **_Python_**.  
 At **_DeepMake_**, I specialize in **_segmentation_**, **_upscaling_**, **_deepfakes_**, **_autoencoders_**, and **_diffusion models_**. I also fine-tune **_LoRAs_** and deploy models optimized for **_high-performance computing (CUDA)_** to create efficient solutions for creative media workflows.
 
+To see my other work related to LLMs, AI Agents, RAG-based apps, and Data Science, check here: https://andresca94.github.io/
+
 Projects and Workflows:
 ======
 1. **_Generative AI Tools Development_**:  

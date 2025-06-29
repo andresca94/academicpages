@@ -20,34 +20,32 @@ Education
 
 Work experience
 ======
-* **AI Engineer (Contract)** — RandomAI, Remote (Toronto, ON, Canada) — *Jan. 2025 – Present*  
+* **AI Engineer (Contract)** — [RandomAI](https://randomai.shop), Remote (Toronto, ON, Canada) — *Jan. 2025 – Present*  
   * Architected a serverless e-commerce platform integrating SvelteKit, Firebase Auth, Shopify Buy SDK, and Google Cloud.  
   * Built an AI image generation pipeline (Stable Diffusion/FLUX/SAM) on Replicate for custom print-on-demand.  
   * Integrated Prismic + SliceMachine CMS for no-code landing pages with AI design presets.
 
-* **Machine Learning Engineer** — DeepMake, Remote (USA) — *Apr. 2023 – Nov. 2024*  
+* **Machine Learning Engineer** — [DeepMake](https://deepmake.com), Remote (USA) — *Apr. 2023 – Nov. 2024*  
   * Led development of AI-powered VFX tools (Bisenet, GroundingDINO, Super Resolution, Stable Diffusion).  
   * Deployed tools across Windows/macOS/Linux, reaching 10K+ users including Netflix, Apple, and BBC creators.  
-  * Built FastAPI services and trained LoRAs, deepfakes, and segmentation models with CUDA-accelerated backends.
+  * Built FastAPI services and trained LoRAs, deepfakes, and segmentation models with CUDA-accelerated backends.  
+  * <a href="https://github.com/DeepMakeStudio/GroundingDINO-SAM" target="_blank"><i class="fab fa-github"></i> View Code on GitHub</a>
 
-* **Software Developer / Automation Engineer** — CAREL USA, Hybrid (Roswell, GA) — *Jun. 2022 – Apr. 2023*  
+* **Software Developer / Automation Engineer** — [CAREL USA](https://carel.com), Hybrid (Roswell, GA) — *Jun. 2022 – Apr. 2023*  
   * Developed HVAC/R control systems with Structured Text PLCs and JavaScript-based HMIs.  
   * Integrated IoT telemetry and performed energy forecasting and analytics using Python.
 
 Projects
 ======
-* **AI Assistant for EHRs** – Gemini, Vertex AI, React, FastAPI  
-  Summarizes patient records using Google Cloud-hosted LLMs.  
-* **LoRA Fine-Tuning Scheduler** – PyTorch, Vue.js  
-  Trains and deploys fine-tuned diffusion models for content automation.  
-* **RAG Prose Generator** – Pinecone, OpenAI, FastAPI  
-  Combines retrieval-augmented generation with re-ranking for writing assistance.  
-* **Interior Design Generator** – SAM + Stable Diffusion  
-  Redesigns room images using segmentation + generative synthesis.  
-* **Multilingual YouTube Summarizer** – mT5 Transformers  
-  Transcribes, summarizes, and translates videos in multiple languages.  
-* **Music Genre Classifier** – Scikit-learn, Pandas, Plotly  
-  Classifies audio features and visualizes latent space clusters.
+* <a href="https://github.com/andresca94/LoRa-Scheduler" target="_blank"><i class="fab fa-github"></i></a> **LoRA Fine-Tuning Scheduler** – PyTorch, Vue.js  
+  Trains and deploys fine-tuned diffusion models for content automation.
+
+* <a href="https://github.com/andresca94/ProseGenerator" target="_blank"><i class="fab fa-github"></i></a> **RAG Prose Generator** – Pinecone, OpenAI, FastAPI  
+  Combines retrieval-augmented generation with re-ranking for writing assistance.
+
+* <a href="https://github.com/andresca94/InteriorDesign-Vue-Fast" target="_blank"><i class="fab fa-github"></i></a> **Interior Design Generator** – SAM + Stable Diffusion  
+  Redesigns room images using segmentation + generative synthesis.
+
 
 Skills
 ======

@@ -63,29 +63,7 @@ Skills
 * **Visualization:** Seaborn, Matplotlib, Plotly, RStudio, ArcGIS, D3.js  
 * **Design Tools:** Figma, Adobe Suite, MidJourney, ComfyUI, Runway, Firefly
 
-Publications
-======
-<ul>
-  {% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}
-</ul>
 
-Talks
-======
-<ul>
-  {% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}
-</ul>
-
-Teaching
-======
-<ul>
-  {% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}
-</ul>
 
 Service and leadership
 ======

@@ -43,7 +43,7 @@ redirect_from:
 <script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
 <script>
   (async () => {
-    const CORS_PROXY = "https://api.allorigins.win/get?url=";
+    const CORS_PROXY = "https://corsproxy.io/?";
     const parser = new RSSParser();
     const feedUrls = [
       'https://arxiv.org/rss/cs.CV',
@@ -56,9 +56,9 @@ redirect_from:
     for (let url of feedUrls) {
       try {
         const response = await fetch(CORS_PROXY + encodeURIComponent(url));
-        const result = await response.json();
-        const feed = await parser.parseString(result.contents);
-        
+        const xml = await response.text();
+        const feed = await parser.parseString(xml);
+
         output += `<h3>${feed.title}</h3>`;
         feed.items.slice(0, 5).forEach(item => {
           output += `<p>
@@ -75,4 +75,5 @@ redirect_from:
     document.getElementById('rss-feed').innerHTML = output;
   })();
 </script>
+
 

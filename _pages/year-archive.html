@@ -9,6 +9,10 @@ redirect_from:
 
 {% include base_path %}
 {% capture written_year %}'None'{% endcapture %}
+
+<h2>Latest AI Research (CV, LLMs, Diffusion)</h2>
+<div id="rss-feed">Loading latest posts…</div>
+
 {% for post in site.posts %}
   {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
   {% if year != written_year %}
@@ -17,3 +21,53 @@ redirect_from:
   {% endif %}
   {% include archive-single.html %}
 {% endfor %}
+
+<!-- RSS Parser Library -->
+<script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
+
+<!-- Style for RSS Feed -->
+<style>
+  #rss-feed p {
+    margin-bottom: 0.8em;
+  }
+  #rss-feed a {
+    font-weight: bold;
+    color: #007acc;
+    text-decoration: none;
+  }
+  #rss-feed small {
+    color: #555;
+  }
+</style>
+
+<!-- Script to Fetch and Display RSS Feed -->
+<script>
+  (async () => {
+    const parser = new RSSParser();
+    const feedUrls = [
+      'https://arxiv.org/rss/cs.CV',   // Computer Vision
+      'https://arxiv.org/rss/cs.CL',   // LLMs / NLP
+      'https://arxiv.org/rss/stat.ML'  // Machine Learning / Diffusion
+    ];
+
+    let output = '';
+
+    for (let url of feedUrls) {
+      try {
+        const feed = await parser.parseURL(url);
+        output += `<h3>${feed.title}</h3>`;
+        feed.items.slice(0, 5).forEach(item => {
+          output += `<p>
+            <a href="${item.link}" target="_blank">${item.title}</a><br/>
+            <small>${new Date(item.pubDate).toLocaleDateString()}</small>
+          </p>`;
+        });
+      } catch (err) {
+        output += `<p>Error loading ${url}</p>`;
+        console.error(err);
+      }
+    }
+
+    document.getElementById('rss-feed').innerHTML = output;
+  })();
+</script>

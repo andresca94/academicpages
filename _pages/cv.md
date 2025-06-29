@@ -29,7 +29,6 @@ Work experience
   * Led development of AI-powered VFX tools (Bisenet, GroundingDINO, Super Resolution, Stable Diffusion).  
   * Deployed tools across Windows/macOS/Linux, reaching 10K+ users including Netflix, Apple, and BBC creators.  
   * Built FastAPI services and trained LoRAs, deepfakes, and segmentation models with CUDA-accelerated backends.  
-  * <a href="https://github.com/DeepMakeStudio/GroundingDINO-SAM" target="_blank"><i class="fab fa-github"></i> View Code on GitHub</a>
 
 * **Software Developer / Automation Engineer** — [CAREL USA](https://carel.com), Hybrid (Roswell, GA) — *Jun. 2022 – Apr. 2023*  
   * Developed HVAC/R control systems with Structured Text PLCs and JavaScript-based HMIs.  

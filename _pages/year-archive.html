@@ -3,8 +3,6 @@ layout: archive
 permalink: /year-archive/
 title: "AI Research Blog Posts"
 author_profile: true
-redirect_from:
-  - /wordpress/blog-posts/
 ---
 
 {% include base_path %}
@@ -15,45 +13,53 @@ redirect_from:
 <!-- RSS Parser -->
 <script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
 
+{% raw %}
 <script>
-  (async () => {
-    const parser = new RSSParser();
-    const CORS_PROXY = "https://api.allorigins.win/get?url=";
+(async () => {
+  const parser      = new RSSParser();
+  const CORS_PROXY  = "https://api.allorigins.win/get?url=";
 
-    const feeds = [
-      { url: "https://arxiv.org/rss/cs.CV", label: "Computer Vision" },
-      { url: "https://arxiv.org/rss/cs.CL", label: "Large Language Models / NLP" },
-      { url: "https://arxiv.org/rss/stat.ML", label: "Diffusion / Machine Learning" }
-    ];
+  const feeds = [
+    { url: "https://arxiv.org/rss/cs.CV", label: "Computer Vision" },
+    { url: "https://arxiv.org/rss/cs.CL", label: "Large Language Models / NLP" },
+    { url: "https://arxiv.org/rss/stat.ML", label: "Diffusion / Machine Learning" }
+  ];
 
-    let html = "";
+  let html = "";
 
-    for (const { url, label } of feeds) {
-      try {
-        const res   = await fetch(CORS_PROXY + encodeURIComponent(url));
-        const json  = await res.json();             // allorigins devuelve {contents, status}
-        const feed  = await parser.parseString(json.contents);
+  for (const { url, label } of feeds) {
+    try {
+      const res    = await fetch(CORS_PROXY + encodeURIComponent(url));
+      const json   = await res.json();                // AllOrigins devuelve { contents, status }
+      const feed   = await parser.parseString(json.contents);
 
-        html += `<h3>${label}</h3>`;
-        feed.items.slice(0, 5).forEach(item => {
-          const date = new Date(item.pubDate || item.isoDate).toLocaleDateString();
-          html += `
-            <p>
-              <a href="${item.link}" target="_blank">${item.title}</a><br/>
-              <small>${date}</small><br/>
-              <em>${item.contentSnippet || ''}</em>
-            </p>`;
-        });
+      html += '<h3>' + label + '</h3>';
 
-      } catch (err) {
-        console.error(`RSS error [${label}]`, err);
-        html += `<p>⚠️ Error al cargar el feed de ${label}</p>`;
-      }
+      feed.items.slice(0, 5).forEach(item => {
+        const date = new Date(item.pubDate || item.isoDate).toLocaleDateString();
+        // Sanitizar snippet por si trae caracteres conflictivos
+        const snippet = (item.contentSnippet || '')
+                          .replace(/[`$]/g, '')        // quita back-tick y $
+                          .replace(/<\/?[^>]+>/g, '')  // quita etiquetas HTML
+                          .trim();
+
+        html += '<p>' +
+                  '<a href="' + item.link + '" target="_blank">' + item.title + '</a><br/>' +
+                  '<small>' + date + '</small>' +
+                  (snippet ? '<br/><em>' + snippet + '</em>' : '') +
+                '</p>';
+      });
+
+    } catch (err) {
+      console.error('RSS error [' + label + ']', err);
+      html += '<p>⚠️ Error al cargar el feed de ' + label + '</p>';
     }
+  }
 
-    document.getElementById("rss-feed").innerHTML = html;
-  })();
+  document.getElementById('rss-feed').innerHTML = html;
+})();
 </script>
+{% endraw %}
 
 <style>
   #rss-feed h3 {
@@ -67,11 +73,7 @@ redirect_from:
     padding-left: 1rem;
     background: #f9f9f9;
   }
-  #rss-feed a {
-    font-weight: bold;
-    color: #007acc;
-    text-decoration: none;
-  }
+  #rss-feed a { font-weight: bold; color: #007acc; text-decoration: none; }
   #rss-feed small { color: #777; }
-  #rss-feed em    { color: #444; font-style: italic; }
+  #rss-feed em { color: #444; font-style: italic; }
 </style>

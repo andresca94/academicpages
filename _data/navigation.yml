@@ -13,9 +13,6 @@ main:
     
   - title: "Workflows"
     url: /workflows/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
     
   - title: "CV"
     url: /cv/

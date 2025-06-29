@@ -13,11 +13,11 @@ redirect_from:
 
 About me:
 ======
-I am an engineer and developer, currently working as a **_Machine Learning Engineer_** in the **_VFX and media industry_**. I lead the development of **_AI-powered tools_** for visual artists and producers.  
+I am an engineer and developer, currently working as a **_Machine Learning Engineer_** in the **_VFX, fashion and media industry_**. I lead the development of **_AI-powered tools_** for visual artists and producers.  
 My work spans multiple platforms, offering **_AI plugins for Adobe After Effects_**, standalone **_upscalers_**, cloud-based **_segmentation tools_**, and **_ComfyUI workflows_**. I also build personalized environments for local and cloud deployment, with seamless integration into professional video editing software.
 
 I focus on **_generative AI development_** using **_PyTorch_**, **_TensorFlow_**, **_FastAPI_**, **_microservices_**, and **_Python_**.  
-At **_DeepMake_**, I specialize in **_segmentation_**, **_upscaling_**, **_deepfakes_**, **_autoencoders_**, and **_diffusion models_**. I also fine-tune **_LoRAs_** and deploy models optimized for **_high-performance computing (CUDA)_** to create efficient solutions for creative media workflows.
+I specialize in **_segmentation_**, **_upscaling_**, **_deepfakes_**, **_autoencoders_**, and **_diffusion models_**. I also fine-tune **_LoRAs_** and deploy models optimized for **_high-performance computing (CUDA)_** to create efficient solutions for creative media workflows.
 
 To see my other work related to LLMs, AI Agents, RAG-based apps, and Data Science, check out my [portfolio website](https://andresca94.github.io/).
 

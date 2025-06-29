@@ -1,7 +1,7 @@
 ---
 layout: archive
 permalink: /year-archive/
-title: "Blog posts"
+title: "AI Research Blog Posts"
 author_profile: true
 redirect_from:
   - /wordpress/blog-posts/
@@ -9,16 +9,66 @@ redirect_from:
 
 {% include base_path %}
 
-<h2>Latest AI Research (CV, LLMs, Diffusion)</h2>
-<div id="rss-feed">Loading latest posts…</div>
+<!-- 🔹 Sección dinámica de publicaciones desde arXiv (CV, LLM, Diffusion) -->
+<h2>🧠 Últimas publicaciones sobre CV, LLM y Difusión (desde arXiv)</h2>
+<div id="rss-feed">Cargando publicaciones…</div>
 
-<!-- RSS Parser Library -->
+<!-- 🔹 Script RSS Parser para feeds externos -->
 <script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
+<script>
+  (async () => {
+    const parser = new RSSParser();
+    const CORS_PROXY = "https://corsproxy.io/?";
 
-<!-- Style for RSS Feed -->
+    const feedUrls = [
+      { url: "https://arxiv.org/rss/cs.CV", label: "Computer Vision" },
+      { url: "https://arxiv.org/rss/cs.CL", label: "Large Language Models / NLP" },
+      { url: "https://arxiv.org/rss/stat.ML", label: "Diffusion Models / ML" }
+    ];
+
+    let output = "";
+
+    for (let feed of feedUrls) {
+      try {
+        const response = await fetch(CORS_PROXY + encodeURIComponent(feed.url));
+        const xml = await response.text();
+        const parsed = await parser.parseString(xml);
+
+        output += `<h3>${feed.label}</h3>`;
+        parsed.items.slice(0, 5).forEach(item => {
+          const date = new Date(item.pubDate || item.isoDate).toLocaleDateString();
+          output += `
+            <p>
+              <a href="${item.link}" target="_blank">${item.title}</a><br/>
+              <small>${date}</small><br/>
+              <em>${item.contentSnippet || ''}</em>
+            </p>`;
+        });
+      } catch (err) {
+        output += `<p>⚠️ Error al cargar el feed de ${feed.label}</p>`;
+        console.error("RSS error:", err);
+      }
+    }
+
+    document.getElementById("rss-feed").innerHTML = output;
+  })();
+</script>
+
+<!-- 🔹 Estilos para feed dinámico -->
 <style>
+  #rss-feed {
+    margin-top: 2em;
+  }
+  #rss-feed h3 {
+    margin-top: 1.5em;
+    border-bottom: 2px solid #007acc;
+    padding-bottom: 0.3em;
+  }
   #rss-feed p {
-    margin-bottom: 0.8em;
+    margin-bottom: 1.2em;
+    border-left: 3px solid #007acc;
+    padding-left: 1em;
+    background-color: #f9f9f9;
   }
   #rss-feed a {
     font-weight: bold;
@@ -26,44 +76,10 @@ redirect_from:
     text-decoration: none;
   }
   #rss-feed small {
-    color: #555;
+    color: #777;
+  }
+  #rss-feed em {
+    font-style: italic;
+    color: #444;
   }
 </style>
-
-<script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
-<script>
-  (async () => {
-    const CORS_PROXY = "https://corsproxy.io/?";
-    const parser = new RSSParser();
-    const feedUrls = [
-      'https://arxiv.org/rss/cs.CV',
-      'https://arxiv.org/rss/cs.CL',
-      'https://arxiv.org/rss/stat.ML'
-    ];
-
-    let output = '';
-
-    for (let url of feedUrls) {
-      try {
-        const response = await fetch(CORS_PROXY + encodeURIComponent(url));
-        const xml = await response.text();
-        const feed = await parser.parseString(xml);
-
-        output += `<h3>${feed.title}</h3>`;
-        feed.items.slice(0, 5).forEach(item => {
-          output += `<p>
-            <a href="${item.link}" target="_blank">${item.title}</a><br/>
-            <small>${new Date(item.pubDate).toLocaleDateString()}</small>
-          </p>`;
-        });
-      } catch (err) {
-        output += `<p>Error loading <code>${url}</code></p>`;
-        console.error(err);
-      }
-    }
-
-    document.getElementById('rss-feed').innerHTML = output;
-  })();
-</script>
-
-

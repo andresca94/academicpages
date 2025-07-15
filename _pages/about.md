@@ -20,7 +20,10 @@ I focus on **_generative AI development_** using **_PyTorch_**, **_TensorFlow_**
 I specialize in **_segmentation_**, **_upscaling_**, **_deepfakes_**, **_autoencoders_**, and **_diffusion models_**. I also fine-tune **_LoRAs_** and deploy models optimized for **_high-performance computing (CUDA)_** to create efficient solutions for creative media workflows.
 
 To see my other work related to LLMs, AI Agents, RAG-based apps, and Data Science, check out my [portfolio website](https://andresca94.github.io/).
-<img src="{{ '/images/prose-art.gif' | relative_url }}" alt="AI Agent" style="width:300px; height:300px; ; object-fit:cover;" />
+
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+  <img src="{{ '/images/prose-art.gif' | relative_url }}" alt="AI Agent" style="width:300px; height:300px; object-fit:cover;" />
+</div>
 
 Projects and Workflows:
 ======

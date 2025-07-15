@@ -7,8 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-<div style="display: flex; justify-content: center; margin-bottom: 20px;">
-  <img src="{{ '/images/me.jpeg' | relative_url }}" alt="Andres Carvajal" style="width:300px; height:300px; border-radius:50%; object-fit:cover;" />
+<div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+  <img src="{{ '/images/prose-art.gif' | relative_url }}" alt="AI Agent" style="max-width: 100%; width: 600px; height: auto; object-fit: contain; border-radius: 12px;" />
+  <p style="margin-top: 10px; font-style: italic; font-size: 16px; color: #555;">AI Agent prose and art generator</p>
 </div>
 
 About me:

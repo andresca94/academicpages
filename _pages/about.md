@@ -7,10 +7,8 @@ redirect_from:
   - /about.html
 ---
 
-<div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-  <img src="{{ '/images/prose-art.gif' | relative_url }}" alt="AI Agent" style="max-width: 100%; width: 600px; height: auto; object-fit: contain; border-radius: 12px;" />
-  <p style="margin-top: 10px; font-style: italic; font-size: 16px; color: #555;">AI Agent prose and art generator</p>
-</div>
+<div style="display: flex; justify-content: center; margin-bottom: 20px;">
+  <img src="{{ '/images/me.jpeg' | relative_url }}" alt="Andres Carvajal" style="width:300px; height:300px; border-radius:50%; object-fit:cover;" />
 
 About me:
 ======
@@ -22,8 +20,9 @@ I specialize in **_segmentation_**, **_upscaling_**, **_deepfakes_**, **_autoenc
 
 To see my other work related to LLMs, AI Agents, RAG-based apps, and Data Science, check out my [portfolio website](https://andresca94.github.io/).
 
-<div style="display: flex; justify-content: center; margin-top: 20px;">
-  <img src="{{ '/images/prose-art.gif' | relative_url }}" alt="AI Agent" style="width:300px; height:300px; object-fit:cover;" />
+<div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+  <img src="{{ '/images/prose-art.gif' | relative_url }}" alt="AI Agent" style="max-width: 100%; width: 600px; height: auto; object-fit: contain; border-radius: 12px;" />
+  <p style="margin-top: 10px; font-style: italic; font-size: 16px; color: #555;">AI Agent prose and art generator</p>
 </div>
 
 Projects and Workflows:

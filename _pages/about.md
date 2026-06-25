@@ -23,11 +23,6 @@ I specialize in **_segmentation_**, **_upscaling_**, **_deepfakes_**, **_autoenc
 
 To see my other work related to LLMs, AI Agents, RAG-based apps, and Data Science, check out my [portfolio website](https://andresca94.github.io/).
 
-<div style="display: flex; flex-direction: column; align-items: center; margin-top: 30px; margin-bottom: 30px;">
-  <img src="{{ '/images/prose-art.gif' | relative_url }}" alt="AI Agent" style="max-width: 100%; width: 600px; height: auto; object-fit: contain; border-radius: 12px;" />
-  <p style="margin-top: 10px; font-style: italic; font-size: 16px; color: #555;">AI Agent prose and art generator</p>
-</div>
-
 ## Projects and Workflows
 
 ### 1. **_Generative AI Tools Development_**

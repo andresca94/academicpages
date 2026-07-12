@@ -9,21 +9,15 @@ redirect_from:
 ---
 
 <div class="creative-home">
-  <section class="creative-home__hero">
-    <div class="creative-home__eyebrow">AI CREATIVE TECHNOLOGIST · VIDEO AI SYSTEMS · AUTOMATION</div>
-    <div class="creative-home__hero-grid">
+  <section class="creative-home__hero creative-home__hero--dashboard">
+    <div class="creative-home__hero-grid creative-home__hero-grid--compact">
       <div class="creative-home__hero-copy">
+        <div class="creative-home__eyebrow">AI CREATIVE TECHNOLOGIST · VIDEO AI SYSTEMS · AUTOMATION</div>
         <h1 class="creative-home__headline">Building AI-native creative systems for fashion, media, and social-first brands.</h1>
-        <p class="creative-home__lede">
-          I’m Andres Carvajal, an AI creative technologist focused on the space between creative direction and
-          technical execution: prompt systems, generative video, VFX-oriented AI workflows, automation layers, and the
-          production infrastructure that helps teams move from brief to polished output faster.
-        </p>
-        <p class="creative-home__lede">
-          My best work sits where realism, speed, creative taste, and scalability all matter at once. I build systems
-          for audience and brief synthesis, concept acceleration, AI-assisted asset generation, short-form video
-          iteration, localization, review workflows, and repeatable content production without making the output feel
-          generic or overly artificial.
+        <p class="creative-home__lede creative-home__lede--compact">
+          I build the layer between creative direction and technical execution: prompt systems, generative video,
+          VFX-oriented AI workflows, automation, localization, and production infrastructure that helps teams move
+          from brief to polished output faster without losing realism, taste, or scalability.
         </p>
         <ul class="creative-home__chips">
           <li>Fashion & luxury aesthetics</li>
@@ -37,90 +31,80 @@ redirect_from:
           <li>Content localization</li>
         </ul>
       </div>
-      <figure class="creative-home__portrait">
+      <figure class="creative-home__portrait creative-home__portrait--compact">
         <img src="{{ '/images/andres-creative-profile.png' | relative_url }}" alt="Andres Carvajal portrait" />
       </figure>
     </div>
-  </section>
 
-  <section class="creative-home__section">
-    <h2 class="creative-home__section-title">What I build</h2>
-    <div class="creative-home__grid3">
-      <article class="creative-home__card">
-        <div class="creative-home__card-label">Creative intelligence</div>
-        <h3 class="creative-home__card-title">AI systems that sharpen briefs, concepts, and creative judgment</h3>
-        <p>
-          I design research, briefing, and concepting workflows that compress the time between audience insight,
-          prompt design, creative exploration, and decision-making. That includes structured prompting, reference
-          systems, quality control loops, and reusable frameworks that help teams iterate faster without lowering the
-          bar.
-        </p>
-      </article>
-      <article class="creative-home__card">
-        <div class="creative-home__card-label">Video AI & VFX</div>
-        <h3 class="creative-home__card-title">Production-ready pipelines for motion, video, and generative visuals</h3>
-        <p>
-          I build workflows for AI video generation, segmentation, upscaling, face-driven systems, avatar content,
-          asset extension, and premium visual iteration. The goal is not novelty for its own sake, but believable,
-          polished output that can support campaigns, cutdowns, content variants, mood films, and social content at
-          speed.
-        </p>
-      </article>
-      <article class="creative-home__card">
-        <div class="creative-home__card-label">Automation infrastructure</div>
-        <h3 class="creative-home__card-title">Operational systems that scale content production across teams</h3>
-        <p>
-          I pair creative tooling with APIs, Python services, local/cloud deployment, and automation layers so teams
-          can reuse what works. That includes workflow orchestration, review states, asset handling, localization, tool
-          standardization, and production support for high-volume content without making the output feel templated.
-        </p>
-      </article>
+    <div class="creative-home__insight-panel">
+      <div class="creative-home__insight-tabs" aria-label="Home summary views">
+        <button type="button" class="creative-home__insight-tab is-active" data-home-panel-target="build">What I build</button>
+        <button type="button" class="creative-home__insight-tab" data-home-panel-target="industries">Industries</button>
+        <button type="button" class="creative-home__insight-tab" data-home-panel-target="stack">Stack</button>
+      </div>
+
+      <div class="creative-home__insight-panels">
+        <section class="creative-home__summary-card is-active" data-home-panel="build">
+          <div class="creative-home__card-label">What I build</div>
+          <h2 class="creative-home__summary-title">Creative intelligence, video AI, and automation infrastructure.</h2>
+          <p class="creative-home__summary-copy">
+            Research, prompting, motion systems, localization, review workflows, and production automation designed to
+            move from brief to polished output faster.
+          </p>
+        </section>
+
+        <section class="creative-home__summary-card" data-home-panel="industries" hidden>
+          <div class="creative-home__card-label">Best-fit industries</div>
+          <h2 class="creative-home__summary-title">Fashion, beauty, media, and commerce.</h2>
+          <p class="creative-home__summary-copy">
+            Fashion, beauty & luxury, social media, digital marketing, paid media, brand campaigns, e-commerce,
+            creator media, and editorial storytelling.
+          </p>
+        </section>
+
+        <section class="creative-home__summary-card" data-home-panel="stack" hidden>
+          <div class="creative-home__card-label">Creative + technical stack</div>
+          <h2 class="creative-home__summary-title">Prompting, video AI, automation, and deployment.</h2>
+          <p class="creative-home__summary-copy">
+            Prompt engineering, ComfyUI, diffusion, AI video pipelines, avatars, n8n, FastAPI, Python, cloud
+            deployment, and quality control loops. Broader LLM and full-stack AI work lives on my
+            <a href="https://andresca94.github.io/">full portfolio</a>.
+          </p>
+        </section>
+      </div>
     </div>
   </section>
-
-  <div class="creative-home__split">
-    <section class="creative-home__section">
-      <h2 class="creative-home__section-title">Best-fit industries</h2>
-      <ul class="creative-home__stack-list">
-        <li>Fashion</li>
-        <li>Beauty & luxury</li>
-        <li>Social media</li>
-        <li>Digital marketing</li>
-        <li>Paid media</li>
-        <li>Brand campaigns</li>
-        <li>E-commerce content</li>
-        <li>Creator media</li>
-        <li>Editorial storytelling</li>
-      </ul>
-      <p class="creative-home__note">
-        I’m especially interested in roles where AI has to serve a real brand standard: premium visual taste,
-        convincing motion, strong pacing, fast iteration, and systems that creative teams can actually run every day.
-      </p>
-    </section>
-
-    <section class="creative-home__section">
-      <h2 class="creative-home__section-title">Creative + technical stack</h2>
-      <ul class="creative-home__stack-list">
-        <li>Prompt engineering</li>
-        <li>ComfyUI workflows</li>
-        <li>Diffusion & LoRAs</li>
-        <li>AI video pipelines</li>
-        <li>Avatar systems</li>
-        <li>n8n orchestration</li>
-        <li>Creative ops automation</li>
-        <li>FastAPI microservices</li>
-        <li>Python automation</li>
-        <li>PyTorch / TensorFlow</li>
-        <li>Cloud & local deployment</li>
-        <li>Agentic workflows</li>
-        <li>Asset generation systems</li>
-        <li>Quality control loops</li>
-      </ul>
-      <p class="creative-home__note">
-        For broader LLM products, RAG applications, experimentation with model stacks, and full-stack AI engineering
-        work, see my
-        <a href="https://andresca94.github.io/">full portfolio website</a>.
-      </p>
-    </section>
-  </div>
 </div>
+
+<script>
+  (function () {
+    var root = document.querySelector(".creative-home");
+    if (!root) return;
+
+    var buttons = Array.prototype.slice.call(root.querySelectorAll("[data-home-panel-target]"));
+    var panels = Array.prototype.slice.call(root.querySelectorAll("[data-home-panel]"));
+    if (!buttons.length || !panels.length) return;
+
+    function activateHomePanel(target) {
+      buttons.forEach(function (button) {
+        var isActive = button.getAttribute("data-home-panel-target") === target;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      panels.forEach(function (panel) {
+        var isActive = panel.getAttribute("data-home-panel") === target;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        activateHomePanel(button.getAttribute("data-home-panel-target"));
+      });
+    });
+
+    activateHomePanel("build");
+  })();
+</script>

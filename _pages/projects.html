@@ -1,72 +1,483 @@
 ---
-layout: archive
-title: "AI Creative Systems & Generative Tooling"
+layout: default
+title:
 permalink: /projects/
-author_profile: true
+author_profile: false
+excerpt: "Selected AI creative systems across fashion, branded storytelling, avatar production, and generative media workflows."
 ---
 
-<div style="text-align: justify;">
+<section class="creative-projects-page">
+  <div class="creative-projects">
+    <header class="creative-projects__hero">
+      <p class="creative-projects__eyebrow">Selected AI Creative Systems</p>
+      <div class="creative-projects__hero-grid">
+        <div>
+          <h1 class="creative-projects__headline">Projects where prompting, taste, motion, and production logic had to work together.</h1>
+          <p class="creative-projects__lede">
+            This page is built around the kind of work I want more of next: AI-native creative systems for fashion,
+            branded storytelling, social-first content, avatar production, and premium visual experimentation. Each
+            project combines generative tools, editing judgment, workflow design, and operational thinking rather than
+            treating AI as a one-click effect.
+          </p>
+        </div>
+        <ul class="creative-projects__hero-list">
+          <li>Prompt systems and reference curation</li>
+          <li>Generative image and video pipelines</li>
+          <li>Motion editing and creative finishing</li>
+          <li>Localization, automation, and review logic</li>
+        </ul>
+      </div>
+    </header>
 
-  <p>
-    This page highlights the systems layer behind my creative AI work: image generation, segmentation, video
-    enhancement, workflow plugins, and production tooling designed to make content creation faster, more scalable, and
-    more usable inside real creative pipelines.
-  </p>
+    <div class="creative-projects__shell">
+      <aside class="creative-projects__nav" aria-label="Project selector">
+        <p class="creative-projects__nav-label">Project index</p>
 
-  <p><strong>1. Image Generation:</strong></p>
-  <p>This <strong>Image Generation</strong> module is a <strong>FastAPI-based plugin</strong> that integrates advanced generative models such as <strong>Stable Diffusion</strong>, <strong>ControlNet</strong>, and <strong>SDXL</strong>. It supports both <strong>text-to-image</strong> and <strong>image-to-image</strong> workflows, with configurable parameters including <strong>prompt guidance scale</strong>, <strong>seed control</strong>, <strong>resolution</strong>, and <strong>inference steps</strong>. The system dynamically loads models, applies <strong>LoRA weights</strong> and <strong>textual inversion</strong> for fine-tuning, and utilizes <strong>GPU acceleration</strong> when available. Built for seamless use within interfaces like <strong>ComfyUI</strong>, it enables flexible, high-quality image creation with support for <strong>ControlNet-based conditioning</strong>, live configuration updates, and multiple scheduler options like <strong>DPM</strong> and <strong>PNDM</strong>.</p>
-  
+        <button
+          type="button"
+          class="creative-projects__nav-button is-active"
+          data-project-target="barbara"
+          aria-controls="project-barbara"
+        >
+          <span class="creative-projects__nav-title">Barbara Feldon AI Character Lab</span>
+          <span class="creative-projects__nav-copy">ComfyUI-based restoration, LoRA consistency, virtual try-on, and motion tests.</span>
+        </button>
+
+        <button
+          type="button"
+          class="creative-projects__nav-button"
+          data-project-target="johnny"
+          aria-controls="project-johnny"
+        >
+          <span class="creative-projects__nav-title">Johnny Depp Art World Film</span>
+          <span class="creative-projects__nav-copy">AI-led visual storytelling inspired by Never Fear Truth and The Bunnyman mythology.</span>
+        </button>
+
+        <button
+          type="button"
+          class="creative-projects__nav-button"
+          data-project-target="randomai"
+          aria-controls="project-randomai"
+        >
+          <span class="creative-projects__nav-title">RandomAI Fashion Commerce</span>
+          <span class="creative-projects__nav-copy">Generative fashion storefront, prompt-to-product flows, and AI-assisted merchandising.</span>
+        </button>
+
+        <button
+          type="button"
+          class="creative-projects__nav-button"
+          data-project-target="avatar"
+          aria-controls="project-avatar"
+        >
+          <span class="creative-projects__nav-title">AI Avatar Training Suite</span>
+          <span class="creative-projects__nav-copy">Multilingual AI avatar content with automation, voice, and structured review workflows.</span>
+        </button>
+      </aside>
+
+      <div class="creative-projects__panels">
+        <article
+          id="project-barbara"
+          class="creative-project is-active"
+          data-project-panel="barbara"
+          role="tabpanel"
+        >
+          <div class="creative-project__header">
+            <p class="creative-project__eyebrow">Character system · fashion testbed · generative motion</p>
+            <h2 class="creative-project__title">Barbara Feldon AI Character Lab</h2>
+            <p class="creative-project__summary">
+              A long-form personal lab built around Barbara Feldon as a creative character system: restoration,
+              LoRA identity training, stylized worldbuilding, virtual try-on, 3D translation, lip-sync, face swap,
+              and short-form motion tests inside one repeatable ComfyUI workflow.
+            </p>
+            <ul class="creative-project__tags">
+              <li>ComfyUI</li>
+              <li>FLUX</li>
+              <li>LoRA training</li>
+              <li>Hunyuan3D-2</li>
+              <li>ReActor</li>
+              <li>Sonic lip-sync</li>
+              <li>CatVTON</li>
+              <li>Prompt design</li>
+            </ul>
+          </div>
+
+          <div class="creative-project__stage">
+            <div class="creative-project__media-frame creative-project__media-frame--video">
+              <video
+                controls
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="{{ '/images/barbara-feldon-motion.jpg' | relative_url }}"
+              >
+                <source src="{{ '/images/barbaravideo.mp4' | relative_url }}" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="creative-project__support-grid">
+              <figure class="creative-project__support">
+                <img src="{{ '/images/barbara-feldon-motion.jpg' | relative_url }}" alt="Barbara Feldon stylized motion frame" />
+                <figcaption>Identity-preserving city render after LoRA conditioning and prompt refinement.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/VTO1.png' | relative_url }}" alt="Barbara Feldon virtual try-on example" />
+                <figcaption>Fashion-focused virtual try-on experiment connecting wardrobe styling to character consistency.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/segunda3D.png' | relative_url }}" alt="Barbara Feldon 3D conversion" />
+                <figcaption>2D-to-3D translation pass used to push the workflow beyond still images into dimensional assets.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/barbara-feldon-lipsync.jpg' | relative_url }}" alt="Barbara Feldon lip-sync close-up" />
+                <figcaption>Lip-sync and portrait animation test for believable performance-driven motion.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="creative-project__insights">
+            <section class="creative-project__card">
+              <h3>System focus</h3>
+              <p>
+                The value of this project was not a single clip but the workflow architecture: a reusable path from
+                source photos to upscaling, inpainting, style transfer, garment testing, avatar-style motion, and
+                edit-ready outputs for concept videos or creative exploration.
+              </p>
+            </section>
+            <section class="creative-project__card">
+              <h3>Creative stack</h3>
+              <ul class="creative-project__list">
+                <li>Structured prompting for identity, wardrobe, lighting, and mood continuity</li>
+                <li>LoRA-based consistency for repeatable character appearance across scenes</li>
+                <li>Motion modules for lip-sync, face transfer, and image-to-video experimentation</li>
+                <li>Virtual try-on and 3D conversion as fashion and product-adjacent extensions</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article
+          id="project-johnny"
+          class="creative-project"
+          data-project-panel="johnny"
+          role="tabpanel"
+          hidden
+        >
+          <div class="creative-project__header">
+            <p class="creative-project__eyebrow">Brand storytelling · art direction · AI video</p>
+            <h2 class="creative-project__title">Johnny Depp Art World Film</h2>
+            <p class="creative-project__summary">
+              An AI-directed short visual piece inspired by Johnny Depp’s <em>Never Fear Truth</em> universe,
+              combining gallery references, The Bunnyman iconography, surreal night scenes, and edit-driven pacing
+              to translate fine-art mood into cinematic motion.
+            </p>
+            <ul class="creative-project__tags">
+              <li>Video generation</li>
+              <li>Prompt engineering</li>
+              <li>Reference curation</li>
+              <li>Story pacing</li>
+              <li>Style transfer</li>
+              <li>Motion finishing</li>
+              <li>Concept film</li>
+              <li>Art-world aesthetic</li>
+            </ul>
+            <p class="creative-project__linkline">
+              Reference world:
+              <a href="https://neverfeartruth.com/pages/behind-the-art?srsltid=AfmBOooiAnFzfPl2FsUMiZumwsD640DP8cmN0CfuP3tqsnFzkbpyVwZ7" target="_blank" rel="noopener noreferrer">
+                Never Fear Truth / Behind the Art
+              </a>
+            </p>
+          </div>
+
+          <div class="creative-project__stage">
+            <div class="creative-project__media-frame creative-project__media-frame--video">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="{{ '/images/johnny-never-fear-truth.jpg' | relative_url }}"
+              >
+                <source src="{{ '/images/johnny-never-fear-truth.mp4' | relative_url }}" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="creative-project__support-grid">
+              <figure class="creative-project__support">
+                <img src="{{ '/images/johnny-never-fear-truth.jpg' | relative_url }}" alt="Johnny Depp inspired surreal portrait" />
+                <figcaption>Prompt-led hero frame built around Depp-like silhouette, costume cues, and painterly mood.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/johnny-never-fear-truth-2.jpg' | relative_url }}" alt="Johnny Depp inspired gallery scene" />
+                <figcaption>Gallery-style staging to bridge physical artwork presentation and AI-generated motion language.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/johnny-never-fear-truth-3.jpg' | relative_url }}" alt="Johnny Depp inspired dream sequence" />
+                <figcaption>The Bunnyman motif translated into a dreamlike narrative frame with light-trail composition.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/johnny-never-fear-truth-contact.jpg' | relative_url }}" alt="Johnny Depp project contact sheet" />
+                <figcaption>Concept evolution across portrait, gallery, surreal transition, and final motion beats.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="creative-project__insights">
+            <section class="creative-project__card">
+              <h3>System focus</h3>
+              <p>
+                This project was about taste capture: taking an artist’s world, extracting its emotional signals,
+                building prompt frameworks around those signals, and using AI video as a fast concepting medium for a
+                branded or editorial art story.
+              </p>
+            </section>
+            <section class="creative-project__card">
+              <h3>Creative stack</h3>
+              <ul class="creative-project__list">
+                <li>Reference harvesting from the artist’s published visual universe</li>
+                <li>Prompt choreography for costume, symbolism, environment, and atmosphere continuity</li>
+                <li>Generative video assembly and edit sequencing for gallery-to-dream transitions</li>
+                <li>AI-assisted finishing choices focused on realism, mood, and premium art direction</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article
+          id="project-randomai"
+          class="creative-project"
+          data-project-panel="randomai"
+          role="tabpanel"
+          hidden
+        >
+          <div class="creative-project__header">
+            <p class="creative-project__eyebrow">Fashion commerce · generative product design · virtual styling</p>
+            <h2 class="creative-project__title">RandomAI Fashion Commerce</h2>
+            <p class="creative-project__summary">
+              A generative fashion commerce concept built around AI-assisted product creation, prompt-to-garment
+              experiences, editorial imagery, customizable merchandising flows, and fashion-first browsing for
+              print-on-demand-style product systems.
+            </p>
+            <ul class="creative-project__tags">
+              <li>AI commerce UX</li>
+              <li>Fashion prompting</li>
+              <li>Product visualization</li>
+              <li>Virtual try-on logic</li>
+              <li>Prompt-to-product</li>
+              <li>Merchandising</li>
+              <li>Campaign imagery</li>
+              <li>Content generation</li>
+            </ul>
+          </div>
+
+          <div class="creative-project__stage">
+            <div class="creative-project__media-frame creative-project__media-frame--video">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="{{ '/images/randomai-fashion.jpg' | relative_url }}"
+              >
+                <source src="{{ '/images/randomai-fashion.mp4' | relative_url }}" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="creative-project__support-grid">
+              <figure class="creative-project__support">
+                <img src="{{ '/images/randomai-fashion.jpg' | relative_url }}" alt="RandomAI homepage prompt-to-garment flow" />
+                <figcaption>Prompt-to-product interaction for generating fashion graphics directly inside the storefront.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/randomai-fashion-3.jpg' | relative_url }}" alt="RandomAI customizable product detail" />
+                <figcaption>Editable product flow connecting generation controls, styling choices, and commerce UX.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/randomai-fashion-2.jpg' | relative_url }}" alt="RandomAI product collection page" />
+                <figcaption>Merchandising grid showing how generated artwork scaled into multiple retail-ready SKUs.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/VTO3.png' | relative_url }}" alt="Fashion virtual styling example" />
+                <figcaption>Virtual styling and apparel visualization experiments that pushed the concept beyond static mockups.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="creative-project__insights">
+            <section class="creative-project__card">
+              <h3>System focus</h3>
+              <p>
+                The core idea was to make generative AI feel native to fashion shopping: concept generation, product
+                personalization, visual testing, and content creation all inside a clean commerce flow instead of as
+                disconnected demos.
+              </p>
+            </section>
+            <section class="creative-project__card">
+              <h3>Creative stack</h3>
+              <ul class="creative-project__list">
+                <li>Fashion-aware prompt systems for graphics, art styles, and product personalization</li>
+                <li>AI image generation pipelines adapted to e-commerce presentation needs</li>
+                <li>Virtual try-on and apparel visualization experiments for richer styling previews</li>
+                <li>Campaign-ready content generation to support storefront, social, and product storytelling</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+
+        <article
+          id="project-avatar"
+          class="creative-project"
+          data-project-panel="avatar"
+          role="tabpanel"
+          hidden
+        >
+          <div class="creative-project__header">
+            <p class="creative-project__eyebrow">AI avatars · localization · compliance automation</p>
+            <h2 class="creative-project__title">AI Avatar Training Suite</h2>
+            <p class="creative-project__summary">
+              A multilingual training-content system for Fried van de Laar that combined AI avatar video, prompt-led
+              script design, motion-ready layouts, automation flows, review-state logic, and localization so recurring
+              compliance updates could ship faster without losing clarity or brand structure.
+            </p>
+            <ul class="creative-project__tags">
+              <li>HeyGen</li>
+              <li>ElevenLabs</li>
+              <li>n8n</li>
+              <li>Prompt systems</li>
+              <li>Localization</li>
+              <li>AI avatars</li>
+              <li>Supabase review states</li>
+              <li>Training content</li>
+            </ul>
+          </div>
+
+          <div class="creative-project__stage">
+            <div class="creative-project__media-frame creative-project__media-frame--video">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="{{ '/images/ai-avatar-training-suite-3.jpg' | relative_url }}"
+              >
+                <source src="{{ '/images/ai-avatar-training-suite.mp4' | relative_url }}" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="creative-project__support-grid">
+              <figure class="creative-project__support">
+                <img src="{{ '/images/ai-avatar-training-suite-3.jpg' | relative_url }}" alt="AI Avatar Training Suite title frame" />
+                <figcaption>Brand-safe intro frame built for internal training distribution and repeatable video packaging.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/ai-avatar-training-suite.jpg' | relative_url }}" alt="AI Avatar Training Suite wellbeing slide" />
+                <figcaption>Illustrated safety and wellness content paired with avatar delivery for clearer worker communication.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/ai-avatar-training-suite-2.jpg' | relative_url }}" alt="AI Avatar Training Suite reporting hazard slide" />
+                <figcaption>Localized compliance message design showing how static visuals, copy, and avatar narration worked together.</figcaption>
+              </figure>
+              <figure class="creative-project__support">
+                <img src="{{ '/images/ai-avatar-training-suite-contact.jpg' | relative_url }}" alt="AI Avatar Training Suite contact sheet" />
+                <figcaption>Additional frames from the broader system showing repeatable templates, avatar inserts, and module design.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="creative-project__insights">
+            <section class="creative-project__card">
+              <h3>System focus</h3>
+              <p>
+                This was less about a single video and more about a reusable production machine: multilingual
+                scripting, voice generation, avatar rendering, branded layouts, approval states, and automation
+                triggers that made recurring training content operationally sustainable.
+              </p>
+            </section>
+            <section class="creative-project__card">
+              <h3>Creative stack</h3>
+              <ul class="creative-project__list">
+                <li>Prompt design for concise, compliance-safe script drafting and rewrite cycles</li>
+                <li>Avatar delivery systems paired with synthetic voice generation and localization logic</li>
+                <li>Automation orchestration for intake, review, approval, and export handoff</li>
+                <li>Visual packaging that kept each module branded, legible, and easy to update over time</li>
+              </ul>
+            </section>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
-  
-  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-    <iframe src="https://www.youtube.com/embed/FKa7gCUX4pw"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;"
-            frameborder="0"
-            allowfullscreen>
-    </iframe>
-  </div>
-  
-  <a href="https://github.com/DeepMakeStudio/Diffusers" class="btn btn--primary" target="_blank">
-    <i class="fab fa-github"></i> View Code on GitHub
-  </a>
-  
+</section>
 
-<div style="text-align: justify;">
+<script>
+  (function () {
+    var root = document.querySelector(".creative-projects");
+    if (!root) return;
 
-<p><strong>2. Object Video Semantic and Instance Segmentation:</strong></p>
-<p>This module performs high-precision semantic and instance segmentation on video frames using a combination of <strong>Grounding DINO</strong> for object detection and <strong>SAM (Segment Anything Model)</strong> for mask generation. Built with FastAPI and PyTorch, the plugin enables prompt-based object identification and segmentation with customizable thresholds, dynamic model loading, and real-time execution. The system supports generating binary masks from RGB images, storing outputs efficiently, and running on both CPU and GPU devices. It integrates smoothly with interfaces like ComfyUI and is ideal for video analysis tasks in AI research, robotics, and media processing.</p>
-</div>
+    var buttons = Array.prototype.slice.call(root.querySelectorAll("[data-project-target]"));
+    var panels = Array.prototype.slice.call(root.querySelectorAll("[data-project-panel]"));
 
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-  <iframe src="https://www.youtube.com/embed/3XQsHEP_foU"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;"
-          frameborder="0"
-          allowfullscreen>
-  </iframe>
-</div>
-<a href="https://github.com/DeepMakeStudio/GroundingDINO-SAM" class="btn btn--primary" target="_blank">
-  <i class="fab fa-github"></i> View Code on GitHub
-</a>
+    function syncVideos(activePanel) {
+      panels.forEach(function (panel) {
+        var videos = panel.querySelectorAll("video");
+        videos.forEach(function (video) {
+          if (panel === activePanel) {
+            var playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === "function") {
+              playPromise.catch(function () {});
+            }
+          } else {
+            video.pause();
+            video.currentTime = 0;
+          }
+        });
+      });
+    }
 
-<div style="text-align: justify;">
+    function activateProject(target, shouldUpdateHash) {
+      var activePanel = null;
 
-<p><strong>3. Video Super Resolution:</strong></p>
-<p>This Video Super Resolution plugin enhances the quality and resolution of both images and video sequences using advanced deep learning models such as <strong>ESRGAN</strong>, <strong>SwinIR</strong>, and <strong>BasicVSR</strong>. Built with FastAPI and PyTorch, the system allows for flexible model selection and interval-based frame processing to reduce memory overhead. It supports single-image enhancement as well as batch super-resolution of video frames, producing high-fidelity outputs even on low-resolution or compressed media. The plugin intelligently handles large inputs by adapting processing intervals, and leverages GPU acceleration when available, making it ideal for restoring visual quality in AI-generated content, archival footage, or media upscaling pipelines.</p>
-</div>
+      buttons.forEach(function (button) {
+        var isActive = button.getAttribute("data-project-target") === target;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
 
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-  <iframe src="https://www.youtube.com/embed/bNq-GhZ7qSQ"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;"
-          frameborder="0"
-          allowfullscreen>
-  </iframe>
-</div>
-<a href="https://github.com/DeepMakeStudio/BasicSR/tree/main" class="btn btn--primary" target="_blank">
-  <i class="fab fa-github"></i> View Code on GitHub
-</a>
+      panels.forEach(function (panel) {
+        var isActive = panel.getAttribute("data-project-panel") === target;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+        if (isActive) activePanel = panel;
+      });
 
-{% include base_path %}
+      if (activePanel) {
+        syncVideos(activePanel);
+      }
 
-{% for post in site.projects %}
-  {% include archive-single.html %}
-{% endfor %}
+      if (shouldUpdateHash) {
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", window.location.pathname + window.location.search + "#" + target);
+        } else {
+          window.location.hash = target;
+        }
+      }
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        activateProject(button.getAttribute("data-project-target"), true);
+      });
+    });
+
+    var hash = window.location.hash ? window.location.hash.replace("#", "") : "";
+    var hasHashTarget = buttons.some(function (button) {
+      return button.getAttribute("data-project-target") === hash;
+    });
+
+    activateProject(hasHashTarget ? hash : "barbara", false);
+  })();
+</script>

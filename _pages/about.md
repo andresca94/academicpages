@@ -25,11 +25,6 @@ redirect_from:
           iteration, localization, review workflows, and repeatable content production without making the output feel
           generic or overly artificial.
         </p>
-        <div class="creative-home__actions">
-          <a class="creative-home__button" href="{{ '/projects/' | relative_url }}">View Creative Projects</a>
-          <a class="creative-home__button creative-home__button--ghost" href="{{ '/cv/' | relative_url }}">CV / Experience</a>
-          <a class="creative-home__button creative-home__button--ghost" href="https://andresca94.github.io/">Full Portfolio</a>
-        </div>
         <ul class="creative-home__chips">
           <li>Fashion & luxury aesthetics</li>
           <li>Social-first video</li>

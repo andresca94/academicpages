@@ -15,14 +15,21 @@
             {% endif %}
             {% if link.title == 'Projects' %}
               <li class="masthead__menu-item masthead__menu-item--projects">
-                <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
-                <div class="masthead__projects-menu" aria-label="Project list">
-                  <a href="{{ base_path }}/projects/#barbara">Barbara Feldon AI Character Lab</a>
-                  <a href="{{ base_path }}/projects/#johnny">Johnny Depp Art World Film</a>
-                  <a href="{{ base_path }}/projects/#randomai">RandomAI Fashion Commerce</a>
-                  <a href="{{ base_path }}/projects/#avatar">AI Avatar Training Suite</a>
-                  <a href="{{ base_path }}/projects/#deepmake">DeepMake Creative Tooling Platform</a>
-                </div>
+                <details class="masthead__projects-dropdown">
+                  <summary
+                    class="masthead__projects-summary"
+                    data-projects-summary
+                  >
+                    {{ link.title }}
+                  </summary>
+                  <div class="masthead__projects-menu" aria-label="Project list">
+                    <a href="{{ base_path }}/projects/#barbara">Barbara Feldon AI Character Lab</a>
+                    <a href="{{ base_path }}/projects/#johnny">Johnny Depp Art World Film</a>
+                    <a href="{{ base_path }}/projects/#randomai">RandomAI Fashion Commerce</a>
+                    <a href="{{ base_path }}/projects/#avatar">AI Avatar Training Suite</a>
+                    <a href="{{ base_path }}/projects/#deepmake">DeepMake Creative Tooling Platform</a>
+                  </div>
+                </details>
               </li>
             {% else %}
               <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
@@ -37,3 +44,73 @@
     </div>
   </div>
 </div>
+
+<script>
+  (function () {
+    var summaries = Array.prototype.slice.call(
+      document.querySelectorAll("[data-projects-summary]"),
+    );
+    var detailsList = Array.prototype.slice.call(
+      document.querySelectorAll(".masthead__projects-dropdown"),
+    );
+
+    if (!summaries.length || !detailsList.length) return;
+
+    detailsList.forEach(function (details) {
+      var summary = details.querySelector("[data-projects-summary]");
+      var menuLinks = details.querySelectorAll("a");
+
+      if (!summary) return;
+
+      function isMobileProjects() {
+        return window.matchMedia("(max-width: 768px), (pointer: coarse)")
+          .matches;
+      }
+
+      function openMenu() {
+        var isOpen = details.getAttribute("open") === "open";
+        if (isOpen) {
+          details.removeAttribute("open");
+          details.classList.remove("is-open");
+        } else {
+          details.setAttribute("open", "open");
+          details.classList.add("is-open");
+        }
+      }
+
+      summary.addEventListener("click", function (event) {
+        if (!isMobileProjects()) return;
+
+        if (event && event.preventDefault) {
+          event.preventDefault();
+        }
+
+        openMenu();
+      });
+
+      Array.prototype.slice.call(menuLinks).forEach(function (link) {
+        link.addEventListener("click", function () {
+          details.classList.remove("is-open");
+          details.removeAttribute("open");
+        });
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !event ||
+        !event.target ||
+        detailsList.some(function (details) {
+          return details.contains(event.target);
+        })
+      ) {
+        return;
+      }
+
+      detailsList.forEach(function (details) {
+        details.classList.remove("is-open");
+        details.removeAttribute("open");
+      });
+    });
+  })();
+</script>

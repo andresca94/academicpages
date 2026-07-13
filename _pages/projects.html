@@ -590,10 +590,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   data-carousel-slide
                 >
                   <div class="creative-media-carousel__media">
-                    <img
-                      src="https://img.youtube.com/vi/FKa7gCUX4pw/hqdefault.jpg"
-                      alt="DeepMake image generation module demo thumbnail"
-                    />
+                    <iframe
+                      src="https://www.youtube.com/embed/FKa7gCUX4pw?rel=0"
+                      title="DeepMake image generation demo"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                      loading="lazy"
+                    ></iframe>
                   </div>
                   <figcaption>
                     DeepMake image generation plugin built around Stable
@@ -605,10 +608,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   data-carousel-slide
                 >
                   <div class="creative-media-carousel__media">
-                    <img
-                      src="https://img.youtube.com/vi/3XQsHEP_foU/hqdefault.jpg"
-                      alt="DeepMake segmentation module demo thumbnail"
-                    />
+                    <iframe
+                      src="https://www.youtube.com/embed/3XQsHEP_foU?rel=0"
+                      title="DeepMake segmentation demo"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                      loading="lazy"
+                    ></iframe>
                   </div>
                   <figcaption>
                     Prompt-based video segmentation using Grounding DINO plus
@@ -620,10 +626,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   data-carousel-slide
                 >
                   <div class="creative-media-carousel__media">
-                    <img
-                      src="https://img.youtube.com/vi/bNq-GhZ7qSQ/hqdefault.jpg"
-                      alt="DeepMake super resolution module demo thumbnail"
-                    />
+                    <iframe
+                      src="https://www.youtube.com/embed/bNq-GhZ7qSQ?rel=0"
+                      title="DeepMake super resolution demo"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                      loading="lazy"
+                    ></iframe>
                   </div>
                   <figcaption>
                     Video super-resolution workflows for restoration,
@@ -1723,6 +1732,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               <iframe
                 src="https://www.youtube.com/embed/FKa7gCUX4pw"
                 title="DeepMake image generation demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
@@ -1774,6 +1784,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               <iframe
                 src="https://www.youtube.com/embed/3XQsHEP_foU"
                 title="DeepMake segmentation demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
@@ -1825,6 +1836,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               <iframe
                 src="https://www.youtube.com/embed/bNq-GhZ7qSQ"
                 title="DeepMake super resolution demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
@@ -1873,6 +1885,29 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       return button.getAttribute("data-project-target");
     });
 
+    if (!validTargets.length) {
+      validTargets = Array.prototype.slice.call(
+        root.querySelectorAll("[data-project-panel]"),
+      ).map(function (panel) {
+        return panel.getAttribute("data-project-panel");
+      });
+    }
+
+    var fallbackTitleByTarget = {};
+    var fallbackContextByTarget = {};
+
+    buttons.forEach(function (button) {
+      var target = button.getAttribute("data-project-target");
+      fallbackTitleByTarget[target] =
+        button.getAttribute("data-project-label") || target;
+      fallbackContextByTarget[target] =
+        button.getAttribute("data-project-context") || "";
+    });
+
+    function normalizeTarget(hash) {
+      return hash ? hash.replace(/^\s*#?/, "").replace(/^project-/, "").trim() : "";
+    }
+
     function setIndexOpen(isOpen) {
       if (!indexToggle || !indexContent) return;
 
@@ -1880,16 +1915,20 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       indexContent.hidden = !isOpen;
     }
 
-    function scrollToPanel(panel) {
-      if (!panel) return;
+    function scrollToShowcase() {
+      var showcase = root.querySelector(".creative-project-browser__hero-body");
+      if (!showcase) return;
 
       var masthead = document.querySelector(".masthead");
       var mastheadOffset = masthead ? masthead.offsetHeight : 0;
-      var panelTop =
-        panel.getBoundingClientRect().top + window.pageYOffset - mastheadOffset - 20;
+      var showcaseTop =
+        showcase.getBoundingClientRect().top +
+        window.pageYOffset -
+        mastheadOffset -
+        18;
 
       window.scrollTo({
-        top: Math.max(panelTop, 0),
+        top: Math.max(showcaseTop, 0),
         behavior: "smooth",
       });
     }
@@ -1995,37 +2034,10 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         renderCarousel(carousel, 0);
       });
 
-    function activateProject(target, shouldUpdateHash, shouldScroll) {
-      var activeLabel = "Barbara Feldon AI Character Lab";
-      var activeContext = "Character system · fashion testbed · generative motion";
-      var activePanel = null;
-
-      buttons.forEach(function (button) {
-        var isActive = button.getAttribute("data-project-target") === target;
-        if (isActive) {
-          activeLabel =
-            button.getAttribute("data-project-label") || activeLabel;
-          activeContext =
-            button.getAttribute("data-project-context") || activeContext;
-        }
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", isActive ? "true" : "false");
-      });
-
-      panels.forEach(function (panel) {
-        var isActive = panel.getAttribute("data-project-panel") === target;
-        panel.classList.toggle("is-active", isActive);
-        panel.hidden = !isActive;
-        if (isActive) {
-          activePanel = panel;
-        }
-      });
-
-      previews.forEach(function (preview) {
-        var isActive = preview.getAttribute("data-project-preview") === target;
-        preview.classList.toggle("is-active", isActive);
-        preview.hidden = !isActive;
-      });
+    function applyHeroCopy(target) {
+      var activeLabel =
+        fallbackTitleByTarget[target] || "AI Creative Systems";
+      var activeContext = fallbackContextByTarget[target] || "";
 
       if (currentProject) {
         currentProject.textContent = activeLabel;
@@ -2034,24 +2046,59 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       if (currentContext) {
         currentContext.textContent = activeContext;
       }
+    }
+
+    function activateProject(target, shouldUpdateHash, shouldScroll) {
+      var activeTarget =
+        validTargets.indexOf(target) !== -1
+          ? target
+          : validTargets[0] || "";
+      var activePanel = null;
+
+      buttons.forEach(function (button) {
+        var isActive =
+          button.getAttribute("data-project-target") === activeTarget;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      panels.forEach(function (panel) {
+        var isActive =
+          panel.getAttribute("data-project-panel") === activeTarget;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+        if (isActive) {
+          activePanel = panel;
+        }
+      });
+
+      previews.forEach(function (preview) {
+        var isActive =
+          preview.getAttribute("data-project-preview") === activeTarget;
+        preview.classList.toggle("is-active", isActive);
+        preview.hidden = !isActive;
+      });
+
+      applyHeroCopy(activeTarget);
 
       syncVideos();
 
       if (shouldUpdateHash) {
+        var targetHash = "#" + activeTarget;
         if (window.history && window.history.replaceState) {
           window.history.replaceState(
             null,
             "",
-            window.location.pathname + window.location.search + "#" + target,
+            window.location.pathname + window.location.search + targetHash,
           );
-        } else {
-          window.location.hash = target;
+        } else if (window.location.hash !== targetHash) {
+          window.location.hash = targetHash;
         }
       }
 
       if (shouldScroll && activePanel) {
         window.requestAnimationFrame(function () {
-          scrollToPanel(activePanel);
+          scrollToShowcase();
         });
       }
     }
@@ -2072,38 +2119,26 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       });
     }
 
-    function handleHash(shouldDelayScroll) {
-      var hash = window.location.hash
-        ? window.location.hash.replace("#", "")
-        : "";
+    function handleHash() {
+      var hash = normalizeTarget(window.location.hash);
 
       if (hash === "project-browser") {
-        activateProject("barbara", false, false);
-        return;
+        hash = validTargets[0];
       }
 
       if (validTargets.indexOf(hash) !== -1) {
-        activateProject(hash, false, !shouldDelayScroll);
-        if (shouldDelayScroll) {
-          window.addEventListener(
-            "load",
-            function () {
-              activateProject(hash, false, true);
-            },
-            { once: true },
-          );
-        }
+        activateProject(hash, false, true);
         return;
       }
 
-      activateProject("barbara", false, false);
+      activateProject(validTargets[0], false, false);
     }
 
     setIndexOpen(true);
-    handleHash(document.readyState !== "complete");
+    handleHash();
 
     window.addEventListener("hashchange", function () {
-      handleHash(false);
+      handleHash();
     });
   })();
 </script>

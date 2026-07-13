@@ -9,5 +9,4 @@
 
 main:
   - title: "Projects"
-    url: /projects/ 
-    
+    url: /projects/#project-browser

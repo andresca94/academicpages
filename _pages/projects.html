@@ -532,16 +532,19 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       </div>
     </header>
 
-    <details class="creative-project-browser__index" id="project-browser">
-      <summary>
+    <nav
+      class="creative-project-browser__index"
+      id="project-browser"
+      aria-label="Project index"
+    >
+      <div class="creative-project-browser__index-head">
         <span class="creative-project-browser__index-label">Project index</span>
         <span
           class="creative-project-browser__index-current"
           data-current-project
           >Barbara Feldon AI Character Lab</span
         >
-      </summary>
-
+      </div>
       <div class="creative-project-browser__index-list">
         <button
           type="button"
@@ -638,7 +641,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </span>
         </button>
       </div>
-    </details>
+    </nav>
 
     <div class="creative-project-browser__panels">
       <article
@@ -1846,7 +1849,6 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       root.querySelectorAll("[data-project-preview]"),
     );
     var currentProject = root.querySelector("[data-current-project]");
-    var browserIndex = root.querySelector("#project-browser");
     var validTargets = buttons.map(function (button) {
       return button.getAttribute("data-project-target");
     });
@@ -1952,7 +1954,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         renderCarousel(carousel, 0);
       });
 
-    function activateProject(target, shouldUpdateHash, keepIndexOpen) {
+    function activateProject(target, shouldUpdateHash) {
       var activeLabel = "Barbara Feldon AI Character Lab";
 
       buttons.forEach(function (button) {
@@ -1981,10 +1983,6 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         currentProject.textContent = activeLabel;
       }
 
-      if (browserIndex && !keepIndexOpen) {
-        browserIndex.open = false;
-      }
-
       syncVideos();
 
       if (shouldUpdateHash) {
@@ -2005,7 +2003,6 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         activateProject(
           button.getAttribute("data-project-target"),
           true,
-          false,
         );
       });
     });
@@ -2016,17 +2013,18 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         : "";
 
       if (hash === "project-browser") {
-        if (browserIndex) browserIndex.open = true;
-        if (!openBrowserOnly) activateProject("barbara", false, true);
+        if (!openBrowserOnly) {
+          activateProject("barbara", false);
+        }
         return;
       }
 
       if (validTargets.indexOf(hash) !== -1) {
-        activateProject(hash, false, false);
+        activateProject(hash, false);
         return;
       }
 
-      activateProject("barbara", false, false);
+      activateProject("barbara", false);
     }
 
     handleHash(false);

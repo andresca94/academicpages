@@ -13,7 +13,20 @@
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            {% if link.title == 'Projects' %}
+              <li class="masthead__menu-item masthead__menu-item--projects">
+                <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+                <div class="masthead__projects-menu" aria-label="Project list">
+                  <a href="{{ base_path }}/projects/#barbara">Barbara Feldon AI Character Lab</a>
+                  <a href="{{ base_path }}/projects/#johnny">Johnny Depp Art World Film</a>
+                  <a href="{{ base_path }}/projects/#randomai">RandomAI Fashion Commerce</a>
+                  <a href="{{ base_path }}/projects/#avatar">AI Avatar Training Suite</a>
+                  <a href="{{ base_path }}/projects/#deepmake">DeepMake Creative Tooling Platform</a>
+                </div>
+              </li>
+            {% else %}
+              <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            {% endif %}
           {% endfor %}
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>

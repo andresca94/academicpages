@@ -994,7 +994,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign barbara_source_groups = "barbara_original_1.jpg|Source portrait 01~~barbara_original_2.jpg|Source portrait 02~~barbara_original_3.jpg|Source portrait 03~~barbara_original_4.jpg|Source portrait 04||barbara_original_5.jpg|Source portrait 05~~barbara_original_6.jpg|Source portrait 06~~barbara_original_7.jpg|Source still 07~~barbara_original_8.jpg|Source portrait 08||barbara_original_9.jpg|Source landscape still 09~~barbara_original_10.jpg|Source portrait 10~~barbara_original_11.jpg|Source portrait 11~~barbara_original_12.jpg|Source portrait 12" | split: "||" %}
+            {% assign barbara_source_groups = "barbara_original_1.jpg|Source portrait 01~~barbara_original_2.jpg|Source portrait 02~~barbara_original_3.jpg|Source portrait 03~~barbara_original_4.jpg|Source portrait 04" | split: "||" %}
             {% for source_group in barbara_source_groups %}
               <div
                 class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
@@ -1053,7 +1053,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign barbara_workflow_groups = "in1.png|Inpainting pass 01~~in2.png|Inpainting pass 02~~in3.png|Inpainting pass 03~~in4.png|Inpainting pass 04||up.png|Upscale and detail recovery~~selfie.png|Selfie-style generation~~selfie7.png|Alternate selfie generation~~lora1.png|LoRA render 01||lora2.png|LoRA render 02~~lora3.png|LoRA render 03~~lora4.png|LoRA render 04~~lora5.png|LoRA render 05||lora6.png|LoRA render 06~~lora7.png|LoRA render 07~~lora8.png|LoRA render 08~~lora9.png|LoRA render 09||both1.png|Combined workflow output 01~~both2.png|Combined workflow output 02~~both3.png|Combined workflow output 03~~both4.png|Combined workflow output 04||both6.png|Combined workflow output 06~~both99.png|Combined workflow output 99~~canny.png|Canny guidance pass~~canny2.png|Alternate canny guidance||depth.png|Depth guidance pass~~depth2.png|Alternate depth guidance~~cartoonstyle.png|Stylized cartoon pass~~mu.png|Character mood render||out1.png|Final output 01~~out2.png|Final output 02~~out3.png|Final output 03~~out4.png|Final output 04" | split: "||" %}
+            {% assign barbara_workflow_groups = "in1.png|Inpainting pass 01~~in2.png|Inpainting pass 02~~in3.png|Inpainting pass 03~~in4.png|Inpainting pass 04||up.png|Upscale and detail recovery~~selfie.png|Selfie-style generation~~selfie7.png|Alternate selfie generation~~lora1.png|LoRA render 01||lora2.png|LoRA render 02~~lora3.png|LoRA render 03~~lora4.png|LoRA render 04~~lora5.png|LoRA render 05||lora6.png|LoRA render 06~~lora7.png|LoRA render 07~~lora8.png|LoRA render 08~~lora9.png|LoRA render 09||canny.png|Canny guidance pass~~canny2.png|Alternate canny guidance~~depth.png|Depth guidance pass~~depth2.png|Alternate depth guidance||cartoonstyle.png|Stylized cartoon pass~~out1.png|Final output 01~~out2.png|Final output 02~~out3.png|Final output 03~~out4.png|Final output 04" | split: "||" %}
             {% for workflow_group in barbara_workflow_groups %}
               <div
                 class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
@@ -1111,7 +1111,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign barbara_spatial_groups = "VTO1.png|Virtual try-on styling output~~VTO3.png|Alternate virtual try-on fashion output~~primera3D.png|First 2D-to-3D translation~~segunda3D.png|Second 2D-to-3D translation~~lora7.png|Editorial LoRA reference" | split: "||" %}
+            {% assign barbara_spatial_groups = "VTO1.png|Virtual try-on styling output~~VTO3.png|Alternate virtual try-on fashion output~~primera3D.png|First 2D-to-3D translation~~segunda3D.png|Second 2D-to-3D translation" | split: "||" %}
             {% for spatial_group in barbara_spatial_groups %}
               <div
                 class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
@@ -1181,7 +1181,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                     {% for motion_item in barbara_motion_items %}
                       {% assign motion_parts = motion_item | split: "|" %}
                       <figure
-                        class="creative-media-carousel__slide creative-project-story__figure"
+                        class="creative-media-carousel__slide creative-project-story__figure{% if motion_parts[0] == 'barbaravideo.mp4' %} creative-media-carousel__slide--square-video{% endif %}"
                         data-carousel-slide
                       >
                         <div class="creative-media-carousel__media">

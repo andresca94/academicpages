@@ -2487,6 +2487,38 @@ body.page-home {
   background: rgba(26, 18, 34, 0.05);
 }
 
+body.page-projects .creative-project-browser__hero-body,
+body.page-projects .creative-project-browser__preview-stage,
+body.page-projects .creative-project-browser__preview-panel,
+body.page-projects .creative-media-carousel,
+body.page-projects .creative-media-carousel__viewport,
+body.page-projects .creative-media-carousel__track,
+body.page-projects .creative-media-carousel__slide,
+body.page-projects .creative-media-carousel__media {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+body.page-projects .creative-project-browser__preview-panel.is-active {
+  display: block;
+}
+
+body.page-projects .creative-media-carousel__slide {
+  flex-basis: 100%;
+}
+
+body.page-projects .creative-media-carousel__media {
+  min-height: clamp(420px, 48vw, 820px);
+}
+
+body.page-projects .creative-media-carousel__media img,
+body.page-projects .creative-media-carousel__media video,
+body.page-projects .creative-media-carousel__media iframe {
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 1240px) {
   .creative-project-browser__index-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));

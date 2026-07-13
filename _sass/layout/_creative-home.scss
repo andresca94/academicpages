@@ -3271,9 +3271,18 @@ body.page-projects
   .creative-media-carousel__media {
   width: clamp(260px, 28vw, 440px);
   max-width: 100%;
-  height: clamp(380px, 48vw, 620px);
+  height: auto !important;
+  aspect-ratio: 9 / 16 !important;
   margin-left: auto;
   margin-right: auto;
+}
+
+body.page-projects
+  #project-randomai
+  .creative-media-carousel--story.creative-media-carousel--compact
+  .creative-media-carousel__slide--portrait-asset
+  .creative-media-carousel__media {
+  aspect-ratio: 482 / 709 !important;
 }
 
 @media (max-width: 720px) {
@@ -3288,6 +3297,6 @@ body.page-projects
     .creative-media-carousel__slide--portrait-asset
     .creative-media-carousel__media {
     width: min(100%, 360px);
-    height: clamp(420px, 135vw, 560px);
+    height: auto !important;
   }
 }

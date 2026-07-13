@@ -2959,7 +2959,8 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
 body.page-projects
   .creative-media-carousel__slide--square-video
   .creative-media-carousel__media {
-  width: min(100%, clamp(300px, 32vw, 520px));
+  width: clamp(300px, 32vw, 520px);
+  max-width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
   margin-left: auto;

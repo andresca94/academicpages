@@ -319,58 +319,27 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           data-project-preview="randomai"
           hidden
         >
-          <div class="creative-media-carousel" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                <figure
-                  class="creative-media-carousel__slide"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/randomai-fashion.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/randomai-fashion.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                  <figcaption>
-                    Prompt-to-product browsing flow designed for AI-native
-                    fashion commerce.
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button
-                type="button"
-                class="creative-media-carousel__button"
-                data-carousel-prev
-                aria-label="Previous RandomAI media"
+          <figure class="creative-project-browser__single-media">
+            <div class="creative-media-carousel__media">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="{{ '/images/randomai-fashion.jpg' | relative_url }}"
               >
-                Prev
-              </button>
-              <div
-                class="creative-media-carousel__dots"
-                data-carousel-dots
-              ></div>
-              <button
-                type="button"
-                class="creative-media-carousel__button"
-                data-carousel-next
-                aria-label="Next RandomAI media"
-              >
-                Next
-              </button>
+                <source
+                  src="{{ '/images/randomai-fashion.mp4' | relative_url }}"
+                  type="video/mp4"
+                />
+              </video>
             </div>
-          </div>
+            <figcaption>
+              Prompt-to-product browsing flow designed for AI-native fashion
+              commerce.
+            </figcaption>
+          </figure>
         </div>
 
         <div
@@ -1238,7 +1207,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign randomai_video_groups = "randomai-product-motion.mp4|randomai-product-motion-poster.jpg|Generated garment motion test showing product imagery moving from static mockup into lifestyle content.~~randomai-editorial-campaign-motion.mp4|randomai-editorial-campaign-motion-poster.jpg|Editorial campaign motion cut designed for social, ads, and fashion-forward storefront storytelling.~~randomai-brand-motion.mp4|randomai-brand-motion-poster.jpg|Brand-motion pass turning product visuals into a reusable RandomAI identity layer.~~randomai-vertical-tryon-display.mp4|randomai-vertical-tryon-display-poster.jpg|Vertical retail display and social try-on style asset for store screens and short-form distribution." | split: "||" %}
+            {% assign randomai_video_groups = "randomai-product-motion-8s.mp4|randomai-product-motion-poster.jpg|Generated garment motion test showing product imagery moving from static mockup into lifestyle content.~~randomai-editorial-campaign-motion.mp4|randomai-editorial-campaign-motion-poster.jpg|Editorial campaign motion cut designed for social, ads, and fashion-forward storefront storytelling.~~randomai-brand-motion.mp4|randomai-brand-motion-poster.jpg|Brand-motion pass turning product visuals into a reusable RandomAI identity layer.~~randomai-vertical-tryon-display.mp4|randomai-vertical-tryon-display-poster.jpg|Vertical retail display and social try-on style asset for store screens and short-form distribution." | split: "||" %}
             {% for randomai_video_group in randomai_video_groups %}
               <div
                 class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--randomai"
@@ -1250,7 +1219,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                     {% for randomai_video_item in randomai_video_assets %}
                       {% assign randomai_video_parts = randomai_video_item | split: "|" %}
                       <figure
-                        class="creative-media-carousel__slide creative-project-story__figure{% if randomai_video_parts[0] == "randomai-vertical-tryon-display.mp4" %} creative-media-carousel__slide--portrait-video{% endif %}"
+                        class="creative-media-carousel__slide creative-project-story__figure{% if randomai_video_parts[0] == "randomai-vertical-tryon-display.mp4" %} creative-media-carousel__slide--portrait-video{% else %} creative-media-carousel__slide--landscape-video{% endif %}"
                         data-carousel-slide
                       >
                         <div class="creative-media-carousel__media">
@@ -1297,7 +1266,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                     {% for randomai_ai_item in randomai_ai_assets %}
                       {% assign randomai_ai_parts = randomai_ai_item | split: "|" %}
                       <figure
-                        class="creative-media-carousel__slide creative-project-story__figure{% if randomai_ai_parts[0] == "randomai-ad-customize-garments.jpg" or randomai_ai_parts[0] == "randomai-ad-ai-powered-outfits.jpg" %} creative-media-carousel__slide--portrait-asset{% endif %}"
+                        class="creative-media-carousel__slide creative-project-story__figure{% if randomai_ai_parts[0] == "randomai-ad-customize-garments.jpg" or randomai_ai_parts[0] == "randomai-ad-ai-powered-outfits.jpg" %} creative-media-carousel__slide--portrait-asset{% elsif randomai_ai_parts[0] == "randomai-garment-dragon-model.jpg" or randomai_ai_parts[0] == "randomai-garment-samurai-hoodie.jpg" or randomai_ai_parts[0] == "randomai-tryon-hoodie-city.jpg" %} creative-media-carousel__slide--square-asset{% endif %}"
                         data-carousel-slide
                       >
                         <div class="creative-media-carousel__media">

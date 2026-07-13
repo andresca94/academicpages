@@ -897,15 +897,18 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           <div class="creative-project-story__intro-grid">
             <div>
               <h2>Barbara Feldon AI Character Lab</h2>
-              <p>
-                This long-form lab used Barbara Feldon as a controlled AI
-                character system for restoration, identity-consistent
-                generation, editorial stylization, virtual try-on, 2D-to-3D
-                translation, lip-sync, face swap, and image-to-video motion. The
-                value was not a single clip, but a reusable set of ComfyUI
-                workflows that could move from archival imagery to
-                concept-film-ready outputs inside one creative stack.
-              </p>
+                <p>
+                  This long-form lab used Barbara Feldon as a controlled AI
+                  character system for restoration, identity-consistent
+                  generation, editorial stylization, virtual try-on, 2D-to-3D
+                  translation, lip-sync, face swap, and image-to-video motion. The
+                  value was not a single clip, but a reusable set of ComfyUI
+                  workflows that could move from archival imagery to
+                  concept-film-ready outputs inside one creative stack while
+                  preserving creative direction, facial continuity, fashion
+                  styling, premium lighting, and quality-control standards across
+                  many generated variations.
+                </p>
             </div>
             <div class="creative-project-story__meta">
               <p class="creative-project-story__meta-label">Creative stack</p>
@@ -915,10 +918,15 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 <li>LoRA training</li>
                 <li>Hunyuan3D-2</li>
                 <li>ReActor</li>
-                <li>Sonic lip-sync</li>
-                <li>CatVTON</li>
-                <li>Prompt design</li>
-              </ul>
+                  <li>Sonic lip-sync</li>
+                  <li>CatVTON</li>
+                  <li>Prompt design</li>
+                  <li>ControlNet</li>
+                  <li>IP-Adapter</li>
+                  <li>Character consistency</li>
+                  <li>Creative QA</li>
+                  <li>Retouching</li>
+                </ul>
             </div>
           </div>
         </section>
@@ -927,12 +935,16 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           <div class="creative-project-story__section-head">
             <p class="creative-project-story__section-label">01 · Input set</p>
             <h3>Source imagery selected for identity coverage</h3>
-            <p>
-              The workflow started with a curated set of Barbara Feldon
-              portraits chosen for clarity, lighting variety, and representative
-              facial angles. Those images became the basis for restoration, LoRA
-              training, and later motion experiments.
-            </p>
+                <p>
+                  The workflow started with a curated set of Barbara Feldon
+                  portraits chosen for clarity, lighting variety, and representative
+                  facial angles. Those images became the basis for restoration, LoRA
+                  training, and later motion experiments. The selection process
+                  treated reference curation as a creative-direction step: what
+                  angles, expressions, lighting conditions, and wardrobe cues would
+                  help the model preserve taste instead of drifting into generic AI
+                  portraiture.
+                </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -974,12 +986,16 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               02 · Identity + refinement
             </p>
             <h3>Restoration, upscaling, and LoRA-based consistency</h3>
-            <p>
-              FLUX was used to repair, extend, and sharpen the source material
-              before training character consistency. The goal was not just
-              cleaner images, but a stronger identity prior that could survive
-              style shifts, lighting changes, and later video passes.
-            </p>
+                <p>
+                  FLUX was used to repair, extend, and sharpen the source material
+                  before training character consistency. The goal was not just
+                  cleaner images, but a stronger identity prior that could survive
+                  style shifts, lighting changes, and later video passes. This part
+                  of the lab also tested prompt chaining, negative prompting,
+                  style-locking, output comparison, and visual cleanup so each pass
+                  could be judged for realism, composition, facial stability, and
+                  editorial value.
+                </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -1021,13 +1037,15 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               03 · Fashion + spatial extensions
             </p>
             <h3>Virtual styling and dimensional translation</h3>
-            <p>
-              Once the character system stabilized, the workflow moved into
-              fashion-adjacent and spatial experimentation. That included
-              apparel visualization, broader stylization, and 2D-to-3D
-              conversion to test how the same identity could extend into richer
-              creative outputs.
-            </p>
+                <p>
+                  Once the character system stabilized, the workflow moved into
+                  fashion-adjacent and spatial experimentation. That included
+                  apparel visualization, broader stylization, and 2D-to-3D
+                  conversion to test how the same identity could extend into richer
+                  creative outputs. The fashion layer focused on model direction,
+                  fabric realism, pose control, silhouette, and product-like visual
+                  storytelling rather than simply changing outfits.
+                </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -1069,12 +1087,15 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               04 · Motion outputs
             </p>
             <h3>Lip-sync, face transfer, and image-to-video movement</h3>
-            <p>
-              The final stage focused on performance and motion: face-swap
-              modules, lip-sync portrait animation, and image-to-video tests
-              that turned the static character system into something closer to
-              an edit-ready creative asset.
-            </p>
+                <p>
+                  The final stage focused on performance and motion: face-swap
+                  modules, lip-sync portrait animation, and image-to-video tests
+                  that turned the static character system into something closer to
+                  an edit-ready creative asset. The motion work emphasized pacing,
+                  continuity control, compositing judgment, visual cleanup, and the
+                  kind of restrained post-production needed for AI footage to feel
+                  intentional rather than gimmicky.
+                </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -1223,21 +1244,27 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           <div class="creative-project-story__notes">
             <div class="creative-project-story__note">
               <h4>Creative value</h4>
-              <p>
-                This was a compact R&amp;D environment for testing how one
-                character could survive multiple AI modalities: cleanup, style
-                transfer, wardrobe experimentation, dimensional conversion, and
-                motion.
-              </p>
+                <p>
+                  This was a compact R&amp;D environment for testing how one
+                  character could survive multiple AI modalities: cleanup, style
+                  transfer, wardrobe experimentation, dimensional conversion, and
+                  motion. It demonstrates AI content creation, fashion-forward
+                  visual taste, prompt engineering, retouching, VFX-oriented
+                  compositing, and the judgment required to reject outputs that
+                  break identity, lighting, anatomy, fabric, or tone.
+                </p>
             </div>
             <div class="creative-project-story__note">
               <h4>Tooling value</h4>
-              <p>
-                It also served as a systems exercise in chaining together FLUX,
-                LoRA workflows, try-on tooling, and motion modules into a
-                process that could support concept development rather than
-                isolated outputs.
-              </p>
+                <p>
+                  It also served as a systems exercise in chaining together FLUX,
+                  LoRA workflows, try-on tooling, and motion modules into a
+                  process that could support concept development rather than
+                  isolated outputs. The production logic maps closely to a scalable
+                  creative pipeline: reference intake, prompt framework, batch
+                  generation, output evaluation, retouching, motion tests, QA, and
+                  export-ready assets.
+                </p>
             </div>
           </div>
         </section>
@@ -1259,11 +1286,14 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               <p>
                 This project translated the mood of
                 <em>Never Fear Truth</em> into an AI-directed short film system.
-                The goal was to convert an artist's visual world into prompt
-                structures, segmented visual elements, Runway ML image-to-video
-                motion, and Final Cut Pro finishing that could feel premium,
-                surreal, and emotionally specific instead of generically "AI".
-              </p>
+                  The goal was to convert an artist's visual world into prompt
+                  structures, segmented visual elements, Runway ML image-to-video
+                  motion, and Final Cut Pro finishing that could feel premium,
+                  surreal, and emotionally specific instead of generically "AI".
+                  The work combined creative direction, art-world reference
+                  curation, brand-safe realism, VFX-style isolation, continuity
+                  control, sound-aware pacing, and post-production judgment.
+                </p>
               <p class="creative-project-story__linkline">
                 Reference world:
                 <a
@@ -1281,16 +1311,22 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 <li>Prompt engineering</li>
                 <li>Reference curation</li>
                 <li>Segmentation</li>
-                <li>Runway ML</li>
-                <li>Image-to-video</li>
-                <li>Image generation</li>
-                <li>Video generation</li>
-                <li>Final Cut Pro</li>
-                <li>Sound-enabled edit</li>
-                <li>Story pacing</li>
-                <li>Concept film</li>
-                <li>Art-world styling</li>
-              </ul>
+                  <li>Runway ML</li>
+                  <li>Image-to-video</li>
+                  <li>SAM masking</li>
+                  <li>Rotoscoping</li>
+                  <li>Compositing</li>
+                  <li>Image generation</li>
+                  <li>Video generation</li>
+                  <li>Final Cut Pro</li>
+                  <li>Adobe Premiere Pro</li>
+                  <li>Color grading</li>
+                  <li>Sound-enabled edit</li>
+                  <li>Story pacing</li>
+                  <li>Concept film</li>
+                  <li>Art-world styling</li>
+                  <li>Brand guardrails</li>
+                </ul>
             </div>
           </div>
         </section>
@@ -1301,12 +1337,15 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               01 · Reference world
             </p>
             <h3>Extracting a fine-art mood into repeatable visual direction</h3>
-            <p>
-              Instead of treating the project like a one-off image generation
-              exercise, I used published visual references from the Depp art
-              universe to identify costume signals, symbolism, gallery staging,
-              and dreamlike tonal anchors that could survive prompt iteration.
-            </p>
+                <p>
+                  Instead of treating the project like a one-off image generation
+                  exercise, I used published visual references from the Depp art
+                  universe to identify costume signals, symbolism, gallery staging,
+                  and dreamlike tonal anchors that could survive prompt iteration.
+                  The creative task was to preserve the emotional logic of the
+                  source world while making each generated frame usable for a
+                  polished, premium short-form film.
+                </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -1350,14 +1389,16 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
             <h3>
               From still-image taste capture to a short AI-directed film beat
             </h3>
-            <p>
-              After the visual language was established, the work shifted into
-              sequencing: the rabbit figure was segmented from the painting,
-              pushed through Runway ML image-to-video tests, and then shaped
-              into a sound-enabled edit with professional finishing in Final
-              Cut Pro. The pacing choices were designed to make AI-generated
-              motion feel intentional rather than stitched together.
-            </p>
+                <p>
+                  After the visual language was established, the work shifted into
+                  sequencing: the rabbit figure was segmented from the painting,
+                  pushed through Runway ML image-to-video tests, and then shaped
+                  into a sound-enabled edit with professional finishing in Final
+                  Cut Pro. The pacing choices were designed to make AI-generated
+                motion feel intentional rather than stitched together, with color,
+                transitions, continuity, and audio treated as part of the creative
+                system rather than afterthoughts.
+              </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -1459,11 +1500,14 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           <div class="creative-project-story__notes">
             <div class="creative-project-story__note">
               <h4>Creative value</h4>
-              <p>
-                The project showed how AI could be used as a fast
-                visual-development partner for art-driven content without
-                flattening the distinctiveness of the source world.
-              </p>
+                <p>
+                  The project showed how AI could be used as a fast
+                  visual-development partner for art-driven content without
+                  flattening the distinctiveness of the source world. It also
+                  demonstrates taste capture, copyright-aware reference handling,
+                  symbolic continuity, and the ability to explain why one output
+                  feels on-brand while another feels artificial.
+                </p>
             </div>
             <div class="creative-project-story__note">
               <h4>Workflow value</h4>
@@ -1477,11 +1521,19 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   Generative video assembly guided by edit rhythm instead of raw
                   output novelty
                 </li>
-                <li>
-                  Quality filtering around realism, mood, and premium visual
-                  direction
-                </li>
-              </ul>
+                  <li>
+                    Quality filtering around realism, mood, and premium visual
+                    direction
+                  </li>
+                  <li>
+                    Segmentation, rotoscoping, and compositing logic for isolating
+                    the Bunnyman motif before image-to-video motion
+                  </li>
+                  <li>
+                    Sound, color, pacing, and continuity review for a final edit
+                    that feels directed instead of randomly generated
+                  </li>
+                </ul>
             </div>
           </div>
         </section>
@@ -1504,24 +1556,32 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 RandomAI explored what happens when generative AI is treated as
                 part of the shopping experience rather than an isolated demo.
                 The concept combined prompt-to-garment creation, campaign-like
-                imagery, editable product flows, virtual try-on, and automated
-                creative variants for Instagram Store and paid advertising so
-                the storefront could feel closer to a creative studio for
-                fashion consumers.
-              </p>
+                  imagery, editable product flows, virtual try-on, and automated
+                  creative variants for Instagram Store and paid advertising so
+                  the storefront could feel closer to a creative studio for
+                  fashion consumers. The project demonstrates how AI can support
+                  e-commerce creative, PDP imagery, campaign visuals, short-form
+                  content packs, email modules, and paid media variants without
+                  separating product experience from content production.
+                </p>
             </div>
             <div class="creative-project-story__meta">
               <p class="creative-project-story__meta-label">Creative stack</p>
               <ul class="creative-project-story__tags">
-                <li>AI commerce UX</li>
-                <li>Fashion prompting</li>
-                <li>Product visualization</li>
-                <li>Virtual try-on logic</li>
-                <li>Instagram Store automation</li>
-                <li>Paid social variants</li>
-                <li>Prompt-to-product</li>
-                <li>Merchandising</li>
-                <li>Campaign imagery</li>
+                  <li>AI commerce UX</li>
+                  <li>React prototype</li>
+                  <li>JavaScript</li>
+                  <li>Fashion prompting</li>
+                  <li>Product visualization</li>
+                  <li>Virtual try-on logic</li>
+                  <li>Instagram Store automation</li>
+                  <li>Paid social variants</li>
+                  <li>Short-form content</li>
+                  <li>Shopify-style flows</li>
+                  <li>Product consistency</li>
+                  <li>Prompt-to-product</li>
+                  <li>Merchandising</li>
+                  <li>Campaign imagery</li>
                 <li>Content generation</li>
               </ul>
             </div>
@@ -1537,12 +1597,15 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               Building a shopping flow around generation, customization, and
               visual taste
             </h3>
-            <p>
-              The interface work focused on making AI creation feel native to
-              fashion browsing: clear generation controls, product
-              visualization, editable configurations, and merchandising views
-              that felt like a real retail surface rather than a sandbox.
-            </p>
+                <p>
+                  The interface work focused on making AI creation feel native to
+                  fashion browsing: clear generation controls, product
+                  visualization, editable configurations, and merchandising views
+                  that felt like a real retail surface rather than a sandbox. The
+                  flow connects frontend UX, prompt libraries, product consistency,
+                  and merchandising logic so AI-generated visuals can become
+                  usable commerce assets rather than isolated experiments.
+                </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -1587,13 +1650,16 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               Virtual styling, product generation, and content expansion inside
               one concept
             </h3>
-            <p>
-              Beyond the storefront UI, the project tested how AI image
-              generation and virtual try-on could support a more fashion-native
-              experience: personalization, styling previews, campaign outputs,
-              and richer content creation across retail, Instagram Store, and
-              advertising surfaces.
-            </p>
+                <p>
+                  Beyond the storefront UI, the project tested how AI image
+                  generation and virtual try-on could support a more fashion-native
+                  experience: personalization, styling previews, campaign outputs,
+                  and richer content creation across retail, Instagram Store, and
+                  advertising surfaces. This included thinking through how a
+                  single generated product idea could become PDP imagery, social
+                  cuts, product launch visuals, email creative, and paid media
+                  variants with human-in-the-loop review.
+                </p>
           </div>
 
           <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
@@ -1666,12 +1732,15 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           <div class="creative-project-story__notes">
             <div class="creative-project-story__note">
               <h4>Creative value</h4>
-              <p>
-                RandomAI framed AI as part of the brand and merchandising
-                experience, not just as a backend generator. That made room for
-                more elevated product storytelling, experimentation, and user
-                participation.
-              </p>
+                <p>
+                  RandomAI framed AI as part of the brand and merchandising
+                  experience, not just as a backend generator. That made room for
+                  more elevated product storytelling, experimentation, and user
+                  participation. It is the clearest fashion/e-commerce case in the
+                  portfolio because it ties virtual styling, product visualization,
+                  social-first content, and conversion-oriented creative into one
+                  product surface.
+                </p>
             </div>
             <div class="creative-project-story__note">
               <h4>Workflow value</h4>
@@ -1683,13 +1752,21 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   Generated imagery shaped for storefront, social, and campaign
                   reuse
                 </li>
-                <li>
-                  Automated virtual try-on and product creative variants for
-                  Instagram Store, paid social, and advertising
-                </li>
-                <li>
-                  Virtual styling extensions that support fashion discovery, not
-                  just novelty
+                  <li>
+                    Automated virtual try-on and product creative variants for
+                    Instagram Store, paid social, and advertising
+                  </li>
+                  <li>
+                    Social-first asset planning for Reels, TikTok, Shorts, product
+                    launch content, email creative, and paid media campaigns
+                  </li>
+                  <li>
+                    Brand guardrails and content QA for product accuracy, fabric
+                    realism, model direction, and non-gimmicky AI aesthetics
+                  </li>
+                  <li>
+                    Virtual styling extensions that support fashion discovery, not
+                    just novelty
                 </li>
                 <li>
                   Merchandising logic that connects creativity to commerce
@@ -1717,24 +1794,31 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               <p>
                 This system turned recurring compliance and onboarding content
                 into a reusable AI production flow. It combined multilingual
-                scripting, avatar delivery, synthetic voice, branded layouts,
-                and review-state automation so teams could ship updates faster
-                while keeping communication clear, structured, and visually
-                coherent.
-              </p>
+                  scripting, avatar delivery, synthetic voice, branded layouts,
+                  and review-state automation so teams could ship updates faster
+                  while keeping communication clear, structured, and visually
+                  coherent. The project maps directly to creative operations:
+                  brief intake, prompt-led scripting, voiceover, avatar rendering,
+                  localization, approval states, content governance, and
+                  export-ready training modules.
+                </p>
             </div>
             <div class="creative-project-story__meta">
               <p class="creative-project-story__meta-label">Creative stack</p>
               <ul class="creative-project-story__tags">
-                <li>HeyGen</li>
-                <li>ElevenLabs</li>
-                <li>n8n</li>
-                <li>Prompt systems</li>
-                <li>Localization</li>
-                <li>AI avatars</li>
-                <li>Supabase review states</li>
-                <li>Training content</li>
-              </ul>
+                  <li>HeyGen</li>
+                  <li>ElevenLabs</li>
+                  <li>n8n</li>
+                  <li>OpenAI API</li>
+                  <li>Prompt systems</li>
+                  <li>Localization</li>
+                  <li>AI avatars</li>
+                  <li>Supabase review states</li>
+                  <li>Human-in-loop QA</li>
+                  <li>Brand guardrails</li>
+                  <li>Workflow documentation</li>
+                  <li>Training content</li>
+                </ul>
             </div>
           </div>
         </section>
@@ -1745,13 +1829,16 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               01 · Training-content system
             </p>
             <h3>Visual packaging, avatar delivery, and clear module design</h3>
-            <p>
-              The output was designed as a repeatable training system rather
-              than a one-off explainer. Each module balanced avatar presence,
-              visual guidance, branded framing, and information clarity so the
-              format could work across safety, onboarding, and operational
-              updates.
-            </p>
+                <p>
+                  The output was designed as a repeatable training system rather
+                  than a one-off explainer. Each module balanced avatar presence,
+                  visual guidance, branded framing, and information clarity so the
+                  format could work across safety, onboarding, and operational
+                  updates. The creative system also considered employer branding,
+                  long-form training video, product-style explainers, and
+                  multilingual content that teams could reuse without rebuilding
+                  every asset manually.
+                </p>
           </div>
 
           <div
@@ -1834,13 +1921,15 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               Prompt-led scripting, review states, and operational
               sustainability
             </h3>
-            <p>
-              The deeper value sat in the production layer: concise prompt-led
-              script drafting, voice generation, avatar rendering, localization
-              logic, and review-state orchestration that made recurring training
-              content operationally sustainable rather than manually rebuilt
-              every cycle.
-            </p>
+                <p>
+                  The deeper value sat in the production layer: concise prompt-led
+                  script drafting, voice generation, avatar rendering, localization
+                  logic, and review-state orchestration that made recurring training
+                  content operationally sustainable rather than manually rebuilt
+                  every cycle. It is a practical example of using LLMs, avatar
+                  tools, synthetic voice, automation, and review workflows as one
+                  production system rather than disconnected apps.
+                </p>
           </div>
 
           <div class="creative-project-story__notes">
@@ -1855,24 +1944,34 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   Avatar delivery paired with synthetic voice generation and
                   localization logic
                 </li>
-                <li>
-                  Automation orchestration for intake, review, approval, and
-                  export handoff
-                </li>
-                <li>
-                  Visual packaging that kept each module branded, legible, and
-                  easy to update
+                  <li>
+                    Automation orchestration for intake, review, approval, and
+                    export handoff
+                  </li>
+                  <li>
+                    Human-in-the-loop QA for claims, tone, localization quality,
+                    brand safety, and compliance-sensitive messaging
+                  </li>
+                  <li>
+                    Repeatable workflow documentation so creative, operations, and
+                    training teams can run the process without custom rebuilding
+                  </li>
+                  <li>
+                    Visual packaging that kept each module branded, legible, and
+                    easy to update
                 </li>
               </ul>
             </div>
             <div class="creative-project-story__note">
               <h4>Why it matters</h4>
               <p>
-                This kind of work sits exactly at the intersection I care about
-                most: strong creative direction, operational clarity,
-                AI-assisted production, and systems teams can actually run every
-                week.
-              </p>
+                  This kind of work sits exactly at the intersection I care about
+                  most: strong creative direction, operational clarity,
+                  AI-assisted production, and systems teams can actually run every
+                  week. It also shows the automation side of AI creative work:
+                  content calendars, approval states, localization, versioning,
+                  and governance for high-volume production.
+                </p>
             </div>
           </div>
         </section>
@@ -1893,29 +1992,37 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               <h2>DeepMake Creative Tooling Platform</h2>
               <p>
                 DeepMake was a systems-heavy creative tooling effort centered on
-                the infrastructure behind modern AI content production. The work
-                spanned image generation, prompt-controlled segmentation, and
-                super-resolution modules designed to make creative pipelines
-                faster, more scalable, and more usable inside real production
-                environments.
-              </p>
+                  the infrastructure behind modern AI content production. The work
+                  spanned image generation, prompt-controlled segmentation, and
+                  super-resolution modules designed to make creative pipelines
+                  faster, more scalable, and more usable inside real production
+                  environments. It shows the technical layer behind AI creative
+                  systems: Python services, FastAPI plugins, model orchestration,
+                  GPU inference, ComfyUI integration, batch generation,
+                  segmentation, enhancement, and VFX-ready media processing.
+                </p>
             </div>
             <div class="creative-project-story__meta">
               <p class="creative-project-story__meta-label">Creative stack</p>
               <ul class="creative-project-story__tags">
-                <li>FastAPI</li>
-                <li>ComfyUI</li>
-                <li>Stable Diffusion</li>
-                <li>ControlNet</li>
-                <li>SDXL</li>
-                <li>Grounding DINO</li>
-                <li>SAM</li>
-                <li>ESRGAN</li>
-                <li>SwinIR</li>
-                <li>BasicVSR</li>
-                <li>PyTorch</li>
-                <li>GPU inference</li>
-              </ul>
+                  <li>FastAPI</li>
+                  <li>Python</li>
+                  <li>ComfyUI</li>
+                  <li>Stable Diffusion</li>
+                  <li>ControlNet</li>
+                  <li>SDXL</li>
+                  <li>LoRA</li>
+                  <li>Textual inversion</li>
+                  <li>Grounding DINO</li>
+                  <li>Segment Anything / SAM</li>
+                  <li>ESRGAN</li>
+                  <li>SwinIR</li>
+                  <li>BasicVSR</li>
+                  <li>PyTorch</li>
+                  <li>GPU inference</li>
+                  <li>Batch pipelines</li>
+                  <li>Model QA</li>
+                </ul>
             </div>
           </div>
         </section>
@@ -1929,20 +2036,22 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               FastAPI-based plugin for text-to-image and image-to-image
               workflows
             </h3>
-            <p>
-              This Image Generation module is a FastAPI-based plugin that
-              integrates advanced generative models such as Stable Diffusion,
-              ControlNet, and SDXL. It supports both text-to-image and
+                <p>
+                  This Image Generation module is a FastAPI-based plugin that
+                  integrates advanced generative models such as Stable Diffusion,
+                  ControlNet, and SDXL. It supports both text-to-image and
               image-to-image workflows, with configurable parameters including
               prompt guidance scale, seed control, resolution, and inference
               steps. The system dynamically loads models, applies LoRA weights
               and textual inversion for fine-tuning, and utilizes GPU
               acceleration when available. Built for seamless use within
               interfaces like ComfyUI, it enables flexible, high-quality image
-              creation with support for ControlNet-based conditioning, live
-              configuration updates, and multiple scheduler options like DPM and
-              PNDM.
-            </p>
+                  creation with support for ControlNet-based conditioning, live
+                  configuration updates, and multiple scheduler options like DPM and
+                  PNDM. From a creative-ops perspective, this is the layer that
+                  turns prompt frameworks, reusable nodes, model parameters, and
+                  batch generation into a controllable production workflow.
+                </p>
           </div>
 
           <figure class="creative-project-story__figure creative-project-story__figure--module-snapshot">
@@ -1995,19 +2104,21 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               Prompt-based object identification and mask generation for media
               workflows
             </h3>
-            <p>
-              This module performs high-precision semantic and instance
-              segmentation on video frames using a combination of Grounding DINO
-              for object detection and SAM (Segment Anything Model) for mask
+                <p>
+                  This module performs high-precision semantic and instance
+                  segmentation on video frames using a combination of Grounding DINO
+                  for object detection and SAM (Segment Anything Model) for mask
               generation. Built with FastAPI and PyTorch, the plugin enables
               prompt-based object identification and segmentation with
               customizable thresholds, dynamic model loading, and real-time
               execution. The system supports generating binary masks from RGB
-              images, storing outputs efficiently, and running on both CPU and
-              GPU devices. It integrates smoothly with interfaces like ComfyUI
-              and is ideal for video analysis tasks in AI research, robotics,
-              and media processing.
-            </p>
+                  images, storing outputs efficiently, and running on both CPU and
+                  GPU devices. It integrates smoothly with interfaces like ComfyUI
+                  and is ideal for video analysis tasks in AI research, robotics,
+                  and media processing. For creative production, the same workflow
+                  supports rotoscoping, subject isolation, VFX cleanup, product
+                  extraction, background replacement, and reviewable mask outputs.
+                </p>
           </div>
 
           <figure class="creative-project-story__figure creative-project-story__figure--module-snapshot">
@@ -2069,10 +2180,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               super-resolution of video frames, producing high-fidelity outputs
               even on low-resolution or compressed media. The plugin
               intelligently handles large inputs by adapting processing
-              intervals, and leverages GPU acceleration when available, making
-              it ideal for restoring visual quality in AI-generated content,
-              archival footage, or media upscaling pipelines.
-            </p>
+                  intervals, and leverages GPU acceleration when available, making
+                  it ideal for restoring visual quality in AI-generated content,
+                  archival footage, or media upscaling pipelines. This matters for
+                  AI video and VFX because generated media often needs denoising,
+                  upscaling, interpolation, and quality checks before it can be used
+                  in an edit or campaign asset.
+                </p>
           </div>
 
           <figure class="creative-project-story__figure creative-project-story__figure--module-snapshot">
@@ -2113,9 +2227,52 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 >Watch demo</a
               >
             </p>
-          </div>
-        </section>
-      </article>
+            </div>
+          </section>
+
+          <section class="creative-project-story__section">
+            <div class="creative-project-story__section-head">
+              <p class="creative-project-story__section-label">
+                04 · Production value
+              </p>
+              <h3>Turning model experiments into reusable creative infrastructure</h3>
+            </div>
+
+            <div class="creative-project-story__notes">
+              <div class="creative-project-story__note">
+                <h4>Creative value</h4>
+                <p>
+                  DeepMake supports the less glamorous but essential side of AI
+                  creative work: clean masks, controlled generation, enhanced
+                  outputs, repeatable model settings, and the technical reliability
+                  needed before a team can use AI assets in motion design, VFX,
+                  product visualization, or branded content.
+                </p>
+              </div>
+              <div class="creative-project-story__note">
+                <h4>Workflow value</h4>
+                <ul class="creative-project-story__bullet-list">
+                  <li>
+                    API-first tooling for model inference, prompt parameters,
+                    scheduler control, and GPU-aware execution
+                  </li>
+                  <li>
+                    ComfyUI-compatible workflows for image generation,
+                    segmentation, restoration, and production QA
+                  </li>
+                  <li>
+                    Infrastructure thinking for batch content generation, asset
+                    cleanup, media enhancement, and creative pipeline automation
+                  </li>
+                  <li>
+                    A bridge between engineering teams and creative teams that
+                    need reliable, explainable, reusable AI tools
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </article>
     </div>
   </div>
 </section>

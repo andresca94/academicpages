@@ -2088,7 +2088,7 @@ body.page-home {
 }
 
 .creative-project-browser-page {
-  max-width: 1400px;
+  max-width: 1520px;
   margin: 0 auto;
   padding: clamp(1.2rem, 3vw, 2.6rem) clamp(1rem, 3.2vw, 2.8rem) 3rem;
 }
@@ -2098,32 +2098,33 @@ body.page-home {
 }
 
 .creative-project-browser__hero {
-  grid-template-columns: 1fr;
-  gap: 1.2rem;
+  grid-template-columns: minmax(320px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(1.8rem, 3vw, 3.2rem);
   align-items: start;
-  padding: 0 0 1.3rem;
+  padding: 0 0 1.55rem;
   border-top: 0;
   border-bottom: 1px solid var(--creative-border);
 }
 
 .creative-project-browser__copy {
-  max-width: 72rem;
+  max-width: 35rem;
 }
 
 .creative-project-browser__headline {
-  max-width: 10ch;
-  font-size: clamp(3.3rem, 6.8vw, 6.2rem);
-  line-height: 0.88;
+  max-width: 6.9ch;
+  font-size: clamp(2.85rem, 4.7vw, 5rem);
+  line-height: 0.84;
 }
 
 .creative-project-browser__lede {
-  max-width: 56rem;
-  font-size: 1.02rem;
-  line-height: 1.82;
+  max-width: 31rem;
+  font-size: 0.96rem;
+  line-height: 1.68;
 }
 
 .creative-project-browser__preview-stage {
   width: 100%;
+  align-self: start;
 }
 
 .creative-media-carousel {
@@ -2131,11 +2132,11 @@ body.page-home {
 }
 
 .creative-media-carousel__viewport {
-  background: rgba(21, 19, 17, 0.035);
+  background: rgba(21, 19, 17, 0.04);
 }
 
 .creative-media-carousel__media {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   background: rgba(21, 19, 17, 0.035);
 }
 
@@ -2189,7 +2190,7 @@ body.page-home {
 .creative-project-browser__index-list {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1rem 1.2rem;
+  gap: 1.1rem 1.45rem;
 }
 
 .creative-project-browser__index-button {
@@ -2233,16 +2234,18 @@ body.page-home {
 .creative-project-story {
   gap: 1.4rem;
   padding-top: 0.15rem;
+  scroll-margin-top: 6.6rem;
 }
 
 .creative-project-story__intro-grid,
 .creative-project-story__notes {
-  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
-  gap: 1.4rem;
+  grid-template-columns: minmax(0, 1.28fr) minmax(260px, 0.72fr);
+  gap: 1.75rem;
 }
 
 .creative-project-story h2 {
-  font-size: clamp(3rem, 5vw, 4.7rem);
+  max-width: 12ch;
+  font-size: clamp(2.85rem, 4.4vw, 4.2rem);
   line-height: 0.9;
 }
 
@@ -2272,11 +2275,15 @@ body.page-home {
 }
 
 .creative-project-story__section-head {
-  max-width: 58rem;
+  max-width: 62rem;
 }
 
 .creative-project-story__media-grid {
-  gap: 1rem;
+  gap: 1.15rem;
+}
+
+.creative-project-story__media-grid--duo {
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
 }
 
 .creative-project-story__frame {

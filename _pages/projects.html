@@ -14,14 +14,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           Selected AI creative systems
         </p>
         <h1 class="creative-project-browser__headline">
-          Projects where prompting, taste, motion, and production logic have to
-          work together.
+          Projects where prompting, taste, motion, and production logic work
+          together.
         </h1>
         <p class="creative-project-browser__lede">
-          This selection focuses on the kind of work I want more of next:
-          fashion systems, branded storytelling, AI avatar production, editorial
-          motion, and operational workflows that help teams move faster without
-          making the output feel synthetic, generic, or under-directed.
+          A focused selection of fashion systems, branded storytelling, AI
+          avatar production, editorial motion, and creative tooling built to
+          make teams faster without flattening the work into generic AI output.
         </p>
       </div>
 
@@ -1959,8 +1958,9 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         renderCarousel(carousel, 0);
       });
 
-    function activateProject(target, shouldUpdateHash) {
+    function activateProject(target, shouldUpdateHash, shouldScroll) {
       var activeLabel = "Barbara Feldon AI Character Lab";
+      var activePanel = null;
 
       buttons.forEach(function (button) {
         var isActive = button.getAttribute("data-project-target") === target;
@@ -1976,6 +1976,9 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         var isActive = panel.getAttribute("data-project-panel") === target;
         panel.classList.toggle("is-active", isActive);
         panel.hidden = !isActive;
+        if (isActive) {
+          activePanel = panel;
+        }
       });
 
       previews.forEach(function (preview) {
@@ -2001,12 +2004,22 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           window.location.hash = target;
         }
       }
+
+      if (shouldScroll && activePanel) {
+        window.requestAnimationFrame(function () {
+          activePanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        });
+      }
     }
 
     buttons.forEach(function (button) {
       button.addEventListener("click", function () {
         activateProject(
           button.getAttribute("data-project-target"),
+          true,
           true,
         );
       });
@@ -2019,17 +2032,17 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
 
       if (hash === "project-browser") {
         if (!openBrowserOnly) {
-          activateProject("barbara", false);
+          activateProject("barbara", false, false);
         }
         return;
       }
 
       if (validTargets.indexOf(hash) !== -1) {
-        activateProject(hash, false);
+        activateProject(hash, false, true);
         return;
       }
 
-      activateProject("barbara", false);
+      activateProject("barbara", false, false);
     }
 
     handleHash(false);

@@ -2588,8 +2588,14 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__med
   max-width: none;
 }
 
+body.page-projects .creative-media-carousel--story {
+  overflow: hidden;
+  contain: paint;
+}
+
 body.page-projects .creative-media-carousel--story .creative-media-carousel__slide {
   flex: 0 0 100%;
+  min-width: 0;
 }
 
 body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
@@ -2862,6 +2868,20 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
 
   body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
     height: clamp(300px, 86vw, 520px);
+  }
+
+  body.page-projects .creative-media-carousel--story,
+  body.page-projects .creative-media-carousel--story .creative-media-carousel__viewport,
+  body.page-projects .creative-media-carousel--story .creative-media-carousel__track,
+  body.page-projects .creative-media-carousel--story .creative-media-carousel__slide,
+  body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body.page-projects .creative-media-carousel--story .creative-media-carousel__slide {
+    flex: 0 0 100% !important;
   }
 
   .creative-project-story__media-grid--six,

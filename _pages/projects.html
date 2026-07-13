@@ -291,58 +291,27 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           data-project-preview="johnny"
           hidden
         >
-          <div class="creative-media-carousel" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                <figure
-                  class="creative-media-carousel__slide"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/johnny-never-fear-truth-frame-01.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/johnny-never-fear-truth.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                  <figcaption>
-                    A generative film pass inspired by the Never Fear Truth
-                    visual universe.
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button
-                type="button"
-                class="creative-media-carousel__button"
-                data-carousel-prev
-                aria-label="Previous Johnny media"
+          <figure class="creative-project-browser__single-media">
+            <div class="creative-media-carousel__media">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="{{ '/images/johnny-never-fear-truth-frame-01.jpg' | relative_url }}"
               >
-                Prev
-              </button>
-              <div
-                class="creative-media-carousel__dots"
-                data-carousel-dots
-              ></div>
-              <button
-                type="button"
-                class="creative-media-carousel__button"
-                data-carousel-next
-                aria-label="Next Johnny media"
-              >
-                Next
-              </button>
+                <source
+                  src="{{ '/images/johnny-never-fear-truth.mp4' | relative_url }}"
+                  type="video/mp4"
+                />
+              </video>
             </div>
-          </div>
+            <figcaption>
+              A generative film pass inspired by the Never Fear Truth visual
+              universe.
+            </figcaption>
+          </figure>
         </div>
 
         <div
@@ -995,10 +964,10 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign johnny_reference_groups = "johnny-never-fear-truth.jpg|Hero portrait tuned around silhouette and painterly after-hours mood.~~johnny-never-fear-truth-2.jpg|Gallery-oriented staging rooted in exhibition culture.~~johnny-never-fear-truth-3.jpg|Bunnyman-inspired surrealism widening the narrative beyond portraiture.~~johnny-film-still-01.jpg|Opening close-up from the AI-directed short film.||johnny-film-still-02.jpg|Dream portrait transition used to connect character and source art.~~johnny-film-still-03.jpg|Gallery-world composition establishing scale and atmosphere.~~johnny-film-still-04.jpg|Painterly motion frame extending the reference world into film language.~~johnny-film-still-05.jpg|Night-sky father-child frame used to establish the dream logic.||johnny-film-still-06.jpg|Bunnyman constellation expanding the painting motif into scale.~~johnny-film-still-07.jpg|Gallery corridor frame connecting exhibition space to the story world.~~johnny-film-still-08.jpg|Gallery portrait setup before the rabbit is isolated.~~johnny-film-still-12.jpg|Mid-film transition frame used to vary pace, light, and composition." | split: "||" %}
+            {% assign johnny_reference_groups = "johnny-film-frame-extra-14.jpg|Opening dream-world frame used to establish the emotional scale before the gallery sequence.~~johnny-film-frame-extra-36.jpg|Bunnyman constellation frame translating the painting motif into a cinematic symbol.~~johnny-film-frame-extra-62.jpg|Gallery staging reference used to keep the art-world environment readable.~~johnny-film-frame-extra-88.jpg|Minimal gallery composition testing negative space, lighting, and premium pacing.~~johnny-film-frame-extra-127.jpg|Final art-interaction frame connecting the character, rabbit, and source-world mood." | split: "||" %}
             {% for johnny_group in johnny_reference_groups %}
               <div
-                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--johnny-story"
                 data-carousel
               >
                 <div class="creative-media-carousel__viewport">
@@ -1056,10 +1025,10 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign johnny_motion_groups = "johnny-film-still-09.jpg|Golden rabbit element staged as its own animated subject.~~johnny-film-still-10.jpg|Gallery performance frame showing the segmented rabbit carried into the Runway ML image-to-video pass.~~johnny-film-still-11.jpg|Art interaction frame used for emotional continuity in the edit.~~johnny-film-still-13.jpg|Composite transition between human subject and dream sequence.||johnny-film-still-14.jpg|Closing dream-world frame with the rabbit carried into the final beat.~~johnny-never-fear-truth-rabbit-04.jpg|Character-driven motion beat used to test continuity.~~johnny-never-fear-truth-rabbit-05.jpg|Runway ML variation used for pacing and frame selection.~~johnny-never-fear-truth-contact.jpg|Contact sheet showing portrait, gallery, and dream-state development." | split: "||" %}
+            {% assign johnny_motion_groups = "johnny-film-frame-extra-109.jpg|Segmented golden rabbit staged as the isolated image-to-video subject.~~johnny-film-still-10.jpg|Gallery performance frame showing the rabbit carried into the Runway ML motion pass.~~johnny-film-still-11.jpg|Art interaction frame used for emotional continuity in the edit.~~johnny-film-still-13.jpg|Composite transition between human subject, gallery space, and dream sequence.~~johnny-film-still-14.jpg|Closing dream-world frame with the rabbit carried into the final beat." | split: "||" %}
             {% for motion_group in johnny_motion_groups %}
               <div
-                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--johnny-story"
                 data-carousel
               >
                 <div class="creative-media-carousel__viewport">

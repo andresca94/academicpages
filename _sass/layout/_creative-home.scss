@@ -2968,6 +2968,95 @@ body.page-projects
   margin-right: auto;
 }
 
+body.page-projects .creative-project-browser__single-media {
+  display: grid;
+  gap: 0.78rem;
+  width: 100%;
+  margin: 0;
+}
+
+body.page-projects .creative-project-browser__single-media figcaption {
+  width: min(100%, 1560px);
+  margin: 0.18rem auto 0;
+  padding-left: clamp(1rem, 4vw, 5rem);
+  padding-right: clamp(1rem, 4vw, 5rem);
+  color: var(--creative-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+body.page-projects #project-johnny .creative-media-carousel--johnny-story {
+  width: min(100%, 900px);
+  margin-left: auto;
+  margin-right: auto;
+  overflow: visible;
+  contain: none;
+}
+
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__viewport,
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__track,
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__slide,
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__media {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__slide {
+  display: grid;
+  flex: 0 0 100% !important;
+  grid-template-columns: 100%;
+  justify-content: center !important;
+  justify-items: center;
+  align-content: start;
+}
+
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__media {
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  padding: 0;
+  background: #14100e;
+}
+
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__media::before,
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  .creative-media-carousel__media::after {
+  opacity: 0;
+}
+
+body.page-projects
+  #project-johnny
+  .creative-media-carousel--johnny-story
+  figcaption {
+  width: min(100%, 42rem);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 body.page-projects
   #project-barbara
   .creative-media-carousel--barbara-motion

@@ -2957,6 +2957,7 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
 }
 
 body.page-projects
+  .creative-media-carousel--story.creative-media-carousel--compact
   .creative-media-carousel__slide--square-video
   .creative-media-carousel__media {
   width: clamp(300px, 32vw, 520px);

@@ -1207,10 +1207,10 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign randomai_video_groups = "randomai-product-motion-8s.mp4|randomai-product-motion-poster.jpg|Generated garment motion test showing product imagery moving from static mockup into lifestyle content.~~randomai-editorial-campaign-motion.mp4|randomai-editorial-campaign-motion-poster.jpg|Editorial campaign motion cut designed for social, ads, and fashion-forward storefront storytelling.~~randomai-brand-motion.mp4|randomai-brand-motion-poster.jpg|Brand-motion pass turning product visuals into a reusable RandomAI identity layer.~~randomai-vertical-tryon-display.mp4|randomai-vertical-tryon-display-poster.jpg|Vertical retail display and social try-on style asset for store screens and short-form distribution." | split: "||" %}
+            {% assign randomai_video_groups = "randomai-product-motion-8s.mp4|randomai-product-motion-poster.jpg|Generated garment motion test showing product imagery moving from static mockup into lifestyle content.~~randomai-editorial-campaign-motion.mp4|randomai-editorial-campaign-motion-poster.jpg|Editorial campaign motion cut designed for social, ads, and fashion-forward storefront storytelling.~~randomai-brand-motion.mp4|randomai-brand-motion-poster.jpg|Brand-motion pass turning product visuals into a reusable RandomAI identity layer.||randomai-vertical-tryon-display.mp4|randomai-vertical-tryon-display-poster.jpg|Vertical retail display and social try-on style asset for store screens and short-form distribution." | split: "||" %}
             {% for randomai_video_group in randomai_video_groups %}
               <div
-                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--randomai"
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--randomai{% if randomai_video_group contains "randomai-vertical-tryon-display.mp4" %} creative-media-carousel--randomai-vertical{% else %} creative-media-carousel--randomai-video{% endif %}"
                 data-carousel
               >
                 <div class="creative-media-carousel__viewport">
@@ -1242,22 +1242,24 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                     {% endfor %}
                   </div>
                 </div>
-                <div class="creative-media-carousel__controls">
-                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                    Prev
-                  </button>
-                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
-                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                    Next
-                  </button>
-                </div>
+                {% if randomai_video_assets.size > 1 %}
+                  <div class="creative-media-carousel__controls">
+                    <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                      Prev
+                    </button>
+                    <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                    <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                      Next
+                    </button>
+                  </div>
+                {% endif %}
               </div>
             {% endfor %}
 
-            {% assign randomai_ai_groups = "randomai-garment-dragon-model.jpg|AI product visualization placing custom artwork onto a model-ready garment mockup.~~randomai-garment-samurai-hoodie.jpg|Generated hoodie product shot testing print-on-demand styling and model direction.~~randomai-tryon-hoodie-city.jpg|Virtual try-on style campaign image showing how user artwork could become lifestyle content.~~randomai-ad-customize-garments.jpg|Paid-social creative concept packaging the custom garment offer as a conversion asset.~~randomai-ad-ai-powered-outfits.jpg|Instagram-ready promotional layout for AI-powered outfit customization." | split: "||" %}
+            {% assign randomai_ai_groups = "randomai-garment-dragon-model.jpg|AI product visualization placing custom artwork onto a model-ready garment mockup.~~randomai-garment-samurai-hoodie.jpg|Generated hoodie product shot testing print-on-demand styling and model direction.~~randomai-tryon-hoodie-city.jpg|Virtual try-on style campaign image showing how user artwork could become lifestyle content.||randomai-ad-customize-garments.jpg|Paid-social creative concept packaging the custom garment offer as a conversion asset.~~randomai-ad-ai-powered-outfits.jpg|Instagram-ready promotional layout for AI-powered outfit customization." | split: "||" %}
             {% for randomai_ai_group in randomai_ai_groups %}
               <div
-                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--randomai"
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--randomai{% if randomai_ai_group contains "randomai-ad-customize-garments.jpg" %} creative-media-carousel--randomai-portrait{% else %} creative-media-carousel--randomai-square{% endif %}"
                 data-carousel
               >
                 <div class="creative-media-carousel__viewport">

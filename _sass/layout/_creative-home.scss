@@ -3145,7 +3145,7 @@ body.page-projects
 body.page-projects
   #project-randomai
   .creative-media-carousel--randomai {
-  width: min(100%, 900px);
+  width: min(100%, 820px);
   margin-left: auto;
   margin-right: auto;
   overflow: visible;
@@ -3196,6 +3196,27 @@ body.page-projects
 
 body.page-projects
   #project-randomai
+  .creative-media-carousel--randomai-video {
+  width: min(100%, 720px);
+}
+
+body.page-projects
+  #project-randomai
+  .creative-media-carousel--randomai-square {
+  width: min(100%, 500px);
+}
+
+body.page-projects
+  #project-randomai
+  .creative-media-carousel--randomai-vertical,
+body.page-projects
+  #project-randomai
+  .creative-media-carousel--randomai-portrait {
+  width: min(100%, 320px);
+}
+
+body.page-projects
+  #project-randomai
   .creative-media-carousel--randomai
   .creative-media-carousel__media::before,
 body.page-projects
@@ -3229,7 +3250,7 @@ body.page-projects
   .creative-media-carousel--randomai
   .creative-media-carousel__slide--square-asset
   .creative-media-carousel__media {
-  width: min(100%, 680px) !important;
+  width: 100% !important;
   aspect-ratio: 1 / 1 !important;
 }
 
@@ -3269,7 +3290,7 @@ body.page-projects
   .creative-media-carousel--story.creative-media-carousel--compact
   .creative-media-carousel__slide--portrait-asset
   .creative-media-carousel__media {
-  width: clamp(260px, 28vw, 440px);
+  width: 100% !important;
   max-width: 100%;
   height: auto !important;
   aspect-ratio: 9 / 16 !important;

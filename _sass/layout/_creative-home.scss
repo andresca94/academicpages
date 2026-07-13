@@ -1648,7 +1648,7 @@ body.page-home .page__footer {
 
 .creative-project-story__carousel-stack {
   display: grid;
-  gap: clamp(0.9rem, 1.5vw, 1.35rem);
+  gap: clamp(0.65rem, 1vw, 1rem);
   min-width: 0;
 }
 
@@ -2605,15 +2605,28 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__sli
 }
 
 body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
-  height: clamp(300px, 38vw, 560px);
+  height: clamp(260px, 32vw, 460px);
   aspect-ratio: auto;
-  background: #14100e;
+  background: #eee8df;
+}
+
+body.page-projects
+  .creative-media-carousel--story
+  .creative-media-carousel__media::before {
+  filter: blur(24px) saturate(0.82);
+  opacity: 0.18;
+}
+
+body.page-projects
+  .creative-media-carousel--story
+  .creative-media-carousel__media::after {
+  background: rgba(20, 16, 14, 0.08);
 }
 
 body.page-projects
   .creative-media-carousel--story.creative-media-carousel--compact
   .creative-media-carousel__media {
-  height: clamp(280px, 34vw, 500px);
+  height: clamp(240px, 28vw, 400px);
 }
 
 body.page-projects .creative-media-carousel--story .creative-media-carousel__media img,
@@ -2637,6 +2650,12 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
   width: min(100%, 980px);
   margin-left: auto;
   margin-right: auto;
+}
+
+.creative-project-story__embed--links-only {
+  align-self: start;
+  padding: 0;
+  background: transparent;
 }
 
 .creative-project-story__figure--module-snapshot {
@@ -2697,13 +2716,13 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
   }
 
   body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
-    height: clamp(300px, 36vw, 560px);
+    height: clamp(260px, 30vw, 460px);
   }
 
   body.page-projects
     .creative-media-carousel--story.creative-media-carousel--compact
     .creative-media-carousel__media {
-    height: clamp(280px, 32vw, 500px);
+    height: clamp(240px, 26vw, 400px);
   }
 
   body.page-projects .creative-media-carousel__media img,
@@ -2898,13 +2917,13 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
   }
 
   body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
-    height: clamp(240px, 72vw, 420px);
+    height: clamp(220px, 64vw, 360px);
   }
 
   body.page-projects
     .creative-media-carousel--story.creative-media-carousel--compact
     .creative-media-carousel__media {
-    height: clamp(220px, 68vw, 390px);
+    height: clamp(200px, 60vw, 340px);
   }
 
   body.page-projects .creative-media-carousel--story,

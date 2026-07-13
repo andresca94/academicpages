@@ -3014,6 +3014,8 @@ body.page-projects
   .creative-media-carousel__slide {
   display: grid;
   flex: 0 0 100% !important;
+  grid-template-columns: 100%;
+  justify-content: center !important;
   justify-items: center;
   align-content: start;
 }

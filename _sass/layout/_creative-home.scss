@@ -2565,6 +2565,9 @@ body.page-projects .creative-media-carousel__media {
 
 body.page-projects .creative-media-carousel__media img,
 body.page-projects .creative-media-carousel__media video {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   max-width: none;

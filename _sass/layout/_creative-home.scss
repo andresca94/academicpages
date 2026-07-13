@@ -2147,9 +2147,10 @@ body.page-home {
 }
 
 .creative-project-browser-page {
-  width: min(100%, calc(100vw - clamp(1.6rem, 4vw, 4.8rem)));
-  max-width: 1560px;
-  margin: 0 auto;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   padding-left: 0;
   padding-right: 0;
 }
@@ -2306,13 +2307,16 @@ body.page-home {
 .creative-project-browser__hero-copy {
   display: grid;
   gap: 0.55rem;
-  width: 100%;
+  width: min(100%, 1560px);
   max-width: none;
+  margin: 0 auto;
+  padding-left: clamp(1rem, 4vw, 5rem);
+  padding-right: clamp(1rem, 4vw, 5rem);
   padding-top: 0.15rem;
 }
 
 .creative-project-browser__preview-stage {
-  width: 100%;
+  width: 100vw;
   align-self: start;
   max-width: none;
   justify-self: stretch;
@@ -2509,7 +2513,7 @@ body.page-projects .creative-media-carousel__slide {
 }
 
 body.page-projects .creative-media-carousel__media {
-  min-height: clamp(420px, 48vw, 820px);
+  min-height: clamp(520px, 48vw, 820px);
 }
 
 body.page-projects .creative-media-carousel__media img,
@@ -2517,6 +2521,39 @@ body.page-projects .creative-media-carousel__media video,
 body.page-projects .creative-media-carousel__media iframe {
   width: 100%;
   height: 100%;
+}
+
+@media (min-width: 1024px) {
+  body.page-projects .creative-project-browser__preview-stage {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  body.page-projects .creative-media-carousel__viewport,
+  body.page-projects .creative-media-carousel__media {
+    width: 100vw;
+  }
+
+  body.page-projects .creative-media-carousel__media {
+    aspect-ratio: 21 / 9;
+    max-height: none;
+    padding: 0;
+  }
+
+  body.page-projects .creative-media-carousel__media img,
+  body.page-projects .creative-media-carousel__media video {
+    object-fit: cover;
+    background: transparent;
+  }
+
+  body.page-projects .creative-media-carousel__slide figcaption,
+  body.page-projects .creative-media-carousel__controls {
+    width: min(100%, 1560px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 4vw, 5rem);
+    padding-right: clamp(1rem, 4vw, 5rem);
+  }
 }
 
 @media (max-width: 1240px) {

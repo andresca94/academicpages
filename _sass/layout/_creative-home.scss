@@ -1988,13 +1988,13 @@ body.page-home {
 .creative-home__editorial {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr);
+  grid-template-columns: minmax(0, 1.22fr) minmax(300px, 0.58fr);
   gap: clamp(2rem, 4vw, 4.2rem);
   align-items: center;
 }
 
 .creative-home__copy {
-  max-width: 52rem;
+  max-width: 58rem;
 }
 
 .creative-home__eyebrow {
@@ -2007,11 +2007,11 @@ body.page-home {
 }
 
 .creative-home__headline {
-  max-width: 13ch;
+  max-width: 16.5ch;
   margin: 0;
   color: var(--creative-ink) !important;
-  font-size: clamp(3.15rem, 5.3vw, 5.45rem);
-  line-height: 0.9;
+  font-size: clamp(2.85rem, 4.6vw, 4.85rem);
+  line-height: 0.92;
   letter-spacing: -0.055em;
 }
 

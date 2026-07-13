@@ -190,13 +190,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 >
                   <div class="creative-media-carousel__media">
                     <img
-                      src="{{ '/images/in1.png' | relative_url }}"
-                      alt="Barbara Feldon ComfyUI inpainting workflow result"
+                      src="{{ '/images/lora3.png' | relative_url }}"
+                      alt="Barbara Feldon ornate fashion render"
                     />
                   </div>
                   <figcaption>
-                    ComfyUI inpainting pass used to repair and expand the source
-                    identity system.
+                    Ornate fashion render testing how the character identity could
+                    survive a stronger editorial styling shift.
                   </figcaption>
                 </figure>
                 <figure
@@ -220,13 +220,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 >
                   <div class="creative-media-carousel__media">
                     <img
-                      src="{{ '/images/primera3D.png' | relative_url }}"
-                      alt="Barbara Feldon first 3D conversion output"
+                      src="{{ '/images/lora9.png' | relative_url }}"
+                      alt="Barbara Feldon supermarket scene render"
                     />
                   </div>
                   <figcaption>
-                    First 2D-to-3D translation pass exploring dimensional character
-                    extension.
+                    Everyday-location render used to test identity consistency
+                    outside a studio or fashion setting.
                   </figcaption>
                 </figure>
                 <figure
@@ -235,13 +235,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 >
                   <div class="creative-media-carousel__media">
                     <img
-                      src="{{ '/images/VTO1.png' | relative_url }}"
-                      alt="Barbara Feldon virtual try-on scene"
+                      src="{{ '/images/lora4.png' | relative_url }}"
+                      alt="Barbara Feldon black-and-white noir render"
                     />
                   </div>
                   <figcaption>
-                    Virtual try-on test connecting identity consistency to
-                    fashion styling.
+                    Noir-style render testing lighting, silhouette, and tonal
+                    continuity under a high-contrast art direction.
                   </figcaption>
                 </figure>
                 <figure
@@ -250,13 +250,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 >
                   <div class="creative-media-carousel__media">
                     <img
-                      src="{{ '/images/segunda3D.png' | relative_url }}"
-                      alt="Barbara Feldon 3D translation output"
+                      src="{{ '/images/out4.png' | relative_url }}"
+                      alt="Barbara Feldon red studio final output"
                     />
                   </div>
                   <figcaption>
-                    2D-to-3D translation that pushed the character system beyond
-                    still portrait work.
+                    Final red-studio output used as a polished still-frame example
+                    outside the lower workflow carousel.
                   </figcaption>
                 </figure>
                 <figure
@@ -264,23 +264,14 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   data-carousel-slide
                 >
                   <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/barbara-feldon-lipsync.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/lypfinal.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
+                    <img
+                      src="{{ '/images/barbara_original_10.jpg' | relative_url }}"
+                      alt="Barbara Feldon archival black-and-white source reference"
+                    />
                   </div>
                   <figcaption>
-                    Lip-sync output used to test portrait performance and
-                    delivery realism.
+                    Archival source reference included in the banner to show the
+                    visual memory behind the character system.
                   </figcaption>
                 </figure>
               </div>
@@ -738,7 +729,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign barbara_workflow_groups = "in1.png|Inpainting pass 01~~in2.png|Inpainting pass 02~~in3.png|Inpainting pass 03~~in4.png|Inpainting pass 04||up.png|Upscale and detail recovery~~selfie.png|Selfie-style generation~~selfie7.png|Alternate selfie generation~~lora1.png|LoRA render 01||out1.png|Final output 01~~out2.png|Final output 02~~out3.png|Final output 03~~out4.png|Final output 04" | split: "||" %}
+            {% assign barbara_workflow_groups = "in1.png|Inpainting pass 01~~in2.png|Inpainting pass 02~~in3.png|Inpainting pass 03~~in4.png|Final output 04||up.png|Upscale and detail recovery~~selfie.png|Selfie-style generation~~selfie7.png|Alternate selfie generation~~lora1.png|LoRA render 01" | split: "||" %}
             {% for workflow_group in barbara_workflow_groups %}
               <div
                 class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
@@ -854,10 +845,10 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign barbara_motion_groups = "faceswap1.mp4|barbara-feldon-faceswap.jpg|Face-swap performance test using Barbara as the controlled identity target.~~faceswap2.mp4|barbara-feldon-faceswap.jpg|Alternate face-swap pass comparing motion quality across clips.~~lypfinal.mp4|barbara-feldon-lipsync.jpg|Lip-sync output used to test believable portrait delivery.~~barbaravideo.mp4|barbara-feldon-motion.jpg|Image-to-video motion scene packaging the character into a broader cinematic beat." | split: "||" %}
+            {% assign barbara_motion_groups = "faceswap2.mp4|barbara-feldon-faceswap.jpg|Alternate face-swap pass comparing motion quality across clips.~~lypfinal.mp4|barbara-feldon-lipsync.jpg|Lip-sync output used to test believable portrait delivery.~~barbaravideo.mp4|barbara-feldon-motion.jpg|Image-to-video motion scene packaging the character into a broader cinematic beat." | split: "||" %}
             {% for motion_group in barbara_motion_groups %}
               <div
-                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--barbara-motion"
                 data-carousel
               >
                 <div class="creative-media-carousel__viewport">

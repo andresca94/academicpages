@@ -2960,12 +2960,41 @@ body.page-projects
   .creative-media-carousel--story.creative-media-carousel--compact
   .creative-media-carousel__slide--square-video
   .creative-media-carousel__media {
-  width: clamp(300px, 32vw, 520px);
+  width: clamp(340px, 38vw, 600px);
   max-width: 100%;
-  height: clamp(300px, 32vw, 520px);
+  height: clamp(340px, 38vw, 600px);
   aspect-ratio: 1 / 1;
   margin-left: auto;
   margin-right: auto;
+}
+
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__viewport,
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__track {
+  background: transparent;
+}
+
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__media {
+  background: #f1ede6;
+}
+
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__media::before,
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__media::after {
+  opacity: 0;
 }
 
 body.page-projects

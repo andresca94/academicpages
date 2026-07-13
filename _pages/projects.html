@@ -1458,13 +1458,13 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   >
                     <div class="creative-media-carousel__media">
                       <img
-                        src="{{ '/images/ai-avatar-training-suite-frame-01.jpg' | relative_url }}"
-                        alt="AI avatar training video title frame"
+                        src="{{ '/images/ai-avatar-training-suite-2.jpg' | relative_url }}"
+                        alt="AI avatar localized compliance message"
                       />
                     </div>
                     <figcaption>
-                      Captured frame from the video system showing title-card
-                      clarity at full presentation scale.
+                      Localized compliance message design built for repeatable
+                      adaptation.
                     </figcaption>
                   </figure>
                   <figure
@@ -1473,13 +1473,28 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   >
                     <div class="creative-media-carousel__media">
                       <img
-                        src="{{ '/images/ai-avatar-training-suite-frame-02.jpg' | relative_url }}"
-                        alt="AI avatar generated image and presenter layout"
+                        src="{{ '/images/ai-avatar-training-suite-frame-04.jpg' | relative_url }}"
+                        alt="AI avatar operational safety guidance frame"
                       />
                     </div>
                     <figcaption>
-                      Generated visual support and presenter layout showing how
-                      OpenAI API image assets were folded into the video system.
+                      Operational content frame showing how modules carry safety
+                      guidance.
+                    </figcaption>
+                  </figure>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <img
+                        src="{{ '/images/ai-avatar-training-suite-contact.jpg' | relative_url }}"
+                        alt="AI avatar training suite contact sheet"
+                      />
+                    </div>
+                    <figcaption>
+                      Broader system view showing how modules scale across topics
+                      and audiences.
                     </figcaption>
                   </figure>
                 </div>
@@ -1494,44 +1509,6 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </button>
               </div>
             </div>
-
-            {% assign avatar_media_groups = "ai-avatar-training-suite-frame-03.jpg|Training slide captured from the long-form module flow.~~ai-avatar-training-suite-2.jpg|Localized compliance message design built for repeatable adaptation.~~ai-avatar-training-suite-frame-04.jpg|Operational content frame showing how modules carry safety guidance.||ai-avatar-training-suite-frame-06.jpg|Later-module capture showing the reusable visual system at work.~~ai-avatar-training-suite-contact.jpg|Broader system view showing how modules scale across topics and audiences." | split: "||" %}
-            {% for avatar_group in avatar_media_groups %}
-              <div
-                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact creative-media-carousel--avatar"
-                data-carousel
-              >
-                <div class="creative-media-carousel__viewport">
-                  <div class="creative-media-carousel__track" data-carousel-track>
-                    {% assign avatar_media_assets = avatar_group | split: "~~" %}
-                    {% for avatar_item in avatar_media_assets %}
-                      {% assign avatar_parts = avatar_item | split: "|" %}
-                      <figure
-                        class="creative-media-carousel__slide creative-project-story__figure"
-                        data-carousel-slide
-                      >
-                        <div class="creative-media-carousel__media">
-                          <img
-                            src="{{ '/images/' | append: avatar_parts[0] | relative_url }}"
-                            alt="AI Avatar Training Suite {{ avatar_parts[1] }}"
-                          />
-                        </div>
-                        <figcaption>{{ avatar_parts[1] }}</figcaption>
-                      </figure>
-                    {% endfor %}
-                  </div>
-                </div>
-                <div class="creative-media-carousel__controls">
-                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                    Prev
-                  </button>
-                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
-                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                    Next
-                  </button>
-                </div>
-              </div>
-            {% endfor %}
           </div>
         </section>
 

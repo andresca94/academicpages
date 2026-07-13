@@ -8,21 +8,126 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
 
 <section class="creative-project-browser-page">
   <div class="creative-project-browser">
-    <header class="creative-project-browser__hero">
-      <div class="creative-project-browser__copy">
-        <p class="creative-project-browser__eyebrow">
-          Selected AI creative systems
-        </p>
-        <h1 class="creative-project-browser__headline">
-          Projects where prompting, taste, motion, and production logic work
-          together.
+    <header class="creative-project-browser__hero" id="project-browser">
+      <div class="creative-project-browser__hero-top">
+        <span class="creative-project-browser__index-label" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <h1
+          class="creative-project-browser__index-current"
+          data-current-project
+        >
+          Barbara Feldon AI Character Lab
         </h1>
-        <p class="creative-project-browser__lede">
-          A focused selection of fashion systems, branded storytelling, AI
-          avatar production, editorial motion, and creative tooling built to
-          make teams faster without flattening the work into generic AI output.
-        </p>
       </div>
+
+      <div class="creative-project-browser__index-list">
+        <button
+          type="button"
+          class="creative-project-browser__index-button is-active"
+          data-project-target="barbara"
+          data-project-label="Barbara Feldon AI Character Lab"
+          data-project-context="Character system · fashion testbed · generative motion"
+          aria-controls="project-barbara"
+        >
+          <span class="creative-project-browser__index-number">01</span>
+          <span class="creative-project-browser__index-copy">
+            <span class="creative-project-browser__index-title"
+              >Barbara Feldon AI Character Lab</span
+            >
+            <span class="creative-project-browser__index-meta"
+              >Character consistency, fashion try-on, dimensional translation,
+              and motion outputs.</span
+            >
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="creative-project-browser__index-button"
+          data-project-target="johnny"
+          data-project-label="Johnny Depp Art World Film"
+          data-project-context="Brand storytelling · art direction · AI film direction"
+          aria-controls="project-johnny"
+        >
+          <span class="creative-project-browser__index-number">02</span>
+          <span class="creative-project-browser__index-copy">
+            <span class="creative-project-browser__index-title"
+              >Johnny Depp Art World Film</span
+            >
+            <span class="creative-project-browser__index-meta"
+              >Reference-led AI film development for art-world mood, symbolism,
+              and story pacing.</span
+            >
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="creative-project-browser__index-button"
+          data-project-target="randomai"
+          data-project-label="RandomAI Fashion Commerce"
+          data-project-context="Fashion commerce · generative product design · virtual styling"
+          aria-controls="project-randomai"
+        >
+          <span class="creative-project-browser__index-number">03</span>
+          <span class="creative-project-browser__index-copy">
+            <span class="creative-project-browser__index-title"
+              >RandomAI Fashion Commerce</span
+            >
+            <span class="creative-project-browser__index-meta"
+              >Generative fashion storefront, virtual styling, and
+              prompt-to-product merchandising.</span
+            >
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="creative-project-browser__index-button"
+          data-project-target="avatar"
+          data-project-label="AI Avatar Training Suite"
+          data-project-context="AI avatars · localization · compliance automation"
+          aria-controls="project-avatar"
+        >
+          <span class="creative-project-browser__index-number">04</span>
+          <span class="creative-project-browser__index-copy">
+            <span class="creative-project-browser__index-title"
+              >AI Avatar Training Suite</span
+            >
+            <span class="creative-project-browser__index-meta"
+              >Avatar delivery, localization, voice, and workflow automation for
+              repeatable training content.</span
+            >
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="creative-project-browser__index-button"
+          data-project-target="deepmake"
+          data-project-label="DeepMake Creative Tooling Platform"
+          data-project-context="Image generation · segmentation · production tooling"
+          aria-controls="project-deepmake"
+        >
+          <span class="creative-project-browser__index-number">05</span>
+          <span class="creative-project-browser__index-copy">
+            <span class="creative-project-browser__index-title"
+              >DeepMake Creative Tooling Platform</span
+            >
+            <span class="creative-project-browser__index-meta"
+              >Image generation, segmentation, and super-resolution tooling
+              built for production pipelines.</span
+            >
+          </span>
+        </button>
+      </div>
+
+      <p class="creative-project-browser__hero-context" data-current-context>
+        Character system · fashion testbed · generative motion
+      </p>
 
       <div class="creative-project-browser__preview-stage" aria-live="polite">
         <div
@@ -530,122 +635,6 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         </div>
       </div>
     </header>
-
-    <nav
-      class="creative-project-browser__index"
-      id="project-browser"
-      aria-label="Project index"
-    >
-      <div class="creative-project-browser__index-head">
-        <span class="creative-project-browser__index-label" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <span class="visually-hidden">Project index</span>
-        <span
-          class="creative-project-browser__index-current"
-          data-current-project
-          >Barbara Feldon AI Character Lab</span
-        >
-      </div>
-      <div class="creative-project-browser__index-list">
-        <button
-          type="button"
-          class="creative-project-browser__index-button is-active"
-          data-project-target="barbara"
-          data-project-label="Barbara Feldon AI Character Lab"
-          aria-controls="project-barbara"
-        >
-          <span class="creative-project-browser__index-number">01</span>
-          <span class="creative-project-browser__index-copy">
-            <span class="creative-project-browser__index-title"
-              >Barbara Feldon AI Character Lab</span
-            >
-            <span class="creative-project-browser__index-meta"
-              >Character consistency, fashion try-on, dimensional translation,
-              and motion outputs.</span
-            >
-          </span>
-        </button>
-
-        <button
-          type="button"
-          class="creative-project-browser__index-button"
-          data-project-target="johnny"
-          data-project-label="Johnny Depp Art World Film"
-          aria-controls="project-johnny"
-        >
-          <span class="creative-project-browser__index-number">02</span>
-          <span class="creative-project-browser__index-copy">
-            <span class="creative-project-browser__index-title"
-              >Johnny Depp Art World Film</span
-            >
-            <span class="creative-project-browser__index-meta"
-              >Reference-led AI film development for art-world mood, symbolism,
-              and story pacing.</span
-            >
-          </span>
-        </button>
-
-        <button
-          type="button"
-          class="creative-project-browser__index-button"
-          data-project-target="randomai"
-          data-project-label="RandomAI Fashion Commerce"
-          aria-controls="project-randomai"
-        >
-          <span class="creative-project-browser__index-number">03</span>
-          <span class="creative-project-browser__index-copy">
-            <span class="creative-project-browser__index-title"
-              >RandomAI Fashion Commerce</span
-            >
-            <span class="creative-project-browser__index-meta"
-              >Generative fashion storefront, virtual styling, and
-              prompt-to-product merchandising.</span
-            >
-          </span>
-        </button>
-
-        <button
-          type="button"
-          class="creative-project-browser__index-button"
-          data-project-target="avatar"
-          data-project-label="AI Avatar Training Suite"
-          aria-controls="project-avatar"
-        >
-          <span class="creative-project-browser__index-number">04</span>
-          <span class="creative-project-browser__index-copy">
-            <span class="creative-project-browser__index-title"
-              >AI Avatar Training Suite</span
-            >
-            <span class="creative-project-browser__index-meta"
-              >Avatar delivery, localization, voice, and workflow automation for
-              repeatable training content.</span
-            >
-          </span>
-        </button>
-
-        <button
-          type="button"
-          class="creative-project-browser__index-button"
-          data-project-target="deepmake"
-          data-project-label="DeepMake Creative Tooling Platform"
-          aria-controls="project-deepmake"
-        >
-          <span class="creative-project-browser__index-number">05</span>
-          <span class="creative-project-browser__index-copy">
-            <span class="creative-project-browser__index-title"
-              >DeepMake Creative Tooling Platform</span
-            >
-            <span class="creative-project-browser__index-meta"
-              >Image generation, segmentation, and super-resolution tooling
-              built for production pipelines.</span
-            >
-          </span>
-        </button>
-      </div>
-    </nav>
 
     <div class="creative-project-browser__panels">
       <article
@@ -1853,9 +1842,24 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       root.querySelectorAll("[data-project-preview]"),
     );
     var currentProject = root.querySelector("[data-current-project]");
+    var currentContext = root.querySelector("[data-current-context]");
     var validTargets = buttons.map(function (button) {
       return button.getAttribute("data-project-target");
     });
+
+    function scrollToPanel(panel) {
+      if (!panel) return;
+
+      var masthead = document.querySelector(".masthead");
+      var mastheadOffset = masthead ? masthead.offsetHeight : 0;
+      var panelTop =
+        panel.getBoundingClientRect().top + window.pageYOffset - mastheadOffset - 20;
+
+      window.scrollTo({
+        top: Math.max(panelTop, 0),
+        behavior: "smooth",
+      });
+    }
 
     function syncVideos() {
       var videos = Array.prototype.slice.call(root.querySelectorAll("video"));
@@ -1960,6 +1964,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
 
     function activateProject(target, shouldUpdateHash, shouldScroll) {
       var activeLabel = "Barbara Feldon AI Character Lab";
+      var activeContext = "Character system · fashion testbed · generative motion";
       var activePanel = null;
 
       buttons.forEach(function (button) {
@@ -1967,6 +1972,8 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         if (isActive) {
           activeLabel =
             button.getAttribute("data-project-label") || activeLabel;
+          activeContext =
+            button.getAttribute("data-project-context") || activeContext;
         }
         button.classList.toggle("is-active", isActive);
         button.setAttribute("aria-pressed", isActive ? "true" : "false");
@@ -1991,6 +1998,10 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         currentProject.textContent = activeLabel;
       }
 
+      if (currentContext) {
+        currentContext.textContent = activeContext;
+      }
+
       syncVideos();
 
       if (shouldUpdateHash) {
@@ -2007,10 +2018,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
 
       if (shouldScroll && activePanel) {
         window.requestAnimationFrame(function () {
-          activePanel.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+          scrollToPanel(activePanel);
         });
       }
     }
@@ -2025,30 +2033,37 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       });
     });
 
-    function handleHash(openBrowserOnly) {
+    function handleHash(shouldDelayScroll) {
       var hash = window.location.hash
         ? window.location.hash.replace("#", "")
         : "";
 
       if (hash === "project-browser") {
-        if (!openBrowserOnly) {
-          activateProject("barbara", false, false);
-        }
+        activateProject("barbara", false, false);
         return;
       }
 
       if (validTargets.indexOf(hash) !== -1) {
-        activateProject(hash, false, true);
+        activateProject(hash, false, !shouldDelayScroll);
+        if (shouldDelayScroll) {
+          window.addEventListener(
+            "load",
+            function () {
+              activateProject(hash, false, true);
+            },
+            { once: true },
+          );
+        }
         return;
       }
 
       activateProject("barbara", false, false);
     }
 
-    handleHash(false);
+    handleHash(document.readyState !== "complete");
 
     window.addEventListener("hashchange", function () {
-      handleHash(true);
+      handleHash(false);
     });
   })();
 </script>

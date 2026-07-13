@@ -2157,6 +2157,11 @@ body.page-home {
 
 .creative-project-browser__panels {
   width: 100%;
+  max-width: 1560px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 5vw, 6rem);
+  padding-right: clamp(1.25rem, 5vw, 6rem);
 }
 
 .creative-project-browser {
@@ -2317,6 +2322,7 @@ body.page-home {
 
 .creative-project-browser__preview-stage {
   width: 100vw;
+  width: 100dvw;
   align-self: start;
   max-width: none;
   justify-self: stretch;
@@ -2371,9 +2377,11 @@ body.page-home {
 .creative-media-carousel__media video {
   position: relative;
   z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain !important;
   object-position: center;
   background: transparent;
 }
@@ -2537,7 +2545,17 @@ body.page-projects .creative-project-browser__preview-panel.is-active {
 }
 
 body.page-projects .creative-media-carousel__slide {
-  flex-basis: 100%;
+  flex: 0 0 100vw;
+  flex-basis: 100vw;
+  width: 100vw;
+  max-width: none;
+}
+
+@supports (width: 100dvw) {
+  body.page-projects .creative-media-carousel__slide {
+    flex-basis: 100dvw;
+    width: 100dvw;
+  }
 }
 
 body.page-projects .creative-media-carousel__media {
@@ -2545,9 +2563,15 @@ body.page-projects .creative-media-carousel__media {
 }
 
 body.page-projects .creative-media-carousel__media img,
-body.page-projects .creative-media-carousel__media video,
+body.page-projects .creative-media-carousel__media video {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 1560px);
+  max-height: 100%;
+}
+
 body.page-projects .creative-media-carousel__media iframe {
-  width: 100%;
+  width: min(100%, 1560px);
   height: 100%;
 }
 
@@ -2558,8 +2582,19 @@ body.page-projects .creative-media-carousel__media iframe {
   }
 
   body.page-projects .creative-media-carousel__viewport,
+  body.page-projects .creative-media-carousel__track,
+  body.page-projects .creative-media-carousel__slide,
   body.page-projects .creative-media-carousel__media {
     width: 100vw;
+  }
+
+  @supports (width: 100dvw) {
+    body.page-projects .creative-media-carousel__viewport,
+    body.page-projects .creative-media-carousel__track,
+    body.page-projects .creative-media-carousel__slide,
+    body.page-projects .creative-media-carousel__media {
+      width: 100dvw;
+    }
   }
 
   body.page-projects .creative-media-carousel__media {
@@ -2572,7 +2607,7 @@ body.page-projects .creative-media-carousel__media iframe {
 
   body.page-projects .creative-media-carousel__media img,
   body.page-projects .creative-media-carousel__media video {
-    object-fit: contain;
+    object-fit: contain !important;
     background: transparent;
   }
 

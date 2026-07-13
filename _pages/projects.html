@@ -1904,6 +1904,29 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
         button.getAttribute("data-project-context") || "";
     });
 
+    function applyMediaBackdrops() {
+      Array.prototype.slice
+        .call(root.querySelectorAll(".creative-media-carousel__media"))
+        .forEach(function (media) {
+          var image = media.querySelector("img");
+          var video = media.querySelector("video");
+          var source = "";
+
+          if (image) {
+            source = image.currentSrc || image.getAttribute("src") || "";
+          } else if (video) {
+            source = video.getAttribute("poster") || "";
+          }
+
+          if (!source) return;
+
+          media.style.setProperty(
+            "--media-backdrop",
+            "url('" + source.replace(/'/g, "%27") + "')",
+          );
+        });
+    }
+
     function normalizeTarget(hash) {
       return hash ? hash.replace(/^\s*#?/, "").replace(/^project-/, "").trim() : "";
     }
@@ -2134,6 +2157,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
       activateProject(validTargets[0], false, false);
     }
 
+    applyMediaBackdrops();
     setIndexOpen(true);
     handleHash();
 

@@ -2979,3 +2979,37 @@ body.page-projects
   margin-left: auto;
   margin-right: auto;
 }
+
+body.page-projects
+  #project-randomai
+  .creative-media-carousel--story.creative-media-carousel--randomai
+  .creative-media-carousel__media {
+  height: clamp(280px, 31vw, 440px);
+  background: #f1ede6;
+}
+
+body.page-projects
+  .creative-media-carousel--story.creative-media-carousel--compact
+  .creative-media-carousel__slide--portrait-asset
+  .creative-media-carousel__media {
+  width: clamp(260px, 28vw, 440px);
+  max-width: 100%;
+  height: clamp(380px, 48vw, 620px);
+  aspect-ratio: 482 / 709;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 720px) {
+  body.page-projects
+    .creative-media-carousel--story.creative-media-carousel--compact
+    .creative-media-carousel__slide--portrait-video
+    .creative-media-carousel__media,
+  body.page-projects
+    .creative-media-carousel--story.creative-media-carousel--compact
+    .creative-media-carousel__slide--portrait-asset
+    .creative-media-carousel__media {
+    width: min(100%, 360px);
+    height: clamp(360px, 118vw, 560px);
+  }
+}

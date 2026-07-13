@@ -2525,7 +2525,7 @@ body.page-home {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: clamp(220px, 42vw, 560px);
+  min-height: 0;
 }
 
 .creative-project-browser__preview-panel[data-project-preview="deepmake"]
@@ -2643,6 +2643,15 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
   width: min(100%, 980px);
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 1241px) {
+  .creative-project-story__section > .creative-project-story__embed--compact,
+  .creative-project-story__section > .creative-project-story__figure--module-snapshot {
+    grid-column: 2;
+    width: 100%;
+    max-width: none;
+  }
 }
 
 @media (min-width: 1024px) {

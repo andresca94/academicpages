@@ -259,21 +259,6 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                     outside the lower workflow carousel.
                   </figcaption>
                 </figure>
-                <figure
-                  class="creative-media-carousel__slide"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <img
-                      src="{{ '/images/barbara_original_10.jpg' | relative_url }}"
-                      alt="Barbara Feldon archival black-and-white source reference"
-                    />
-                  </div>
-                  <figcaption>
-                    Archival source reference included in the banner to show the
-                    visual memory behind the character system.
-                  </figcaption>
-                </figure>
               </div>
             </div>
             <div class="creative-media-carousel__controls">
@@ -670,7 +655,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           </div>
 
           <div class="creative-project-story__carousel-stack">
-            {% assign barbara_source_groups = "barbara_original_1.jpg|Source portrait 01~~barbara_original_2.jpg|Source portrait 02~~barbara_original_3.jpg|Source portrait 03~~barbara_original_4.jpg|Source portrait 04" | split: "||" %}
+            {% assign barbara_source_groups = "barbara_original_1.jpg|Source portrait 01~~barbara_original_2.jpg|Source portrait 02~~barbara_original_3.jpg|Source portrait 03~~barbara_original_4.jpg|Source portrait 04~~barbara_original_10.jpg|Source portrait 05" | split: "||" %}
             {% for source_group in barbara_source_groups %}
               <div
                 class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"

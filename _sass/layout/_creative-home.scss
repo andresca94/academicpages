@@ -2986,6 +2986,48 @@ body.page-projects
   background: #f1ede6;
 }
 
+body.page-projects #project-barbara .creative-media-carousel--barbara-motion {
+  width: min(100%, 760px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__viewport,
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__track,
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__slide {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  .creative-media-carousel__slide {
+  display: grid;
+  flex: 0 0 100% !important;
+  justify-items: center;
+  align-content: start;
+}
+
+body.page-projects
+  #project-barbara
+  .creative-media-carousel--barbara-motion
+  figcaption {
+  width: min(100%, 42rem);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 body.page-projects
   #project-barbara
   .creative-media-carousel--barbara-motion

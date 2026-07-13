@@ -325,6 +325,7 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   <div class="creative-media-carousel__media">
                     <video
                       controls
+                      muted
                       loop
                       playsinline
                       preload="metadata"
@@ -384,6 +385,51 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   <figcaption>
                     Runway ML image-to-video output extending the segmented rabbit
                     from the painting into motion.
+                  </figcaption>
+                </figure>
+                <figure
+                  class="creative-media-carousel__slide"
+                  data-carousel-slide
+                >
+                  <div class="creative-media-carousel__media">
+                    <img
+                      src="{{ '/images/johnny-never-fear-truth-rabbit-02.jpg' | relative_url }}"
+                      alt="Johnny Depp AI film segmented golden rabbit frame"
+                    />
+                  </div>
+                  <figcaption>
+                    Segmented Bunnyman element isolated from the painting before
+                    the Runway ML image-to-video pass.
+                  </figcaption>
+                </figure>
+                <figure
+                  class="creative-media-carousel__slide"
+                  data-carousel-slide
+                >
+                  <div class="creative-media-carousel__media">
+                    <img
+                      src="{{ '/images/johnny-never-fear-truth-rabbit-03.jpg' | relative_url }}"
+                      alt="Johnny Depp AI film golden rabbit performance frame"
+                    />
+                  </div>
+                  <figcaption>
+                    Gallery-scale rabbit motion frame used to show the painting
+                    becoming an animated character beat.
+                  </figcaption>
+                </figure>
+                <figure
+                  class="creative-media-carousel__slide"
+                  data-carousel-slide
+                >
+                  <div class="creative-media-carousel__media">
+                    <img
+                      src="{{ '/images/johnny-never-fear-truth-rabbit-06.jpg' | relative_url }}"
+                      alt="Johnny Depp AI film composited transition frame"
+                    />
+                  </div>
+                  <figcaption>
+                    Composite transition between the generated character world and
+                    the father-child dream sequence.
                   </figcaption>
                 </figure>
                 <figure
@@ -947,36 +993,44 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                {% assign barbara_sources = "barbara_original_1.jpg|Source portrait 01,barbara_original_2.jpg|Source portrait 02,barbara_original_3.jpg|Source portrait 03,barbara_original_4.jpg|Source portrait 04,barbara_original_5.jpg|Source portrait 05,barbara_original_6.jpg|Source portrait 06,barbara_original_7.jpg|Source still 07,barbara_original_8.jpg|Source portrait 08,barbara_original_9.jpg|Source landscape still 09,barbara_original_10.jpg|Source portrait 10,barbara_original_11.jpg|Source portrait 11,barbara_original_12.jpg|Source portrait 12" | split: "," %}
-                {% for source_item in barbara_sources %}
-                  {% assign source_parts = source_item | split: "|" %}
-                  <figure class="creative-media-carousel__slide" data-carousel-slide>
-                    <div class="creative-media-carousel__media">
-                      <img
-                        src="{{ '/images/' | append: source_parts[0] | relative_url }}"
-                        alt="Barbara Feldon {{ source_parts[1] }}"
-                      />
-                    </div>
-                    <figcaption>
-                      {{ source_parts[1] }} selected for identity coverage,
-                      lighting variation, and ComfyUI workflow testing.
-                    </figcaption>
-                  </figure>
-                {% endfor %}
+          <div class="creative-project-story__carousel-stack">
+            {% assign barbara_source_groups = "barbara_original_1.jpg|Source portrait 01~~barbara_original_2.jpg|Source portrait 02~~barbara_original_3.jpg|Source portrait 03||barbara_original_4.jpg|Source portrait 04~~barbara_original_5.jpg|Source portrait 05~~barbara_original_6.jpg|Source portrait 06||barbara_original_7.jpg|Source still 07~~barbara_original_8.jpg|Source portrait 08~~barbara_original_9.jpg|Source landscape still 09||barbara_original_10.jpg|Source portrait 10~~barbara_original_11.jpg|Source portrait 11~~barbara_original_12.jpg|Source portrait 12" | split: "||" %}
+            {% for source_group in barbara_source_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign barbara_sources = source_group | split: "~~" %}
+                    {% for source_item in barbara_sources %}
+                      {% assign source_parts = source_item | split: "|" %}
+                      <figure class="creative-media-carousel__slide" data-carousel-slide>
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: source_parts[0] | relative_url }}"
+                            alt="Barbara Feldon {{ source_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>
+                          {{ source_parts[1] }} selected for identity coverage,
+                          lighting variation, and ComfyUI workflow testing.
+                        </figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -998,36 +1052,44 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                {% assign barbara_workflow_outputs = "in1.png|Inpainting pass 01,in2.png|Inpainting pass 02,in3.png|Inpainting pass 03,in4.png|Inpainting pass 04,up.png|Upscale and detail recovery,lora1.png|LoRA render 01,lora2.png|LoRA render 02,lora3.png|LoRA render 03,lora4.png|LoRA render 04,lora5.png|LoRA render 05,lora6.png|LoRA render 06,lora7.png|LoRA render 07,lora8.png|LoRA render 08,lora9.png|LoRA render 09,selfie.png|Selfie-style generation,selfie7.png|Alternate selfie generation,both1.png|Combined workflow output 01,both2.png|Combined workflow output 02,both3.png|Combined workflow output 03,both4.png|Combined workflow output 04,both6.png|Combined workflow output 06,both99.png|Combined workflow output 99,canny.png|Canny guidance pass,canny2.png|Alternate canny guidance,depth.png|Depth guidance pass,depth2.png|Alternate depth guidance,cartoonstyle.png|Stylized cartoon pass,mu.png|Character mood render,out1.png|Final output 01,out2.png|Final output 02,out3.png|Final output 03,out4.png|Final output 04" | split: "," %}
-                {% for output_item in barbara_workflow_outputs %}
-                  {% assign output_parts = output_item | split: "|" %}
-                  <figure class="creative-media-carousel__slide" data-carousel-slide>
-                    <div class="creative-media-carousel__media">
-                      <img
-                        src="{{ '/images/' | append: output_parts[0] | relative_url }}"
-                        alt="Barbara Feldon {{ output_parts[1] }}"
-                      />
-                    </div>
-                    <figcaption>
-                      {{ output_parts[1] }} from the ComfyUI workflow chain for
-                      restoration, conditioning, LoRA consistency, or output review.
-                    </figcaption>
-                  </figure>
-                {% endfor %}
+          <div class="creative-project-story__carousel-stack">
+            {% assign barbara_workflow_groups = "in1.png|Inpainting pass 01~~in2.png|Inpainting pass 02~~in3.png|Inpainting pass 03||in4.png|Inpainting pass 04~~up.png|Upscale and detail recovery~~selfie.png|Selfie-style generation||selfie7.png|Alternate selfie generation~~lora1.png|LoRA render 01~~lora2.png|LoRA render 02||lora3.png|LoRA render 03~~lora4.png|LoRA render 04~~lora5.png|LoRA render 05||lora6.png|LoRA render 06~~lora7.png|LoRA render 07~~lora8.png|LoRA render 08||lora9.png|LoRA render 09~~both1.png|Combined workflow output 01~~both2.png|Combined workflow output 02||both3.png|Combined workflow output 03~~both4.png|Combined workflow output 04~~both6.png|Combined workflow output 06||both99.png|Combined workflow output 99~~canny.png|Canny guidance pass~~canny2.png|Alternate canny guidance||depth.png|Depth guidance pass~~depth2.png|Alternate depth guidance~~cartoonstyle.png|Stylized cartoon pass||mu.png|Character mood render~~out1.png|Final output 01~~out2.png|Final output 02||out3.png|Final output 03~~out4.png|Final output 04" | split: "||" %}
+            {% for workflow_group in barbara_workflow_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign barbara_workflow_outputs = workflow_group | split: "~~" %}
+                    {% for output_item in barbara_workflow_outputs %}
+                      {% assign output_parts = output_item | split: "|" %}
+                      <figure class="creative-media-carousel__slide" data-carousel-slide>
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: output_parts[0] | relative_url }}"
+                            alt="Barbara Feldon {{ output_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>
+                          {{ output_parts[1] }} from the ComfyUI workflow chain for
+                          restoration, conditioning, LoRA consistency, or output review.
+                        </figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -1048,36 +1110,44 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                {% assign barbara_spatial_outputs = "VTO1.png|Virtual try-on styling output,VTO3.png|Alternate virtual try-on fashion output,primera3D.png|First 2D-to-3D translation,segunda3D.png|Second 2D-to-3D translation,lora7.png|Editorial LoRA render" | split: "," %}
-                {% for spatial_item in barbara_spatial_outputs %}
-                  {% assign spatial_parts = spatial_item | split: "|" %}
-                  <figure class="creative-media-carousel__slide" data-carousel-slide>
-                    <div class="creative-media-carousel__media">
-                      <img
-                        src="{{ '/images/' | append: spatial_parts[0] | relative_url }}"
-                        alt="Barbara Feldon {{ spatial_parts[1] }}"
-                      />
-                    </div>
-                    <figcaption>
-                      {{ spatial_parts[1] }} testing how the character system could
-                      move into fashion styling and dimensional asset development.
-                    </figcaption>
-                  </figure>
-                {% endfor %}
+          <div class="creative-project-story__carousel-stack">
+            {% assign barbara_spatial_groups = "VTO1.png|Virtual try-on styling output~~VTO3.png|Alternate virtual try-on fashion output~~primera3D.png|First 2D-to-3D translation||segunda3D.png|Second 2D-to-3D translation~~lora7.png|Editorial LoRA reference" | split: "||" %}
+            {% for spatial_group in barbara_spatial_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign barbara_spatial_outputs = spatial_group | split: "~~" %}
+                    {% for spatial_item in barbara_spatial_outputs %}
+                      {% assign spatial_parts = spatial_item | split: "|" %}
+                      <figure class="creative-media-carousel__slide" data-carousel-slide>
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: spatial_parts[0] | relative_url }}"
+                            alt="Barbara Feldon {{ spatial_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>
+                          {{ spatial_parts[1] }} testing how the character system could
+                          move into fashion styling and dimensional asset development.
+                        </figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -1098,138 +1168,53 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                <figure
-                  class="creative-media-carousel__slide creative-project-story__figure"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/barbara-feldon-faceswap.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/faceswap1.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
+          <div class="creative-project-story__carousel-stack">
+            {% assign barbara_motion_groups = "faceswap1.mp4|barbara-feldon-faceswap.jpg|Face-swap performance test using Barbara as the controlled identity target.~~faceswap2.mp4|barbara-feldon-faceswap.jpg|Alternate face-swap pass comparing motion quality across clips.~~lypfinal.mp4|barbara-feldon-lipsync.jpg|Lip-sync output used to test believable portrait delivery.||barbaravideo.mp4|barbara-feldon-motion.jpg|Image-to-video motion scene packaging the character into a broader cinematic beat." | split: "||" %}
+            {% for motion_group in barbara_motion_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign barbara_motion_items = motion_group | split: "~~" %}
+                    {% for motion_item in barbara_motion_items %}
+                      {% assign motion_parts = motion_item | split: "|" %}
+                      <figure
+                        class="creative-media-carousel__slide creative-project-story__figure"
+                        data-carousel-slide
+                      >
+                        <div class="creative-media-carousel__media">
+                          <video
+                            controls
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="{{ '/images/' | append: motion_parts[1] | relative_url }}"
+                          >
+                            <source
+                              src="{{ '/images/' | append: motion_parts[0] | relative_url }}"
+                              type="video/mp4"
+                            />
+                          </video>
+                        </div>
+                        <figcaption>{{ motion_parts[2] }}</figcaption>
+                      </figure>
+                    {% endfor %}
                   </div>
-                  <figcaption>
-                    Face-swap performance test using Barbara as the controlled
-                    identity target.
-                  </figcaption>
-                </figure>
-                <figure
-                  class="creative-media-carousel__slide creative-project-story__figure"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/barbara-feldon-faceswap.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/faceswap2.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                  <figcaption>
-                    Alternate face-swap pass comparing motion quality across
-                    clips.
-                  </figcaption>
-                </figure>
-                <figure
-                  class="creative-media-carousel__slide creative-project-story__figure"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/barbara-feldon-lipsync.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/lypfinal.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                  <figcaption>
-                    Lip-sync output used to test believable portrait delivery.
-                  </figcaption>
-                </figure>
-                <figure
-                  class="creative-media-carousel__slide creative-project-story__figure"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/barbara-feldon-motion.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/barbaravideo.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                  <figcaption>
-                    Image-to-video motion scene packaging the character into a
-                    broader cinematic beat.
-                  </figcaption>
-                </figure>
-                <figure
-                  class="creative-media-carousel__slide creative-project-story__figure"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                    >
-                      <source
-                        src="{{ '/images/final.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                  <figcaption>
-                    Final vertical motion pass kept full-frame inside the
-                    carousel instead of being compressed into a small grid tile.
-                  </figcaption>
-                </figure>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -1348,36 +1333,44 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                {% assign johnny_reference_assets = "johnny-never-fear-truth.jpg|Hero portrait tuned around silhouette, wardrobe, and painterly after-hours mood.||johnny-never-fear-truth-2.jpg|Gallery-oriented staging rooted in exhibition culture.||johnny-never-fear-truth-3.jpg|Bunnyman-inspired surrealism widening the narrative beyond portraiture.||johnny-never-fear-truth-frame-01.jpg|Atmospheric film frame used to establish the night-sky motion language.||johnny-never-fear-truth-frame-02.jpg|The Bunnyman painting became the anchor for segmentation and animation.||johnny-never-fear-truth-frame-03.jpg|Runway ML image-to-video pass extending the segmented rabbit into motion.||johnny-never-fear-truth-frame-04.jpg|Closing atmosphere frame used for sound, pacing, and final editorial finish.||johnny-never-fear-truth-frame-05.jpg|Bunnyman sky frame showing the segmented figure expanded into cinematic scale.||johnny-never-fear-truth-frame-06.jpg|Gallery-to-dream transition frame connecting the rabbit motif to the final edit.||johnny-never-fear-truth-contact.jpg|Contact sheet showing portrait, gallery, and dream-state variations." | split: "||" %}
-                {% for johnny_item in johnny_reference_assets %}
-                  {% assign johnny_parts = johnny_item | split: "|" %}
-                  <figure
-                    class="creative-media-carousel__slide creative-project-story__figure"
-                    data-carousel-slide
-                  >
-                    <div class="creative-media-carousel__media">
-                      <img
-                        src="{{ '/images/' | append: johnny_parts[0] | relative_url }}"
-                        alt="Johnny Depp Art World Film {{ johnny_parts[1] }}"
-                      />
-                    </div>
-                    <figcaption>{{ johnny_parts[1] }}</figcaption>
-                  </figure>
-                {% endfor %}
+          <div class="creative-project-story__carousel-stack">
+            {% assign johnny_reference_groups = "johnny-never-fear-truth.jpg|Hero portrait tuned around silhouette and painterly after-hours mood.~~johnny-never-fear-truth-2.jpg|Gallery-oriented staging rooted in exhibition culture.~~johnny-never-fear-truth-3.jpg|Bunnyman-inspired surrealism widening the narrative beyond portraiture.||johnny-never-fear-truth-frame-01.jpg|Atmospheric film frame used to establish the night-sky motion language.~~johnny-never-fear-truth-frame-02.jpg|The Bunnyman painting became the anchor for segmentation and animation.~~johnny-never-fear-truth-rabbit-02.jpg|Segmented golden rabbit isolated from the art reference for motion testing.||johnny-never-fear-truth-rabbit-03.jpg|Gallery-scale rabbit figure prepared for image-to-video animation.~~johnny-never-fear-truth-rabbit-04.jpg|Generated character beat continuing the symbolic rabbit world.~~johnny-never-fear-truth-rabbit-05.jpg|Motion variation used to compare pacing and continuity.||johnny-never-fear-truth-rabbit-06.jpg|Composite transition joining the rabbit motif with the dream sequence.~~johnny-never-fear-truth-frame-03.jpg|Runway ML image-to-video pass extending the segmented rabbit into motion.~~johnny-never-fear-truth-frame-04.jpg|Closing atmosphere frame used for sound and editorial finish.||johnny-never-fear-truth-frame-05.jpg|Bunnyman sky frame showing the segmented figure expanded into cinematic scale.~~johnny-never-fear-truth-frame-06.jpg|Gallery-to-dream transition connecting the art world and final edit.~~johnny-never-fear-truth-contact.jpg|Contact sheet showing portrait, gallery, and dream-state variations." | split: "||" %}
+            {% for johnny_group in johnny_reference_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign johnny_reference_assets = johnny_group | split: "~~" %}
+                    {% for johnny_item in johnny_reference_assets %}
+                      {% assign johnny_parts = johnny_item | split: "|" %}
+                      <figure
+                        class="creative-media-carousel__slide creative-project-story__figure"
+                        data-carousel-slide
+                      >
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: johnny_parts[0] | relative_url }}"
+                            alt="Johnny Depp Art World Film {{ johnny_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>{{ johnny_parts[1] }}</figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -1401,88 +1394,116 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-            <figure
-              class="creative-media-carousel__slide creative-project-story__figure"
-              data-carousel-slide
+          <div class="creative-project-story__carousel-stack">
+            <div
+              class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+              data-carousel
             >
-              <div class="creative-media-carousel__media">
-                <video
-                  controls
-                  loop
-                  playsinline
-                  preload="metadata"
-                  poster="{{ '/images/johnny-never-fear-truth.jpg' | relative_url }}"
-                >
-                  <source
-                    src="{{ '/images/johnny-never-fear-truth.mp4' | relative_url }}"
-                    type="video/mp4"
-                  />
-                </video>
+              <div class="creative-media-carousel__viewport">
+                <div class="creative-media-carousel__track" data-carousel-track>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <video
+                        controls
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        poster="{{ '/images/johnny-never-fear-truth.jpg' | relative_url }}"
+                      >
+                        <source
+                          src="{{ '/images/johnny-never-fear-truth.mp4' | relative_url }}"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
+                    <figcaption>
+                      Sound-enabled concept-film assembly with controls available;
+                      it loads muted so viewers can choose when to turn sound on.
+                    </figcaption>
+                  </figure>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <img
+                        src="{{ '/images/johnny-never-fear-truth-frame-02.jpg' | relative_url }}"
+                        alt="Segmented Bunnyman painting frame"
+                      />
+                    </div>
+                    <figcaption>
+                      Bunnyman painting frame selected as the source element for
+                      segmentation before image-to-video animation.
+                    </figcaption>
+                  </figure>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <img
+                        src="{{ '/images/johnny-never-fear-truth-rabbit-02.jpg' | relative_url }}"
+                        alt="Segmented golden rabbit animation frame"
+                      />
+                    </div>
+                    <figcaption>
+                      Isolated golden rabbit prepared as the image-to-video subject.
+                    </figcaption>
+                  </figure>
+                </div>
               </div>
-              <figcaption>
-                Sound-enabled concept-film assembly exploring motion
-                transitions, atmosphere, and premium editorial pacing.
-              </figcaption>
-            </figure>
-            <figure
-              class="creative-media-carousel__slide creative-project-story__figure"
-              data-carousel-slide
-            >
-              <div class="creative-media-carousel__media">
-                <img
-                  src="{{ '/images/johnny-never-fear-truth-contact.jpg' | relative_url }}"
-                  alt="Johnny Depp project contact sheet"
-                />
-              </div>
-              <figcaption>
-                Contact sheet showing how the system stretched across portrait,
-                gallery, and dream-state beats.
-              </figcaption>
-            </figure>
-            <figure
-              class="creative-media-carousel__slide creative-project-story__figure"
-              data-carousel-slide
-            >
-              <div class="creative-media-carousel__media">
-                <img
-                  src="{{ '/images/johnny-never-fear-truth-frame-02.jpg' | relative_url }}"
-                  alt="Segmented Bunnyman painting frame"
-                />
-              </div>
-              <figcaption>
-                Bunnyman painting frame selected as the source element for
-                segmentation before image-to-video animation.
-              </figcaption>
-            </figure>
-            <figure
-              class="creative-media-carousel__slide creative-project-story__figure"
-              data-carousel-slide
-            >
-              <div class="creative-media-carousel__media">
-                <img
-                  src="{{ '/images/johnny-never-fear-truth-frame-03.jpg' | relative_url }}"
-                  alt="Runway ML rabbit animation frame"
-                />
-              </div>
-              <figcaption>
-                Runway ML motion frame extending the segmented rabbit from the
-                art reference into a cinematic beat.
-              </figcaption>
-            </figure>
+              <div class="creative-media-carousel__controls">
+                <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                  Prev
+                </button>
+                <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                  Next
+                </button>
               </div>
             </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+
+            {% assign johnny_motion_groups = "johnny-never-fear-truth-rabbit-03.jpg|Gallery-scale rabbit motion test after segmentation.~~johnny-never-fear-truth-rabbit-04.jpg|Character-driven motion beat used to test continuity.~~johnny-never-fear-truth-rabbit-05.jpg|Runway ML variation used for pacing and frame selection.||johnny-never-fear-truth-rabbit-06.jpg|Composite transition between the generated character and dream sequence.~~johnny-never-fear-truth-frame-03.jpg|Runway ML motion frame extending the segmented rabbit into a cinematic beat.~~johnny-never-fear-truth-contact.jpg|Contact sheet showing portrait, gallery, and dream-state development." | split: "||" %}
+            {% for motion_group in johnny_motion_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign johnny_motion_assets = motion_group | split: "~~" %}
+                    {% for motion_item in johnny_motion_assets %}
+                      {% assign motion_parts = motion_item | split: "|" %}
+                      <figure
+                        class="creative-media-carousel__slide creative-project-story__figure"
+                        data-carousel-slide
+                      >
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: motion_parts[0] | relative_url }}"
+                            alt="Johnny Depp Art World Film {{ motion_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>{{ motion_parts[1] }}</figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
+              </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -1511,29 +1532,17 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
             </div>
             <div class="creative-project-story__note">
               <h4>Workflow value</h4>
-              <ul class="creative-project-story__bullet-list">
-                <li>Reference harvesting from the original visual universe</li>
-                <li>
-                  Prompt choreography for costume, symbolism, and atmosphere
-                  continuity
-                </li>
-                <li>
-                  Generative video assembly guided by edit rhythm instead of raw
-                  output novelty
-                </li>
-                  <li>
-                    Quality filtering around realism, mood, and premium visual
-                    direction
-                  </li>
-                  <li>
-                    Segmentation, rotoscoping, and compositing logic for isolating
-                    the Bunnyman motif before image-to-video motion
-                  </li>
-                  <li>
-                    Sound, color, pacing, and continuity review for a final edit
-                    that feels directed instead of randomly generated
-                  </li>
-                </ul>
+              <p>
+                The workflow combined reference harvesting from the original visual
+                universe with prompt choreography for costume, symbolism, and
+                atmosphere continuity. The film assembly was guided by edit rhythm
+                rather than raw output novelty, with quality filtering around
+                realism, mood, and premium visual direction. The Bunnyman motif was
+                isolated through segmentation, rotoscoping, and compositing logic
+                before image-to-video motion, then reviewed through sound, color,
+                pacing, and continuity so the final edit felt directed instead of
+                randomly generated.
+              </p>
             </div>
           </div>
         </section>
@@ -1608,36 +1617,44 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                {% assign randomai_store_assets = "randomai-fashion.jpg|Prompt-to-product entry point for generating fashion graphics inside the storefront.||randomai-fashion-frame-05.jpg|Collection browsing frame showing the commerce surface before generated products load.||randomai-fashion-frame-01.jpg|Product browsing frame showing AI-generated merchandise inside a retail surface.||randomai-fashion-frame-02.jpg|Collection view designed for social commerce and campaign reuse.||randomai-fashion-frame-03.jpg|Product-detail frame connecting AI designs to checkout-ready SKUs.||randomai-fashion-frame-06.jpg|Product editor frame showing prompt controls, generated artwork, and try-on-style positioning.||randomai-fashion-3.jpg|Editable detail flow connecting generation controls, styling choices, and product output.||randomai-fashion-2.jpg|Merchandising grid showing generated artwork scaled into collection browsing." | split: "||" %}
-                {% for randomai_item in randomai_store_assets %}
-                  {% assign randomai_parts = randomai_item | split: "|" %}
-                  <figure
-                    class="creative-media-carousel__slide creative-project-story__figure"
-                    data-carousel-slide
-                  >
-                    <div class="creative-media-carousel__media">
-                      <img
-                        src="{{ '/images/' | append: randomai_parts[0] | relative_url }}"
-                        alt="RandomAI Fashion Commerce {{ randomai_parts[1] }}"
-                      />
-                    </div>
-                    <figcaption>{{ randomai_parts[1] }}</figcaption>
-                  </figure>
-                {% endfor %}
+          <div class="creative-project-story__carousel-stack">
+            {% assign randomai_store_groups = "randomai-fashion.jpg|Prompt-to-product entry point for generating fashion graphics inside the storefront.~~randomai-fashion-frame-05.jpg|Collection browsing frame before generated products load.~~randomai-fashion-frame-07.jpg|Commerce grid captured from the live flow.||randomai-fashion-frame-01.jpg|Product browsing frame showing AI-generated merchandise inside retail UI.~~randomai-fashion-frame-02.jpg|Collection view designed for social commerce and campaign reuse.~~randomai-fashion-frame-03.jpg|Product-detail frame connecting AI designs to checkout-ready SKUs.||randomai-fashion-frame-06.jpg|Product editor showing prompt controls, generated artwork, and try-on-style positioning.~~randomai-fashion-frame-08.jpg|Winter collection browsing state for campaign merchandising.~~randomai-fashion-frame-09.jpg|Prompt and style controls paired with garment visualization.||randomai-fashion-frame-10.jpg|Editor state showing product preview and creative controls.~~randomai-fashion-frame-11.jpg|Cart and checkout state connecting generated imagery to purchase flow.~~randomai-fashion-3.jpg|Editable detail flow connecting styling choices and product output.||randomai-fashion-2.jpg|Merchandising grid showing generated artwork scaled into collection browsing." | split: "||" %}
+            {% for randomai_group in randomai_store_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign randomai_store_assets = randomai_group | split: "~~" %}
+                    {% for randomai_item in randomai_store_assets %}
+                      {% assign randomai_parts = randomai_item | split: "|" %}
+                      <figure
+                        class="creative-media-carousel__slide creative-project-story__figure"
+                        data-carousel-slide
+                      >
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: randomai_parts[0] | relative_url }}"
+                            alt="RandomAI Fashion Commerce {{ randomai_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>{{ randomai_parts[1] }}</figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -1662,60 +1679,117 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 </p>
           </div>
 
-          <div class="creative-media-carousel creative-media-carousel--story" data-carousel>
-            <div class="creative-media-carousel__viewport">
-              <div class="creative-media-carousel__track" data-carousel-track>
-                <figure
-                  class="creative-media-carousel__slide creative-project-story__figure"
-                  data-carousel-slide
-                >
-                  <div class="creative-media-carousel__media">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsinline
-                      preload="metadata"
-                      poster="{{ '/images/randomai-fashion.jpg' | relative_url }}"
-                    >
-                      <source
-                        src="{{ '/images/randomai-fashion.mp4' | relative_url }}"
-                        type="video/mp4"
-                      />
-                    </video>
-                  </div>
-                  <figcaption>
-                    Interaction flow showing how generation tied directly to a
-                    retail-facing journey and reusable social commerce assets.
-                  </figcaption>
-                </figure>
-                {% assign randomai_ai_assets = "VTO3.png|Virtual styling experiment that pushed the concept from commerce UI into fashion visualization.||randomai-fashion-frame-04.jpg|Advertising-ready frame showing how generated assets could feed Instagram Store and paid social variants.||randomai-fashion-frame-06.jpg|Prompt-to-garment editing view for automated product creative and try-on-style layouts.||randomai-fashion-frame-01.jpg|Generated product surface prepared for e-commerce, social, and campaign reuse.||randomai-fashion-frame-02.jpg|Collection-level view useful for automated content packages and catalog storytelling." | split: "||" %}
-                {% for randomai_ai_item in randomai_ai_assets %}
-                  {% assign randomai_ai_parts = randomai_ai_item | split: "|" %}
+          <div class="creative-project-story__carousel-stack">
+            <div
+              class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+              data-carousel
+            >
+              <div class="creative-media-carousel__viewport">
+                <div class="creative-media-carousel__track" data-carousel-track>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <video
+                        controls
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        poster="{{ '/images/randomai-fashion.jpg' | relative_url }}"
+                      >
+                        <source
+                          src="{{ '/images/randomai-fashion.mp4' | relative_url }}"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
+                    <figcaption>
+                      Interaction flow showing how generation tied directly to a
+                      retail-facing journey and reusable social commerce assets.
+                    </figcaption>
+                  </figure>
                   <figure
                     class="creative-media-carousel__slide creative-project-story__figure"
                     data-carousel-slide
                   >
                     <div class="creative-media-carousel__media">
                       <img
-                        src="{{ '/images/' | append: randomai_ai_parts[0] | relative_url }}"
-                        alt="RandomAI Fashion Commerce {{ randomai_ai_parts[1] }}"
+                        src="{{ '/images/randomai-fashion-frame-04.jpg' | relative_url }}"
+                        alt="RandomAI advertising-ready generated content"
                       />
                     </div>
-                    <figcaption>{{ randomai_ai_parts[1] }}</figcaption>
+                    <figcaption>
+                      Advertising-ready frame showing how generated assets could
+                      feed Instagram Store and paid social variants.
+                    </figcaption>
                   </figure>
-                {% endfor %}
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <img
+                        src="{{ '/images/randomai-fashion-frame-06.jpg' | relative_url }}"
+                        alt="RandomAI prompt-to-garment editor"
+                      />
+                    </div>
+                    <figcaption>
+                      Prompt-to-garment editing view for automated product creative
+                      and try-on-style layouts.
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="creative-media-carousel__controls">
+                <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                  Prev
+                </button>
+                <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                  Next
+                </button>
               </div>
             </div>
-            <div class="creative-media-carousel__controls">
-              <button type="button" class="creative-media-carousel__button" data-carousel-prev>
-                Prev
-              </button>
-              <div class="creative-media-carousel__dots" data-carousel-dots></div>
-              <button type="button" class="creative-media-carousel__button" data-carousel-next>
-                Next
-              </button>
-            </div>
+
+            {% assign randomai_ai_groups = "VTO3.png|Virtual styling experiment pushing the concept from commerce UI into fashion visualization.~~randomai-fashion-frame-09.jpg|Prompt and style controls designed for image generation and garment personalization.~~randomai-fashion-frame-10.jpg|Product editor state used to produce reusable content variants.||randomai-fashion-frame-01.jpg|Generated product surface prepared for e-commerce, social, and campaign reuse.~~randomai-fashion-frame-02.jpg|Collection-level view useful for automated content packages and catalog storytelling.~~randomai-fashion-frame-11.jpg|Checkout state showing how generated imagery travels through the commerce funnel." | split: "||" %}
+            {% for randomai_ai_group in randomai_ai_groups %}
+              <div
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
+              >
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign randomai_ai_assets = randomai_ai_group | split: "~~" %}
+                    {% for randomai_ai_item in randomai_ai_assets %}
+                      {% assign randomai_ai_parts = randomai_ai_item | split: "|" %}
+                      <figure
+                        class="creative-media-carousel__slide creative-project-story__figure"
+                        data-carousel-slide
+                      >
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: randomai_ai_parts[0] | relative_url }}"
+                            alt="RandomAI Fashion Commerce {{ randomai_ai_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>{{ randomai_ai_parts[1] }}</figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
+              </div>
+            {% endfor %}
           </div>
         </section>
 
@@ -1744,35 +1818,17 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
             </div>
             <div class="creative-project-story__note">
               <h4>Workflow value</h4>
-              <ul class="creative-project-story__bullet-list">
-                <li>
-                  Prompt systems for fashion graphics and visual personalization
-                </li>
-                <li>
-                  Generated imagery shaped for storefront, social, and campaign
-                  reuse
-                </li>
-                  <li>
-                    Automated virtual try-on and product creative variants for
-                    Instagram Store, paid social, and advertising
-                  </li>
-                  <li>
-                    Social-first asset planning for Reels, TikTok, Shorts, product
-                    launch content, email creative, and paid media campaigns
-                  </li>
-                  <li>
-                    Brand guardrails and content QA for product accuracy, fabric
-                    realism, model direction, and non-gimmicky AI aesthetics
-                  </li>
-                  <li>
-                    Virtual styling extensions that support fashion discovery, not
-                    just novelty
-                </li>
-                <li>
-                  Merchandising logic that connects creativity to commerce
-                  outcomes
-                </li>
-              </ul>
+              <p>
+                The workflow centered on prompt systems for fashion graphics,
+                visual personalization, and generated imagery shaped for storefront,
+                social, and campaign reuse. It connected automated virtual try-on,
+                product creative variants, Instagram Store use cases, paid social,
+                and advertising into one commerce-aware content loop. The system
+                also required brand guardrails and content QA around product
+                accuracy, fabric realism, model direction, and non-gimmicky AI
+                aesthetics, with merchandising logic tying creative exploration
+                back to conversion-oriented outcomes.
+              </p>
             </div>
           </div>
         </section>
@@ -1795,10 +1851,14 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                 This system turned recurring compliance and onboarding content
                 into a reusable AI production flow. It combined multilingual
                   scripting, avatar delivery, synthetic voice, branded layouts,
-                  and review-state automation so teams could ship updates faster
-                  while keeping communication clear, structured, and visually
-                  coherent. The project maps directly to creative operations:
-                  brief intake, prompt-led scripting, voiceover, avatar rendering,
+                  OpenAI API image generation, and review-state automation so
+                  teams could ship updates faster while keeping communication
+                  clear, structured, and visually coherent. The generated images
+                  became visual building blocks inside the final video modules,
+                  supporting title cards, explanatory scenes, and branded learning
+                  moments instead of relying only on stock assets. The project maps
+                  directly to creative operations: brief intake, prompt-led
+                  scripting, voiceover, avatar rendering, image generation,
                   localization, approval states, content governance, and
                   export-ready training modules.
                 </p>
@@ -1837,78 +1897,123 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
                   updates. The creative system also considered employer branding,
                   long-form training video, product-style explainers, and
                   multilingual content that teams could reuse without rebuilding
-                  every asset manually.
+                  every asset manually. Supporting images were generated through
+                  OpenAI API workflows and then placed into the video language as
+                  scene assets, visual aids, and branded module graphics.
                 </p>
           </div>
 
-          <div
-            class="creative-project-story__media-grid creative-project-story__media-grid--four"
-          >
-            <figure class="creative-project-story__figure">
-              <div
-                class="creative-project-story__frame creative-project-story__frame--wide"
-              >
-                <video
-                  controls
-                  muted
-                  loop
-                  playsinline
-                  preload="metadata"
-                  poster="{{ '/images/ai-avatar-training-suite-3.jpg' | relative_url }}"
-                >
-                  <source
-                    src="{{ '/images/ai-avatar-training-suite.mp4' | relative_url }}"
-                    type="video/mp4"
-                  />
-                </video>
+          <div class="creative-project-story__carousel-stack">
+            <div
+              class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+              data-carousel
+            >
+              <div class="creative-media-carousel__viewport">
+                <div class="creative-media-carousel__track" data-carousel-track>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <video
+                        controls
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        poster="{{ '/images/ai-avatar-training-suite-3.jpg' | relative_url }}"
+                      >
+                        <source
+                          src="{{ '/images/ai-avatar-training-suite.mp4' | relative_url }}"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
+                    <figcaption>
+                      Reusable title and package structure for repeatable module
+                      distribution.
+                    </figcaption>
+                  </figure>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <img
+                        src="{{ '/images/ai-avatar-training-suite.jpg' | relative_url }}"
+                        alt="AI avatar wellbeing training frame"
+                      />
+                    </div>
+                    <figcaption>
+                      Worker-wellbeing content pairing illustration, narration, and
+                      structured visual emphasis.
+                    </figcaption>
+                  </figure>
+                  <figure
+                    class="creative-media-carousel__slide creative-project-story__figure"
+                    data-carousel-slide
+                  >
+                    <div class="creative-media-carousel__media">
+                      <img
+                        src="{{ '/images/ai-avatar-training-suite-frame-01.jpg' | relative_url }}"
+                        alt="AI avatar training video title frame"
+                      />
+                    </div>
+                    <figcaption>
+                      Captured frame from the video system showing title-card
+                      clarity at full presentation scale.
+                    </figcaption>
+                  </figure>
+                </div>
               </div>
-              <figcaption>
-                Reusable title and package structure for repeatable module
-                distribution.
-              </figcaption>
-            </figure>
-            <figure class="creative-project-story__figure">
-              <div
-                class="creative-project-story__frame creative-project-story__frame--landscape"
-              >
-                <img
-                  src="{{ '/images/ai-avatar-training-suite.jpg' | relative_url }}"
-                  alt="AI avatar wellbeing training frame"
-                />
+              <div class="creative-media-carousel__controls">
+                <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                  Prev
+                </button>
+                <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                  Next
+                </button>
               </div>
-              <figcaption>
-                Worker-wellbeing content pairing illustration, narration, and
-                structured visual emphasis.
-              </figcaption>
-            </figure>
-            <figure class="creative-project-story__figure">
+            </div>
+
+            {% assign avatar_media_groups = "ai-avatar-training-suite-frame-02.jpg|Avatar delivery frame showing branded presenter layout.~~ai-avatar-training-suite-frame-03.jpg|Training slide captured from the long-form module flow.~~ai-avatar-training-suite-2.jpg|Localized compliance message design built for clarity and repeatable adaptation.||ai-avatar-training-suite-frame-04.jpg|Operational content frame showing how modules carry safety guidance.~~ai-avatar-training-suite-frame-05.jpg|Long-form training capture used to validate pacing and readability.~~ai-avatar-training-suite-frame-06.jpg|Later-module capture showing the reusable visual system at work.||ai-avatar-training-suite-3.jpg|Branded visual package used as the poster and module anchor.~~ai-avatar-training-suite-contact.jpg|Broader system view showing how modules scale across topics and audiences." | split: "||" %}
+            {% for avatar_group in avatar_media_groups %}
               <div
-                class="creative-project-story__frame creative-project-story__frame--landscape"
+                class="creative-media-carousel creative-media-carousel--story creative-media-carousel--compact"
+                data-carousel
               >
-                <img
-                  src="{{ '/images/ai-avatar-training-suite-2.jpg' | relative_url }}"
-                  alt="AI avatar hazard reporting frame"
-                />
+                <div class="creative-media-carousel__viewport">
+                  <div class="creative-media-carousel__track" data-carousel-track>
+                    {% assign avatar_media_assets = avatar_group | split: "~~" %}
+                    {% for avatar_item in avatar_media_assets %}
+                      {% assign avatar_parts = avatar_item | split: "|" %}
+                      <figure
+                        class="creative-media-carousel__slide creative-project-story__figure"
+                        data-carousel-slide
+                      >
+                        <div class="creative-media-carousel__media">
+                          <img
+                            src="{{ '/images/' | append: avatar_parts[0] | relative_url }}"
+                            alt="AI Avatar Training Suite {{ avatar_parts[1] }}"
+                          />
+                        </div>
+                        <figcaption>{{ avatar_parts[1] }}</figcaption>
+                      </figure>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="creative-media-carousel__controls">
+                  <button type="button" class="creative-media-carousel__button" data-carousel-prev>
+                    Prev
+                  </button>
+                  <div class="creative-media-carousel__dots" data-carousel-dots></div>
+                  <button type="button" class="creative-media-carousel__button" data-carousel-next>
+                    Next
+                  </button>
+                </div>
               </div>
-              <figcaption>
-                Localized compliance message design built for clarity and
-                repeatable adaptation.
-              </figcaption>
-            </figure>
-            <figure class="creative-project-story__figure">
-              <div
-                class="creative-project-story__frame creative-project-story__frame--landscape"
-              >
-                <img
-                  src="{{ '/images/ai-avatar-training-suite-contact.jpg' | relative_url }}"
-                  alt="AI avatar training suite contact sheet"
-                />
-              </div>
-              <figcaption>
-                Broader system view showing how modules could scale across
-                topics and audiences.
-              </figcaption>
-            </figure>
+            {% endfor %}
           </div>
         </section>
 
@@ -1935,32 +2040,17 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
           <div class="creative-project-story__notes">
             <div class="creative-project-story__note">
               <h4>Workflow logic</h4>
-              <ul class="creative-project-story__bullet-list">
-                <li>
-                  Prompt design for concise, compliance-safe script drafting and
-                  rewrite cycles
-                </li>
-                <li>
-                  Avatar delivery paired with synthetic voice generation and
-                  localization logic
-                </li>
-                  <li>
-                    Automation orchestration for intake, review, approval, and
-                    export handoff
-                  </li>
-                  <li>
-                    Human-in-the-loop QA for claims, tone, localization quality,
-                    brand safety, and compliance-sensitive messaging
-                  </li>
-                  <li>
-                    Repeatable workflow documentation so creative, operations, and
-                    training teams can run the process without custom rebuilding
-                  </li>
-                  <li>
-                    Visual packaging that kept each module branded, legible, and
-                    easy to update
-                </li>
-              </ul>
+              <p>
+                The workflow used prompt design for concise, compliance-safe script
+                drafting and rewrite cycles, then paired avatar delivery with
+                synthetic voice generation and localization logic. Automation
+                handled intake, review, approval, and export handoff, while
+                human-in-the-loop QA protected claims, tone, localization quality,
+                brand safety, and compliance-sensitive messaging. Repeatable
+                documentation and branded visual packaging made the system easier
+                for creative, operations, and training teams to run without
+                rebuilding each module from scratch.
+              </p>
             </div>
             <div class="creative-project-story__note">
               <h4>Why it matters</h4>
@@ -2251,24 +2341,16 @@ excerpt: "Selected AI creative systems across fashion, branded storytelling, ava
               </div>
               <div class="creative-project-story__note">
                 <h4>Workflow value</h4>
-                <ul class="creative-project-story__bullet-list">
-                  <li>
-                    API-first tooling for model inference, prompt parameters,
-                    scheduler control, and GPU-aware execution
-                  </li>
-                  <li>
-                    ComfyUI-compatible workflows for image generation,
-                    segmentation, restoration, and production QA
-                  </li>
-                  <li>
-                    Infrastructure thinking for batch content generation, asset
-                    cleanup, media enhancement, and creative pipeline automation
-                  </li>
-                  <li>
-                    A bridge between engineering teams and creative teams that
-                    need reliable, explainable, reusable AI tools
-                  </li>
-                </ul>
+                <p>
+                  The workflow emphasized API-first tooling for model inference,
+                  prompt parameters, scheduler control, and GPU-aware execution.
+                  DeepMake also brought ComfyUI-compatible thinking into image
+                  generation, segmentation, restoration, and production QA, with
+                  infrastructure patterns for batch content generation, asset
+                  cleanup, media enhancement, and creative pipeline automation. Its
+                  value is the bridge it creates between engineering teams and
+                  creative teams that need reliable, explainable, reusable AI tools.
+                </p>
               </div>
             </div>
           </section>

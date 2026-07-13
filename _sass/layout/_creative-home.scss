@@ -1646,6 +1646,12 @@ body.page-home .page__footer {
   gap: 1.55rem;
 }
 
+.creative-project-story__carousel-stack {
+  display: grid;
+  gap: clamp(0.9rem, 1.5vw, 1.35rem);
+  min-width: 0;
+}
+
 .creative-project-story__intro {
   display: grid;
   gap: 0.95rem;
@@ -2599,9 +2605,15 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__sli
 }
 
 body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
-  height: clamp(420px, 52vw, 760px);
+  height: clamp(300px, 38vw, 560px);
   aspect-ratio: auto;
   background: #14100e;
+}
+
+body.page-projects
+  .creative-media-carousel--story.creative-media-carousel--compact
+  .creative-media-carousel__media {
+  height: clamp(280px, 34vw, 500px);
 }
 
 body.page-projects .creative-media-carousel--story .creative-media-carousel__media img,
@@ -2673,6 +2685,16 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
     min-height: 0;
     max-height: none;
     padding: 0;
+  }
+
+  body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
+    height: clamp(300px, 36vw, 560px);
+  }
+
+  body.page-projects
+    .creative-media-carousel--story.creative-media-carousel--compact
+    .creative-media-carousel__media {
+    height: clamp(280px, 32vw, 500px);
   }
 
   body.page-projects .creative-media-carousel__media img,
@@ -2867,7 +2889,13 @@ body.page-projects .creative-media-carousel--story .creative-media-carousel__con
   }
 
   body.page-projects .creative-media-carousel--story .creative-media-carousel__media {
-    height: clamp(300px, 86vw, 520px);
+    height: clamp(240px, 72vw, 420px);
+  }
+
+  body.page-projects
+    .creative-media-carousel--story.creative-media-carousel--compact
+    .creative-media-carousel__media {
+    height: clamp(220px, 68vw, 390px);
   }
 
   body.page-projects .creative-media-carousel--story,

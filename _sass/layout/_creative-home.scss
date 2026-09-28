@@ -2144,12 +2144,12 @@ body.page-home {
 
 .creative-home__portrait--editorial img {
   width: 100%;
-  height: min(72vh, 780px);
-  aspect-ratio: 3 / 4.7;
+  height: min(72vh, 680px);
+  aspect-ratio: 4 / 5.2;
   border-radius: 0;
   object-fit: cover;
-  object-position: center 18%;
-  filter: grayscale(1) contrast(1.06);
+  object-position: center;
+  filter: none;
 }
 
 .creative-project-browser-page {

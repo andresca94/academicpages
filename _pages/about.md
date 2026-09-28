@@ -29,7 +29,7 @@ redirect_from:
     </div>
 
     <figure class="creative-home__portrait creative-home__portrait--editorial">
-      <img src="{{ '/images/andres-creative-editorial.png' | relative_url }}" alt="Andres Carvajal portrait" />
+      <img src="{{ '/images/andres-creative-art.jpg' | relative_url }}" alt="Expressive neo-expressionist artwork in a dark urban setting" />
     </figure>
   </div>
 </section>

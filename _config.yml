@@ -23,7 +23,7 @@ repository               : "andresca94/academicpages"  # Your GitHub repo
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "andres-creative-avatar.png"
+  avatar           : "andres-creative-art.jpg"
   name             : "Andres Carvajal"
   pronouns         : # example: "she/her"  
   bio              : "AI creative technologist building video AI systems, prompt workflows, and production automations for fashion, media, and social-first teams."
